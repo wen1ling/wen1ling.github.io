@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="notwiner">
+    
+    <meta name="description" content="notwiner的小站,notwiner,博客,博客笔记">
+    
+    
+    
+    
+    
+    
+    <title>编码笔记 | notwiner</title>
+    <link href="http://www.notwiner.top" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/avatar.jpg'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://www.notwiner.top">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">notwiner</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/notes/">notes</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/CTF/">CTF</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/program/">program</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/web/">web</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%B7%A5%E5%85%B7/">工具</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E6%9D%82%E8%B0%88/">杂谈</a>
+                        </li>
+                        
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/Burpsuite/">Burpsuite</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/Git/">Git</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/PHP/">PHP</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/sql/">sql</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/XSS/">XSS</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/hexo/">hexo</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/todo">
+                        <i class="fa fa-list"></i>计划书单
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://www.notwiner.top">notwiner</a>
+        >
+        <span>编码笔记</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2019/06/23/%E7%BC%96%E7%A0%81%E7%AC%94%E8%AE%B0/">编码笔记</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E7%BC%96%E7%A0%81/">编码</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2019-06-23
+            </span>
+            
+			<span class="label label-gal">
+				<p id="busuanzi_value_page_pv" class="fa fa-eye"></p>
+            </span>
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2019/06/23/%E7%BC%96%E7%A0%81%E7%AC%94%E8%AE%B0/">编码笔记</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2019-06-23
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E7%BC%96%E7%A0%81/">编码</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p>编码学习的笔记<span id="more"></span></p>
+<h1 id="编码学习的笔记"><a href="#编码学习的笔记" class="headerlink" title="编码学习的笔记"></a>编码学习的笔记</h1><p><em>密码学从古典密码的替换、置换到机械密码再到现代密码学，这是个漫长的过程。</em><br>最近看了一本《编码：隐藏在计算机软硬件背后的语言》，对编码有了一些体会，做个笔记。（笔记部分选取书内，）</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>先来个小彩蛋<br>记事本输入“联通”，然后保存，再打开，发现乱码，大概这个样子<br><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/roKtl3rMsk5G.bmp" alt="mark"><br>而“移动”重复这样操作就没有这种情况，戏称为“联通不如移动”。</p>
+<p>原因是：<br>而这种情况是因为windows默认编码是GB2312，“联通”的联GB2312编码为\uc1aa，二进制为110000110101010，是按八位一组与UTF8的编码对应，使得windows误认为是UTF-8的文件。</p>
+<p>古典密码CTF上并不是感觉很让人有什么兴趣，毕竟工具多基本上就能出来，但CTF不过是竞赛，与真实世界的模拟还有一定距离，在密码学划了一段时间水后，找到了一些好的资料，蛮有意义。<br>本质上来说，编码更多是的交流，而不是加密保护机密，比如GBK2312的汉语编码，在现在加密更多的是现代密码学。</p>
+<h2 id="摩尔斯密码（Morse-code）"><a href="#摩尔斯密码（Morse-code）" class="headerlink" title="摩尔斯密码（Morse code）"></a>摩尔斯密码（Morse code）</h2><p>又称为莫斯密码（翻译问题）<br><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/mMPWnN9gMGLS.bmp" alt="mark"><br>只有点（bot）和划（dash）的古典密码，应用上有很多替代的方式，比如0和1代替点和划线，中间用/或者空格代替，又或是音频里面其中一个声道的电平可以用来制作摩尔斯密码。<br>特点：</p>
+<ul>
+<li>只有两个字符</li>
+<li><p>字符间隔：“.”为1t，“———”为3t，两个之间1t，字符间3t，字间7t。          </p>
+<p> 附上一个快速记下摩尔斯密码的树形图。（原图太模糊，重新做了一个)<br><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/cD7jyT58Bd72.bmp" alt="mark"></p>
+</li>
+</ul>
+<h2 id="进制的转换"><a href="#进制的转换" class="headerlink" title="进制的转换"></a>进制的转换</h2><p>2进制：Binary<br>8进制：Octal<br>10进制：Decimal<br>16进制：Hexadecimal<br>顾名思义，二进制每个位数为0-1，八进制即为0-7，16进制为0-f（其中a-f代表10-15）。</p>
+<p>简单的计算过程：<br>二进制到十进制    如10010，</p>
+<script type="math/tex; mode=display">
+10010=1\times2^4+0\times2^3+0\times2^2+1\times2^1+0\times2^0</script><p>二进制到十六机制   如10010010</p>
+<script type="math/tex; mode=display">
+10010010=1001\times2^4+0010\times2^0
+=1001\times16+0010\times1
+=(1\times2^3+0\times2^2+0\times2^1+1\times2^0)\times16+(1\times2^1)
+=9\times16+2=146</script><p>诸如此类，根据这种方法即可简单进行手动的进制转换。</p>
+<p><strong>关于二进制</strong><br>对于计算机来说，二进制便于快速计算，在计算机基础或者计算机组成原理有介绍，不再记录。推广而言，图片的黑白色、灯泡的开关、声音信号的两种电平等等均可是其妙用，下面的条形码也是一种应用。</p>
+<h2 id="条形码"><a href="#条形码" class="headerlink" title="条形码"></a>条形码</h2><p>==条形码==常用于超市等等地方，作为购物凭证使用，<br>采用了UPC、Code 3等码制，这里介绍UPC(通用产品代码)。<br><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/1U7EjrKpMcGJ.bmp" alt="mark"><br>上图为例，实际上有用的只有其中的一条窄带，<br><img src="https://img-blog.csdnimg.cn/2019062311251021.PNG"/><br>窄带一般包括粗细成比例的黑条和空隙。<br>黑条即为若干个1，空隙为若干个0.<br><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/DYiADzz9Dwxu.bmp" alt="mark"><br>==结构介绍==</p>
+<ol>
+<li>101 <strong>护线</strong>：辅助扫描仪定位，亦可知单个比特的黑条和空隙的宽度。</li>
+<li><strong>左半部分的数字</strong>：六组每组7个比特位的字符串，</li>
+<li>01010 <strong>中间的护线</strong>：内置式检错码，防止被篡改或错印，</li>
+<li><strong>右半部分的数字</strong>：六组每组7个比特位的字符串</li>
+<li>101 <strong>最右边的护线</strong>：类似于最左边的护线，辅助反向扫描。<br>参考下面进行解码，<br><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/nR9Hw6EtWe0T.bmp" alt="mark"><br><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/K4VOB9sAlrUQ.bmp" alt="mark"><br>解码后会得到<strong>0 51000 01251 7</strong>，与条形码底部数字相同，（当然是为了防止条形码损坏拉）。<br>继续解码</li>
+<li>0 第一个数字，<strong>数字系统字符</strong> 0表示规范的UPC解码，不同重量的货物为2，订单、票卷UPC为5。</li>
+<li>51000 制造商代码，</li>
+<li><p>7 最后一个，<strong>模校验字符</strong> 通过前面11位计算得到         </p>
+<p> 前面11个数字用字母代替为A BCDEF GHIJK</p>
+</li>
+</ol>
+<script type="math/tex; mode=display">
+X=3\times(A+C+E+G+I+K)+(B+D+F+H+J)</script><p>紧邻X并大于X的10的整数倍-X得到模校验字符</p>
+<p>==有趣的地方==<br>原书提到用摩尔斯电码表示UPC代码，如“Hi,there”就相当于<br><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/iAt7fdYSLeoL.bmp" alt="mark"><br>，一个很有意思的地方。</p>
+<h2 id="逻辑"><a href="#逻辑" class="headerlink" title="逻辑"></a>逻辑</h2><ul>
+<li>+表示or，×表示and，1-表示not<h2 id="关于计算机的二进制计算原理"><a href="#关于计算机的二进制计算原理" class="headerlink" title="关于计算机的二进制计算原理"></a>关于计算机的二进制计算原理</h2>基于一个仅能计算二进制加法的机器，如何能计算减法、乘法等等呢？</li>
+</ul>
+<p>先通过逻辑门电路构建与、或、非，输出根据数值位置分为进位输出和和输出。<br>减法通常来说需要使用借位的方法，高位去1，<br>但是计算机来说，很难实现，所以相对于加法采用了不同的方法，</p>
+<ul>
+<li>253-176相当于253-176+999+1-1000，运行时为253+(999-176)+1-1000，</li>
+<li>176-253相当于999-253+176-999，</li>
+<li>二进制时用全为1的数代替即可，</li>
+<li>对于负的二进制来说，和计算机基础或者计算机组成原理一样，去一个最高位为符号位，只要确定最高有多少位即可，通过补数计算，相当于-128和127实际上在二进制里面只差了1而已。</li>
+<li>计算某个数的负数二进制简单办法：先表示正数二进制，然后去反码然后加1。<br>如此构成了一个能计算加法和减法的机器，一个痛点是在==不确定为无符号数还是有符号位数时，你无法确定一个二进制数到底是多少==，比如1001既可以是9也可能是-7。</li>
+</ul>
+<h2 id="字符与进制"><a href="#字符与进制" class="headerlink" title="字符与进制"></a>字符与进制</h2><p>八个二进制数相当于两个十六进制数，相当于一个字符，也就是ASCII码，好像所有人都用它，但是实际上IBM的系统采用的就不一样，为EBCDIC字符。后面还有1988年研究的Unicode编码，采用了16位编码，表示65536个不同的字节，0000h—007Fh与ASCII一致，后面收录了很多其他国家的标准。而且Unicode相对于ASCII码进行编码会存在占用更多内存，也不少一个可以忽略的事实。</p>
+<h2 id="后面的章节"><a href="#后面的章节" class="headerlink" title="后面的章节"></a>后面的章节</h2><p>虽然后面计算机历史很有意思，但是太过于繁琐，了解即可，不再赘述，再后面就是汇编之类，直接参考王爽的汇编语言更好。</p>
+<h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2><p>你可能从这本书学到很高级的编码，但是更多是学习对于编码还有计算机的理解。</p>
+<ol>
+<li>(美)查尔斯•佩措尔德著. 编码:隐匿在计算机软硬件背后的语言[M].左飞译. 电子工业出版社 </li>
+<li>(日)结城浩著. 程序员的数学[M].管杰译. 人民邮电出版社</li>
+</ol>
+
+    </div>
+</article>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            notwiner
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/avatar.jpg" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"><p>notwiner的小站,notwiner,博客,博客笔记</p>
+</p>
+        </div>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/12/03/%E8%BD%AF%E4%BB%B6/">一些软件整理</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/11/30/sqlmap%E5%92%8Csqli-labs/">sqlmap与sqli-labs记录</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/18/SQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/">sql注入基础</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/08/PHP%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/">PHP学习（一）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/05/XSS%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB%E5%89%96%E6%9E%90%E4%B8%8E%E9%98%B2%E5%BE%A1%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">《XSS跨站脚本攻击剖析与防御》读书笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/27/python3%E5%AD%A6%E4%B9%A02/">python3学习（二）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/26/%E6%9D%82%E8%AE%B0/">杂记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/26/Burp/">Burpsuite笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/06/08/%E5%AF%86%E7%A0%81%E5%AD%A6(%E4%B8%80)/">密码学（一）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/05/14/python3%E5%AD%A6%E4%B9%A0/">python3学习（一）</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2019/06/23/%E7%BC%96%E7%A0%81%E7%AC%94%E8%AE%B0/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2019/06/23/%E7%BC%96%E7%A0%81%E7%AC%94%E8%AE%B0/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2019/06/23/%E7%BC%96%E7%A0%81%E7%AC%94%E8%AE%B0/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/Burpsuite/" style="font-size: 16.417205909700755px;" class="tag-cloud-link">Burpsuite</a>
+    
+    <a href="/tags/Git/" style="font-size: 8.254789801547485px;" class="tag-cloud-link">Git</a>
+    
+    <a href="/tags/PHP/" style="font-size: 17.737320623930998px;" class="tag-cloud-link">PHP</a>
+    
+    <a href="/tags/sql/" style="font-size: 12.8213439065552px;" class="tag-cloud-link">sql</a>
+    
+    <a href="/tags/XSS/" style="font-size: 18.86435600359416px;" class="tag-cloud-link">XSS</a>
+    
+    <a href="/tags/hexo/" style="font-size: 19.939046619499113px;" class="tag-cloud-link">hexo</a>
+    
+    <a href="/tags/linux/" style="font-size: 13.619527481019492px;" class="tag-cloud-link">linux</a>
+    
+    <a href="/tags/python3/" style="font-size: 10.331028064271027px;" class="tag-cloud-link">python3</a>
+    
+    <a href="/tags/sqlmap/" style="font-size: 9.505466555828228px;" class="tag-cloud-link">sqlmap</a>
+    
+    <a href="/tags/%E4%B8%8A%E4%BC%A0/" style="font-size: 8.163024054076509px;" class="tag-cloud-link">上传</a>
+    
+    <a href="/tags/wireshark/" style="font-size: 8.449226619391911px;" class="tag-cloud-link">wireshark</a>
+    
+    <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 9.471412779111787px;" class="tag-cloud-link">笔记</a>
+    
+    <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 17.46524363254844px;" class="tag-cloud-link">密码学</a>
+    
+    <a href="/tags/%E7%BC%96%E7%A0%81/" style="font-size: 19.041387422094935px;" class="tag-cloud-link">编码</a>
+    
+    <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" style="font-size: 16.075303872005165px;" class="tag-cloud-link">树莓派</a>
+    
+    <a href="/tags/%E6%8E%98%E5%AE%89CTF/" style="font-size: 12.250127002876118px;" class="tag-cloud-link">掘安CTF</a>
+    
+</div>
+                
+                
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="https://myau.moe/" target="_blank">gal主题作者</a>
+    </li>
+    
+</div>
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/wen1ling/" target="_blank">Github</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 notwiner Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":250,"height":500},"mobile":{"show":true,"width":90,"height":150},"react":{"opacity":0.8}});</script></body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>

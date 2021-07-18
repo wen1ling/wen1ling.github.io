@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="notwiner">
+    
+    <meta name="description" content="notwiner的小站,notwiner,博客,博客笔记">
+    
+    
+    
+    
+    
+    
+    <title>linux学习 | notwiner</title>
+    <link href="http://www.notwiner.top" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/avatar.jpg'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://www.notwiner.top">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">notwiner</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/notes/">notes</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/CTF/">CTF</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/program/">program</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/web/">web</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%B7%A5%E5%85%B7/">工具</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E6%9D%82%E8%B0%88/">杂谈</a>
+                        </li>
+                        
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/Burpsuite/">Burpsuite</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/Git/">Git</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/PHP/">PHP</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/sql/">sql</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/XSS/">XSS</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/hexo/">hexo</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/todo">
+                        <i class="fa fa-list"></i>计划书单
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://www.notwiner.top">notwiner</a>
+        >
+        <span>linux学习</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2019/09/17/linux%E5%AD%A6%E4%B9%A0/">linux学习</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/linux/">linux</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2019-09-17
+            </span>
+            
+			<span class="label label-gal">
+				<p id="busuanzi_value_page_pv" class="fa fa-eye"></p>
+            </span>
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2019/09/17/linux%E5%AD%A6%E4%B9%A0/">linux学习</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2019-09-17
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/linux/">linux</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p>初学的Git手册，以后会修改，要是想找点新手资料，可参考<span id="more"></span></p>
+<h1 id="linux命令"><a href="#linux命令" class="headerlink" title="linux命令"></a>linux命令</h1><h2 id="预备知识"><a href="#预备知识" class="headerlink" title="预备知识"></a>预备知识</h2><p><em>一切事物皆为文件</em></p>
+<h3 id="关于权限"><a href="#关于权限" class="headerlink" title="关于权限"></a>关于权限</h3><p>r为read读取权限，w为write写入权限，x为excute执行权限。</p>
+<p>文件权限按顺序为所有者权限、用户组权限、其他用户权限。</p>
+<h3 id="快捷使用"><a href="#快捷使用" class="headerlink" title="快捷使用"></a>快捷使用</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">man 命令         快速找到linux的命令手册说明，英文</span><br><span class="line">功能键说明：空格下一屏，``Ender``滚动手册的一行，``b``后退上一屏，``f``前进后一屏，``q``退出man命令，h列出所有功能键。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>tab键，自动补全        history列举历史命令</li>
+<li>命令 —help </li>
+</ul>
+<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><h3 id="基本文件-目录操作"><a href="#基本文件-目录操作" class="headerlink" title="基本文件/目录操作"></a>基本文件/目录操作</h3><h4 id="日常操作"><a href="#日常操作" class="headerlink" title="日常操作"></a>日常操作</h4><ul>
+<li>ls 列出显示当前目录</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ls /  列出根目录					ls -a 列出当前目录所有文件(包括隐藏文件)</span><br><span class="line">-l    长模式列出目录文件详细信息    ls -l -h 人性化方式方式显示文件信息</span><br><span class="line">ls -ld 显示当前目录本身属性。</span><br></pre></td></tr></table></figure>
+<p><strong>关于ls显示的文件信息解释</strong>：<code>-rwxrw-rw- 1 root root  320042 Jul 29  2018 music.wav</code>，权限、硬链接个数、所属用户、所属组、文件大小(单位：b)，最后修改时间，文件名。</p>
+<p>ls的查找规则</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ls aa*   以aa开头的文件          ls *bb   查找以bb结尾的文件</span><br><span class="line">ls ?     ?代表文件中任意一个字符(仅一个)    ls [sbc]    匹配sbc的任意一个字符</span><br><span class="line">ls [a-f]  匹配a到f范围内的任意字符   </span><br></pre></td></tr></table></figure>
+<ul>
+<li>cd  切换工作目录</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ..   返回上级目录				cd ~ 返回当前用户的目录</span><br><span class="line">cd -    返回上一个操作的目录       cd 相对路径/绝对路径  切换目录   (绝对路径一般/开头)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>pwd 显示当前目录</p>
+</li>
+<li><p>cp 复制文件/目录</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cp a1 a2/2   将a1文件复制到a2文件夹的2文件夹内		cp -p     保留文件属性</span><br><span class="line">cp -r        复制目录           cp -a   复制目录常用，保留链接、文件属性，</span><br><span class="line">cp -v   显示进度</span><br></pre></td></tr></table></figure>
+<ul>
+<li>mv 移动和重命名文件/目录</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mv 1 a1    将文件/目录1重命名为a1		mv  1 a1/     将文件1移动到a1文件夹内</span><br><span class="line">mv -v   显示进度</span><br></pre></td></tr></table></figure>
+<ul>
+<li>rm 删除文件/目录</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rm xxx.xx   删除xxx.xx文件				rm -f  删除且不提示，</span><br><span class="line">rm -r xx/   递归方式删除目录及其内文件      rm -rf      删除全部文件，不提示</span><br></pre></td></tr></table></figure>
+<ul>
+<li>touch新建文件、mkdir新建文件夹</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch xx.xx 新建名为xx.xx的文件  mkdir s1 s2    新建名为s1和s2两个目录</span><br></pre></td></tr></table></figure>
+<ul>
+<li>cat 显示文件内容</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat xxx.xx   显示xxx.xx文件的内容      cat -b    段落编号输出(空白符不编号)</span><br><span class="line">cat -n   以行为单位加编号输出(空白符编号，与-b类似)</span><br><span class="line">cat -n a1 &gt; a2  将a1并入a2</span><br></pre></td></tr></table></figure>
+<ul>
+<li>head与tail   查看文件前/后n行（默认10行）</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">head/tail -n 123.txt       查看文件前/后n行</span><br></pre></td></tr></table></figure>
+<ul>
+<li>less、more</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">less    查看文件，enter下一行，空格键下一页，</span><br><span class="line">more    分屏显示，空格键下一页，q退出显示，h键帮助</span><br></pre></td></tr></table></figure>
+<h4 id="查找类"><a href="#查找类" class="headerlink" title="查找类"></a>查找类</h4><ul>
+<li>grep   查找文件内的字符串，应用正则后很强大</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">grep &#x27;搜索内容&#x27;</span><br><span class="line">-n    显示匹配行及行号，   -i  忽略大小写</span><br></pre></td></tr></table></figure>
+<ul>
+<li>find   查找文件</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">find ./ -name 123.txt   查找当前目录下名为123.txt的文件</span><br><span class="line">find ./ -name &#x27;*.txt&#x27;   查找当前目录下所有后缀为.txt的文件</span><br><span class="line">find ./ -name &quot;[a-z]*&quot;  查找当前目录下所有以小写字母开头的文件</span><br><span class="line">find ./ -size +2M       查找当前目录下大于2M的文件，-2M为小于，不标为等于</span><br><span class="line">find ./ -size +4M -size -5M  查找当前目录下大于4M小于5M的文件</span><br><span class="line">find ./ -perm 0777       查找当前目录下权限为777的文件/目录</span><br></pre></td></tr></table></figure>
+<ul>
+<li>which 寻找命令</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">which grep    查看命令的位置</span><br></pre></td></tr></table></figure>
+<h4 id="其他类型"><a href="#其他类型" class="headerlink" title="其他类型"></a>其他类型</h4><ul>
+<li>ln 创建文件链接</li>
+</ul>
+<p>分为软链接和硬链接，软链接类似于快捷方式，硬链接在源文件删除后还会存在，不删除更改会跟随源文件。-v详细过程，-f强制执行，-d超级用户制作目录的硬链接。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ln -s 源文件 软链接文件</span><br><span class="line">ln 源文件 硬链接文件</span><br></pre></td></tr></table></figure>
+<ul>
+<li>echo 输出内容</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;需要显示的内容&quot;    &quot;&quot;亦可省略</span><br><span class="line">echo &quot;需要写入文件的内容&quot; &gt; 123    把结果写入到文件</span><br><span class="line">echo `date`       命令执行结果，反引号``</span><br></pre></td></tr></table></figure>
+<ul>
+<li>clear 清除终端的显示</li>
+</ul>
+<h3 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h3><ul>
+<li>who        查看当前登录系统的用户信息，whoami：查看当前系统当前账号用户名，在/etc/passwd有系统用户信息。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">who -m或am I  只显示用户名、登录终端和登录时间</span><br><span class="line">who -q或--count        只显示等登录账号和用户数量</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>passwd   修改密码</p>
+</li>
+<li><p>su 切换用户</p>
+</li>
+<li>useradd   添加用户</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-d	指定用户登录系统的主目录，不使用时自动在/home建立</span><br><span class="line">-m  自动建立目录</span><br><span class="line">-g  指定组名称</span><br></pre></td></tr></table></figure>
+<ul>
+<li>userdel    删除用户</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">userdel 123   删除名为123的用户，  -r同时删除目录和记录</span><br></pre></td></tr></table></figure>
+<ul>
+<li>用户组</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">groupmod +三次tab键     查看用户组或者/etc/group</span><br><span class="line">groupadd      新建组账号</span><br><span class="line">groupdel      删除组账号</span><br><span class="line">usermod       修改用户所在组，-g 用户组 用户名</span><br><span class="line">groups 用户名    查看用户在哪个组</span><br></pre></td></tr></table></figure>
+<ul>
+<li>修改文件权限</li>
+</ul>
+<p>chmod</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chmod u/g/o/a +/-/= 文件</span><br><span class="line">u为所有者，g为所有者所在组，o为其他用户，a为所有用户</span><br><span class="line">+、-、=依次为增加、撤销、设定权限</span><br><span class="line">chmod 新用户名 文件名		修改所有者</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chown 新用户名 文件名   修改文件所有者</span><br><span class="line">chgrp 新组名 文件名	  修改文件所属组</span><br></pre></td></tr></table></figure>
+<ul>
+<li>添加sudo权限</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo usermod -a -G adm 用户名</span><br><span class="line">sudo usermod -a -G sudo 用户名</span><br></pre></td></tr></table></figure>
+<h3 id="系统进程等"><a href="#系统进程等" class="headerlink" title="系统进程等"></a>系统进程等</h3><ul>
+<li>ps   进程<ul>
+<li>-a    所有进程，包括其他用户的进程</li>
+<li>-u    进程的详细状态</li>
+<li>-x    显示没有控制终端的进程</li>
+<li>-w   显示加宽，</li>
+<li>-r    显示运行的进程</li>
+</ul>
+</li>
+<li>top   动态显示进程</li>
+</ul>
+<p>M 内存使用量排序，P CPU占有率排序，T 运行时长排序，U 根据用户名排序，</p>
+<p>K 根据PID杀死进程，q退出，h帮助</p>
+<ul>
+<li>kill   终止进程 </li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill pid    根据pid号终止，0-15，9为绝对终止</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>df与du，磁盘占用</p>
+<p>df，文件系统磁盘空间占用和空余，还有对节点和磁盘块的使用</p>
+<p>-a  所有文件系统，-m 以1024字节为单位，-t 显示各指定文件系统使用，-T  显示文件系统</p>
+<p>du，侧重于磁盘使用情况</p>
+<p>-a  递归显示指定目录文件和子目录文件占用数据块，   -s 显示指定文件或目录占用数据块</p>
+<p>-l   计算所有文件大小             -h    转换单位</p>
+</li>
+<li><p>网络信息</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ifconfig   网卡信息</span><br><span class="line">ping测试远程主机的连通性</span><br><span class="line">netstat</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>exit与shutdown命令</p>
+<p>exit：图形界面会退出终端，ssh远程退出帐户，</p>
+<p>shutdown</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">shutdown -t seconds  多少秒后关机，     shutdown -k   并不会关机，仅警告</span><br><span class="line">shutdown -r 重启					shutdown -h		关机</span><br><span class="line">shutdown -n		杀死所有程序后关机		shutdown -F	  关机并检查系统</span><br></pre></td></tr></table></figure>
+<h3 id="其他日常"><a href="#其他日常" class="headerlink" title="其他日常"></a>其他日常</h3><h4 id="压缩解压"><a href="#压缩解压" class="headerlink" title="压缩解压"></a>压缩解压</h4><p>tar、gzip、bzip、zip、unzip     解压</p>
+<ul>
+<li>.tar</li>
+</ul>
+<p><code>-c</code>档案文件，创建打包文件，<code>-v</code>显示进度，<code>-f</code>指定名称，-t列出包含的文件，-x解开。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar xvf xxx.tar        解压</span><br><span class="line">tar cvf xxx.tar 文件    压缩</span><br></pre></td></tr></table></figure>
+<ul>
+<li>.zip</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unzip xxx.zip		解压</span><br><span class="line">zip xxx.zip 文件		压缩</span><br></pre></td></tr></table></figure>
+<ul>
+<li>.rar</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rar x xxx.rar		解压</span><br><span class="line">rar a xxx.rar 文件	压缩</span><br></pre></td></tr></table></figure>
+<ul>
+<li>.gz</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gunzip xxx.gz		解压</span><br><span class="line">gzip -d xxx.gz      解压</span><br><span class="line">gzip -r 文件		   压缩</span><br></pre></td></tr></table></figure>
+<ul>
+<li>.tar.gz和.tgz</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf xxx.tar.gz	  解压</span><br><span class="line">tar zcvf xxx.tar,gz 文件  压缩</span><br></pre></td></tr></table></figure>
+<ul>
+<li>sort    文本内容排序</li>
+</ul>
+<p>以行为单位排序，原则是ASCII码值升序，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sort -o 输出文件</span><br><span class="line">sort -t 分隔字符</span><br></pre></td></tr></table></figure>
+<p>-u 去除重复行，-n 数值大小 规避位数多的反而排序前的情况，-b 忽略空格，</p>
+<p>-d 仅处理英文字母、数字及空格，-f 小写视为大写排序，-r 相反顺序</p>
+<ul>
+<li>mount   挂载文件</li>
+<li>cal查看当前日历，-y查看整年日历</li>
+<li>date显示或设置时间</li>
+</ul>
+<h3 id="符号类"><a href="#符号类" class="headerlink" title="符号类"></a>符号类</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; 输出重定向，将命令结果重定向到一个文件内，创建或覆盖。</span><br><span class="line">&gt;&gt; 也是输出重定向，不同之处是&gt;&gt;会增添，而不是覆盖。</span><br><span class="line">|  管道，一个命令的输出可以做另一个命令的输入。</span><br><span class="line">&amp;&amp; 左边执行成功后执行右边，</span><br><span class="line">|| 左边执行失败，执行右边</span><br></pre></td></tr></table></figure>
+    </div>
+</article>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            notwiner
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/avatar.jpg" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"><p>notwiner的小站,notwiner,博客,博客笔记</p>
+</p>
+        </div>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/12/03/%E8%BD%AF%E4%BB%B6/">一些软件整理</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/11/30/sqlmap%E5%92%8Csqli-labs/">sqlmap与sqli-labs记录</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/18/SQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/">sql注入基础</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/08/PHP%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/">PHP学习（一）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/05/XSS%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB%E5%89%96%E6%9E%90%E4%B8%8E%E9%98%B2%E5%BE%A1%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">《XSS跨站脚本攻击剖析与防御》读书笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/27/python3%E5%AD%A6%E4%B9%A02/">python3学习（二）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/26/%E6%9D%82%E8%AE%B0/">杂记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/26/Burp/">Burpsuite笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/06/08/%E5%AF%86%E7%A0%81%E5%AD%A6(%E4%B8%80)/">密码学（一）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/05/14/python3%E5%AD%A6%E4%B9%A0/">python3学习（一）</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2019/09/17/linux%E5%AD%A6%E4%B9%A0/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2019/09/17/linux%E5%AD%A6%E4%B9%A0/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2019/09/17/linux%E5%AD%A6%E4%B9%A0/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/Burpsuite/" style="font-size: 12.025777097510165px;" class="tag-cloud-link">Burpsuite</a>
+    
+    <a href="/tags/Git/" style="font-size: 16.74608226552442px;" class="tag-cloud-link">Git</a>
+    
+    <a href="/tags/PHP/" style="font-size: 8.227723008062183px;" class="tag-cloud-link">PHP</a>
+    
+    <a href="/tags/sql/" style="font-size: 17.810788774978626px;" class="tag-cloud-link">sql</a>
+    
+    <a href="/tags/XSS/" style="font-size: 12.421944922422899px;" class="tag-cloud-link">XSS</a>
+    
+    <a href="/tags/hexo/" style="font-size: 10.30029212338512px;" class="tag-cloud-link">hexo</a>
+    
+    <a href="/tags/linux/" style="font-size: 13.49222722516708px;" class="tag-cloud-link">linux</a>
+    
+    <a href="/tags/python3/" style="font-size: 15.26462488674323px;" class="tag-cloud-link">python3</a>
+    
+    <a href="/tags/sqlmap/" style="font-size: 9.89655463200334px;" class="tag-cloud-link">sqlmap</a>
+    
+    <a href="/tags/%E4%B8%8A%E4%BC%A0/" style="font-size: 8.353946743585032px;" class="tag-cloud-link">上传</a>
+    
+    <a href="/tags/wireshark/" style="font-size: 8.189796216528006px;" class="tag-cloud-link">wireshark</a>
+    
+    <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 19.287157464555357px;" class="tag-cloud-link">笔记</a>
+    
+    <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 10.953256315231538px;" class="tag-cloud-link">密码学</a>
+    
+    <a href="/tags/%E7%BC%96%E7%A0%81/" style="font-size: 9.55583510689404px;" class="tag-cloud-link">编码</a>
+    
+    <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" style="font-size: 11.507786530037912px;" class="tag-cloud-link">树莓派</a>
+    
+    <a href="/tags/%E6%8E%98%E5%AE%89CTF/" style="font-size: 19.133342540278488px;" class="tag-cloud-link">掘安CTF</a>
+    
+</div>
+                
+                
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="https://myau.moe/" target="_blank">gal主题作者</a>
+    </li>
+    
+</div>
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/wen1ling/" target="_blank">Github</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 notwiner Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":250,"height":500},"mobile":{"show":true,"width":90,"height":150},"react":{"opacity":0.8}});</script></body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>

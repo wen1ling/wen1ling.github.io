@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="notwiner">
+    
+    <meta name="description" content="notwiner的小站,notwiner,博客,博客笔记">
+    
+    
+    
+    
+    
+    
+    <title>树莓派入手 | notwiner</title>
+    <link href="http://www.notwiner.top" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/avatar.jpg'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://www.notwiner.top">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">notwiner</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/notes/">notes</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/CTF/">CTF</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/program/">program</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/web/">web</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%B7%A5%E5%85%B7/">工具</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E6%9D%82%E8%B0%88/">杂谈</a>
+                        </li>
+                        
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/Burpsuite/">Burpsuite</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/Git/">Git</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/PHP/">PHP</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/sql/">sql</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/XSS/">XSS</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/hexo/">hexo</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/todo">
+                        <i class="fa fa-list"></i>计划书单
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://www.notwiner.top">notwiner</a>
+        >
+        <span>树莓派入手</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2020/04/21/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%85%A5%E6%89%8B/">树莓派入手</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/">树莓派</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2020-04-21
+            </span>
+            
+			<span class="label label-gal">
+				<p id="busuanzi_value_page_pv" class="fa fa-eye"></p>
+            </span>
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2020/04/21/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%85%A5%E6%89%8B/">树莓派入手</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2020-04-21
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/">树莓派</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p>树莓派使用记录<span id="more"></span><br>一直想买个树莓派玩玩，但上半年花销超支严重，于是这学期申请了科技奖学金来购买树莓派，就是学校发钱太晚（<del>实际上时间正好用来学四级</del>），然后终于到12.19到手，话不多说，开始搭建。</p>
+<p><strong>基本环境</strong>：windows</p>
+<h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><p>一般最低需要存储卡+开发板+壳子+官方电源适配器（避免不必要的问题）+散热片+HDMI线（连接屏幕）+读卡器，我的是4B版。</p>
+<p>一般来说拆过笔记本/台式电脑照着官方图都能装好，不再介绍。</p>
+<h3 id="SD卡系统安装"><a href="#SD卡系统安装" class="headerlink" title="SD卡系统安装"></a>SD卡系统安装</h3><p>先格式化SD卡，去<a target="_blank" rel="noopener" href="https://www.raspberrypi.org/downloads/">树莓派官方</a>下载自己喜欢的镜像即可。这里我使用的是<em>Ubantu MATE</em>版，也有很多教程介绍如何安装kali的，请移步参考链接。安装镜像到SD卡很多，可以选择操作简单而且轻量级的<a target="_blank" rel="noopener" href="https://www.balena.io/etcher/">Etcher</a>，无脑式操作即可成功安装。然后挨个连线即可。</p>
+<h3 id="连接树莓派"><a href="#连接树莓派" class="headerlink" title="连接树莓派"></a>连接树莓派</h3><p>启动成功后，由于没买屏幕，需要通过SSH连接树莓派，但是据称16-11开始<strong>默认禁用SSH服务</strong>（虽然我从安全角度很赞赏，毕竟树莓派SSH初始都一样），所以手动设置SSH服务。</p>
+<p><strong>开启SSH服务</strong></p>
+<p>在根目录(也就是安装镜像系统后那个boot盘)新建一个空白内容且名称为<code>ssh</code>的空白文件，无后缀名，仅有<code>ssh</code>的文件名即可。</p>
+<p><strong>WIFI联网设置</strong></p>
+<p>可以通过网线直接连路由器，也可以用下面的方法。</p>
+<p>在<code>boot</code>盘的根目录新建<code>wpa_supplicant.conf</code>文件，并填入下面内容。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">country=CN</span><br><span class="line">ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev</span><br><span class="line">update_config=1</span><br><span class="line"></span><br><span class="line">network=&#123;</span><br><span class="line">ssid=&quot;WiFi-A&quot;</span><br><span class="line">psk=&quot;12345678&quot;</span><br><span class="line">key_mgmt=WPA-PSK</span><br><span class="line">priority=1</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">network=&#123;</span><br><span class="line">ssid=&quot;WiFi-B&quot;</span><br><span class="line">psk=&quot;12345678&quot;</span><br><span class="line">key_mgmt=WPA-PSK</span><br><span class="line">priority=2</span><br><span class="line">scan_ssid=1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>前三行基本上不需要修改，下面每一个<code>network</code>都是类似于记录的WIFI的连接基本信息，<code>ssid</code>对应WIFI名称，<code>psk</code>对应WIFI密码，key-mgmt对应加密方式，priority为优先级，按需修改即可。</p>
+<p>其中如果无密码<code>keymgmt</code>为<code>NONE</code>，<code>psk</code>字段删除即可。</p>
+<h3 id="ssh连接"><a href="#ssh连接" class="headerlink" title="ssh连接"></a>ssh连接</h3><p>前面设置后还存在一个问题，没有IP地址，没有IP地址就没办法连接。最简单的方法是登录路由器的后台管理（路由器背面有后台地址，密码问询修理人员）然后看一个名为<code>raspberrypi</code>字样的即可，如果不存在可能前面步骤错误。</p>
+<p>拿到IP地址后，使用<a target="_blank" rel="noopener" href="https://www.netsarang.com/zh/">Xshell</a>（习惯）连接，默认用户名是<code>pi</code>，密码是<code>raspberry</code>。一般来说树莓派官方系统还有<code>Ubantu MATE</code>之类直接可以当作linux使用，所以按linux操作即可。</p>
+<h3 id="修改基本信息"><a href="#修改基本信息" class="headerlink" title="修改基本信息"></a>修改基本信息</h3><p>使用SSH连接毕竟默认设置太容易出问题，开始修改默认设置。</p>
+<p><strong>root</strong>：pi用户登录后 <code>sudo passwd root</code>设置<code>root</code>密码，<code>sudo passwd -unlock root</code>开启<code>root</code>账号，然后使用<code>su root</code>即可测试是否生效。</p>
+<p><strong>pi</strong>：一般来说我们还是多用pi先进行登录，然后切为root用户，修改<code>pi</code>密码命令为<code>sudo psswd pi</code>。</p>
+<p>切换如linux一样为<code>su xxx</code>。</p>
+<p><strong>修改主机名</strong>：避免一下子就被认出来还有为了显示特征。</p>
+<p><code>sudo vi /etc/hosts</code>看到<code>127.0.1.1     xxxx</code>，修改即可，</p>
+<p><code>sudo vi /etc/hostsname</code>看到<code>xxx</code>继续修改即可。</p>
+<h4 id="可能出现的错误"><a href="#可能出现的错误" class="headerlink" title="可能出现的错误"></a>可能出现的错误</h4><p><strong>passwd:Authentication token manipulation error_错误的解决办法</strong>：参考这个，<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1368358">https://cloud.tencent.com/developer/article/1368358</a></p>
+<h3 id="远程连接"><a href="#远程连接" class="headerlink" title="远程连接"></a>远程连接</h3><p>没有屏幕的话只看命令行难免不过瘾，于是开始远程连接，（在第三代开始VNC基本内置树莓派，但需要手动开启）</p>
+<p><code>sudo  raspi-config</code>选择Interfacing Options——VNC——YES，然后y继续同意安装VNC服务，正常来说就能安装完成，</p>
+<p><code>vncserver</code>开启vnc服务，记住最后一行的IP地址。</p>
+<p>然后下载<a target="_blank" rel="noopener" href="https://www.realvnc.com/en/connect/download/viewer/">电脑的VNC</a>,通过pi的用户名和密码即可登录成功。</p>
+<h2 id="正式使用"><a href="#正式使用" class="headerlink" title="正式使用"></a>正式使用</h2><p>经过前面的设置，基本上都可以了，然后可以开始正式进行。</p>
+<h3 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h3><p>linux万年不变的第一步，</p>
+<p>备份</p>
+<p><code>sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak</code></p>
+<p><code>sudo cp /etc/apt/sources.list.d/raspi.list /etc/apt/sources.list.d/raspi.list.bak</code></p>
+<p>修改源</p>
+<p><code>sudo vi /etc/apt/sources.list</code></p>
+<p>第一行改为想要的镜像源即可，参考<a target="_blank" rel="noopener" href="https://shumeipai.nxez.com/2013/08/31/raspbian-chinese-software-source.html">镜像源</a>，注意格式，</p>
+<p>更新源设置<code>sudo vi /etc/apt/sources.list.d/raspi.list</code>如上类似。</p>
+<p>更新源，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update     更新列表</span><br><span class="line">sudo apt-get upgrade    </span><br><span class="line">sudo apt-get dist-upgrade	更新软件版本</span><br><span class="line">sudo rpi-update		更新系统内核</span><br></pre></td></tr></table></figure>
+<h3 id="可能好用的命令"><a href="#可能好用的命令" class="headerlink" title="可能好用的命令"></a>可能好用的命令</h3><p><code>apt-get remove xxxx</code>卸载软件，</p>
+<p><code>apt-get remove -purge xxx</code>卸载并清除配置，</p>
+<p><code>top</code>和<code>df -ah</code>查看进程和磁盘占用，也可以下载Play的<code>RasPi Check</code>安装在手机查看状态。（虽然与不错的项目可以在网页显示，但是感觉好浪费。。。）</p>
+<p><strong>关机重启</strong></p>
+<p>良好的习惯是成功的开始，直接拔插电源关机对树莓派并不是很友好，推荐linux的命令关机重启如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">shutdown now</span><br><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
+<h3 id="蓝牙"><a href="#蓝牙" class="headerlink" title="蓝牙"></a>蓝牙</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrade -y</span><br><span class="line">sudo apt-get dist-upgrade -y   基本三件套</span><br><span class="line">sudo apt-get install pi-bluetooth bluez bluez-firmware blueman  安装相关包</span><br><span class="line">sudo usermod -G bluetooth -a pi  添加用户到蓝牙组</span><br><span class="line">sudo reboot		重启</span><br></pre></td></tr></table></figure>
+<p>一般来说，这样就可以使用了，如果还是不行推荐远程连接看看蓝牙是否存在。</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><blockquote>
+<p>树莓派安装kali：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/aOWEheNMxIYTBalDErSuMQ">https://mp.weixin.qq.com/s/aOWEheNMxIYTBalDErSuMQ</a></p>
+<p>树莓派实验室：<a target="_blank" rel="noopener" href="https://shumeipai.nxez.com/">https://shumeipai.nxez.com/</a></p>
+</blockquote>
+
+    </div>
+</article>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            notwiner
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/avatar.jpg" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"><p>notwiner的小站,notwiner,博客,博客笔记</p>
+</p>
+        </div>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/12/03/%E8%BD%AF%E4%BB%B6/">一些软件整理</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/11/30/sqlmap%E5%92%8Csqli-labs/">sqlmap与sqli-labs记录</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/18/SQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/">sql注入基础</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/08/PHP%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/">PHP学习（一）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/05/XSS%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB%E5%89%96%E6%9E%90%E4%B8%8E%E9%98%B2%E5%BE%A1%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">《XSS跨站脚本攻击剖析与防御》读书笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/27/python3%E5%AD%A6%E4%B9%A02/">python3学习（二）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/26/%E6%9D%82%E8%AE%B0/">杂记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/26/Burp/">Burpsuite笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/06/08/%E5%AF%86%E7%A0%81%E5%AD%A6(%E4%B8%80)/">密码学（一）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/05/14/python3%E5%AD%A6%E4%B9%A0/">python3学习（一）</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2020/04/21/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%85%A5%E6%89%8B/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2020/04/21/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%85%A5%E6%89%8B/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2020/04/21/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%85%A5%E6%89%8B/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/Burpsuite/" style="font-size: 13.589082222399528px;" class="tag-cloud-link">Burpsuite</a>
+    
+    <a href="/tags/Git/" style="font-size: 13.514525212874746px;" class="tag-cloud-link">Git</a>
+    
+    <a href="/tags/PHP/" style="font-size: 18.81359513953477px;" class="tag-cloud-link">PHP</a>
+    
+    <a href="/tags/sql/" style="font-size: 17.50876190778414px;" class="tag-cloud-link">sql</a>
+    
+    <a href="/tags/XSS/" style="font-size: 18.251048036960064px;" class="tag-cloud-link">XSS</a>
+    
+    <a href="/tags/hexo/" style="font-size: 14.940819526865509px;" class="tag-cloud-link">hexo</a>
+    
+    <a href="/tags/linux/" style="font-size: 18.246238106144578px;" class="tag-cloud-link">linux</a>
+    
+    <a href="/tags/python3/" style="font-size: 18.786831367405455px;" class="tag-cloud-link">python3</a>
+    
+    <a href="/tags/sqlmap/" style="font-size: 11.431108178907515px;" class="tag-cloud-link">sqlmap</a>
+    
+    <a href="/tags/%E4%B8%8A%E4%BC%A0/" style="font-size: 17.670113630999506px;" class="tag-cloud-link">上传</a>
+    
+    <a href="/tags/wireshark/" style="font-size: 19.115399478094282px;" class="tag-cloud-link">wireshark</a>
+    
+    <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 12.103796181664459px;" class="tag-cloud-link">笔记</a>
+    
+    <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 19.328893126970847px;" class="tag-cloud-link">密码学</a>
+    
+    <a href="/tags/%E7%BC%96%E7%A0%81/" style="font-size: 14.550214497258626px;" class="tag-cloud-link">编码</a>
+    
+    <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" style="font-size: 8.488732483072486px;" class="tag-cloud-link">树莓派</a>
+    
+    <a href="/tags/%E6%8E%98%E5%AE%89CTF/" style="font-size: 10.617443625041934px;" class="tag-cloud-link">掘安CTF</a>
+    
+</div>
+                
+                
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="https://myau.moe/" target="_blank">gal主题作者</a>
+    </li>
+    
+</div>
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/wen1ling/" target="_blank">Github</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 notwiner Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":250,"height":500},"mobile":{"show":true,"width":90,"height":150},"react":{"opacity":0.8}});</script></body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>

