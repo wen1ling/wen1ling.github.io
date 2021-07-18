@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="notwiner">
+    
+    <meta name="description" content="notwiner的小站,notwiner,博客,博客笔记">
+    
+    
+    
+    
+    
+    
+    <title>PHP学习（一） | notwiner</title>
+    <link href="http://www.notwiner.top" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/avatar.jpg'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://www.notwiner.top">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">notwiner</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/notes/">notes</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/CTF/">CTF</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/program/">program</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/web/">web</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%B7%A5%E5%85%B7/">工具</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E6%9D%82%E8%B0%88/">杂谈</a>
+                        </li>
+                        
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/Burpsuite/">Burpsuite</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/Git/">Git</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/PHP/">PHP</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/sql/">sql</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/XSS/">XSS</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/hexo/">hexo</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://www.notwiner.top">notwiner</a>
+        >
+        <span>PHP学习（一）</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2020/08/08/PHP%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/">PHP学习（一）</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/PHP/">PHP</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2020-08-08
+            </span>
+            
+			<span class="label label-gal">
+				<p id="busuanzi_value_page_pv" class="fa fa-eye"></p>
+            </span>
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2020/08/08/PHP%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/">PHP学习（一）</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2020-08-08
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/PHP/">PHP</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p><em>为了挖掘php漏洞学习的php基础</em><span id="more"></span></p>
+<ul>
+<li>环境：phpstudy2018、VScode。</li>
+</ul>
+<p>windows本地直接phpstudy老版本就行，在<code>My HomePage</code>位置下添加PHP文件，访问路径改成<code>localhost/xxx</code>或者<code>127.0.0.1/xxx</code>类型即可，编写代码VScode即可，需要时加个Debug就行。（由于本人目的是为了学习和对PHP进行代码审计，所以不再安装Debug）</p>
+<p><del>吐槽一下，HTML文件写PHP会被注释</del></p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php echo &#x27;&lt;p&gt;this is a test&lt;/p&gt;&#x27;; ?&gt;</span><br></pre></td></tr></table></figure>
+<p>在html标签内多写在<code>&lt;body&gt;&lt;/body&gt;</code>内，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">phpinfo();						//获取系统信息</span><br><span class="line">$_SERVER[&#x27; &#x27;];					//获取服务器的各种信息，如HTTP_USER_AGENT为代理服务器（浏览器）</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>注释</strong>：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//				//单行注释</span><br><span class="line">/*</span><br><span class="line">*/				//多行注释</span><br><span class="line">#				//单行注释</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>大小写问题：变量、常量区分大小写，而方法名、函数名、魔术变量、类名、布尔值、NULL不区分大小写。</p>
+</li>
+<li><p>变量：</p>
+<ul>
+<li><p>字母或下划线开头，后跟任意字母、数字、下划线，还可以有中文。</p>
+</li>
+<li><p>可以通过<code>&amp;</code><strong>引用赋值</strong>，软链接，根据被引用变量值变化，引用只能引用变量。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$test_1 = &#x27;a&#x27;;</span><br><span class="line">$test_2 = &amp;$test_1;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>范围</strong>方面，与其他语言不同，必须要声明<code>global</code>全局变量。</p>
+</li>
+<li><p><strong>静态变量</strong>使用<code>static</code>，不会被重置变量值，对于静态函数的递归，可以用<code>count</code>结束。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">function test()</span><br><span class="line">&#123;</span><br><span class="line">	static $count = 0;</span><br><span class="line">	$count++;</span><br><span class="line">	echo $count;</span><br><span class="line">	if ($count &lt;10 ) &#123;</span><br><span class="line">		test();</span><br><span class="line">	&#125;</span><br><span class="line">	$count--;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可变变量：如下面输出为<code>ababc</code>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$a = &#x27;ab&#x27;;</span><br><span class="line">$$a = &#x27;abc&#x27;;</span><br><span class="line">echo $a;</span><br><span class="line">echo $ab;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>PHP外变量：如GET、POST请求处理表单、Cookie，变量点、空格被转化为下划线。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">	echo $_POST[&#x27;username&#x27;];</span><br><span class="line">	echo $_REQUEST[&#x27;username&#x27;];</span><br><span class="line">	import_request_variables(&#x27;p&#x27;,&#x27;p_&#x27;);</span><br><span class="line">	echo $p_username;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>常量：通过<code>define()</code>定义，包括boolean、integer、float、string数据类型，与变量不同。没有<code>$</code>符号。</p>
+</li>
+</ul>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p>查看表达式值或者类型用<code>var_dump()</code>函数，用于调试用<code>gettype()</code>函数，检验某个类型用<code>is_type</code>函数。如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gettype($test);</span><br><span class="line">is_int($test)</span><br></pre></td></tr></table></figure>
+<p>具体类型：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$test_Boolean = true		//布尔型，包括true和false，不区分大小写</span><br><span class="line">$test_Integer = 125			//整形，可用多种进制位表示，超出整形范围会变成float</span><br><span class="line">$test_Float = 1.23			//浮点型，也可用7e-10表示</span><br><span class="line">$test_String = &quot;string&quot;		//字符串，通过\进行转义&#x27;与\，单引号不支持\n等转义...</span><br><span class="line">$test_Array = array(</span><br><span class="line">	1	=&gt; &quot;a&quot;,</span><br><span class="line">	&quot;1&quot;	=&gt; &quot;b&quot;,</span><br><span class="line">	true=&gt; &quot;c&quot;,</span><br><span class="line">	&quot;car&quot;,&quot;computer&quot;,&quot;fruit&quot;,</span><br><span class="line">);							</span><br><span class="line">//数组，key =&gt; value类型，可内嵌，key只能是整形或字符串，通过用var_dump()查看所有数组元素，可用[]代替array()，删除键值对用unset()。不指定key会自动数字依次排序。</span><br><span class="line"></span><br><span class="line">class test_object</span><br><span class="line">&#123;</span><br><span class="line">	function do_test()</span><br><span class="line">	&#123;</span><br><span class="line">		echo &quot;this is example.&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">$test = new test_object;</span><br><span class="line">$test-&gt;do_test();</span><br><span class="line">//对象，</span><br><span class="line">$test_null = NULL			//NULL通过is_null()和unset()使用</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>伪类型：mixed（多种类型）、number、callback（与callable相同）、array|object、void（返回值无用，不接受任何参数）</li>
+<li>Callable（可调用）</li>
+<li>Resource（资源）</li>
+<li>注意<ul>
+<li>字符串的单引号与双引号效果不同，双引号内可对<code>\n、\r、\\、\&quot;、[0-7]&#123;1,3&#125;</code>进行转义解析</li>
+</ul>
+</li>
+<li>数组的key记得有强制转换，所以1与true、浮点型和整形等等容易冲突，</li>
+</ul>
+<p>强制转换：用法如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$test_int = 10;</span><br><span class="line">$test_boolean = (boolean) $test_int;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在进行运算和函数使用中，也会出现强制转换。强制转换常用有<code>(int)/(integer)、(bool)/(boolean)、(float)/(double)/(real)、(string)、(array)、(object)、(unset)</code>。</li>
+<li>boolean（布尔值）：对于false、整数值为0、浮点值0.0、空字符串、字符串为”0”、不包含任何元素的数组、特殊类型NULL、空标记生成的SimpleXML对象，均会被认为是false。</li>
+<li>integer（整形）：使用<code>(int)</code>或<code>(integer)</code>进行转换，浮点型转化向下取整。</li>
+<li>unset用于转化为NULL。</li>
+</ul>
+<h3 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h3><p>和其他语言的运算符类似，不再赘述，仅说明易错的几点。</p>
+<ul>
+<li><code>==</code>与<code>===</code>：<code>==</code>为两个变量数据类型转换后相等，<code>===</code>则是数据类型和值均等。</li>
+<li>&lt;=&gt;组合比较符与?? NULL操作符。三元运算符<code>(expr1)?(expr2):(expr3)</code>简化了判断语句。</li>
+<li>比较浮点数不应该直接比较，可以使用下面的方法。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">if (abs($a-$b) &lt; $precision) &#123;</span><br><span class="line">	echo &quot;true&quot;;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>++$a</code>是先加一后返回，<code>$a++</code>是先返回后加一，减法类似、</li>
+<li>字符串运算符是<code>.</code>，与其他语言字符串用<code>+</code>不同。</li>
+<li>数组运算符与普通运算符不同。<code>+</code>为联合，<code>===</code>相对于<code>==</code>增加了顺序一致，<code>!=</code>为不等，<code>!==</code>为不全等。</li>
+<li>类型运算符：<code>instandceof</code></li>
+<li><code>&amp;</code>：引用，<code>$a =&amp; $b;</code>并不是像c指针一样，而是两个均指向一个区域。需要取消引用时用<code>unset($b);</code>，可以看出来两者分离。</li>
+</ul>
+<h3 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h3><ul>
+<li><strong>if…else</strong>：<code>else if</code>可以写为<code>elseif</code>。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php if () &#123;&#125; ?&gt;</span><br><span class="line">//或 HTML与PHP混用</span><br><span class="line">&lt;?php if (xx !== FALSE) &#123; ?&gt;</span><br><span class="line">&lt;p&gt;false&lt;/p&gt;</span><br><span class="line">&lt;?php &#125; else &#123; ?&gt;</span><br><span class="line">&lt;p&gt;true&lt;/p&gt;</span><br><span class="line">&lt;?php &#125; ?&gt;</span><br></pre></td></tr></table></figure>
+<p>也可以写为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">if ():</span><br><span class="line">	echo xxx;</span><br><span class="line">else:</span><br><span class="line">	echo xxx;</span><br><span class="line">endif;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>while：<code>&lt;?php while () &#123;&#125;</code>，也可以用<code>endwhile;</code></li>
+<li>do…while：<code>&lt;?php do &#123; &#125; while ();</code>，</li>
+<li>for：<code>for (expr1: expr2: expr3) &#123; &#125;</code>，也可以用<code>endfor;</code>。</li>
+<li>foreach：可以遍历数据和对象，在下面第一种如果添加<code>&amp;</code>会改变原数组。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">foreach ($array as $value) &#123;&#125;		//通过遍历数组赋值并前进指针</span><br><span class="line">foreach ($array as $key =&gt; $value) &#123;&#125;	//除第一种效果外，还会降键名赋值到$key</span><br></pre></td></tr></table></figure>
+<ul>
+<li>swith：<code>switch () &#123;case 1:    ;case 2:    ;default:    ;&#125;</code>形式。</li>
+<li>declare：<code>declare (directive) &#123;&#125;</code>，<code>directive</code>包括<code>ticks</code>与<code>encoding</code>两方面。</li>
+<li>include用于包含并运行文件，<code>include &#39;xx.xx&#39;</code>，windows下以<code>\</code>为路径顺序，linux/unix以<code>/</code>为顺序。</li>
+<li>goto，跳转程序位置。<code>&lt;?php goto a; echo &#39;test_1&#39;; a: echo &#39;test_2&#39;;?&gt;</code></li>
+<li>自定义函数，传参与实参不再赘述，也可以定义传参的数据类型。也可以使用匿名函数，无须写函数名。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">function test($var_1, $var_2,...,$var_n) &#123;</span><br><span class="line">&#125;</span><br><span class="line">test();</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="类与对象"><a href="#类与对象" class="headerlink" title="类与对象"></a>类与对象</h3><p>一个类的实例：输出多个变量用<code>.</code>隔开。可以通过<code>::</code>（范围解析操作符）访问静态成员、类和常量。如<code>类名::常量</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">class testClass &#123;</span><br><span class="line">##属性</span><br><span class="line">	var $var1;</span><br><span class="line">	var $var2 = &quot;test&quot;;</span><br><span class="line">##方法</span><br><span class="line">	function testFun1 ($arg1, $arg2) &#123;</span><br><span class="line">		xxx;</span><br><span class="line">		$this</span><br><span class="line">	&#125;</span><br><span class="line">	function testFun2 () &#123;</span><br><span class="line">		echo xxx;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p><code>$this</code>代表自身对象，通过下面方式创建该类的对象。（PHP并不支持多继承）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$var1 = new testClass;</span><br><span class="line">$var2 = new testClass;</span><br><span class="line">$var3 = new testClass;</span><br><span class="line"></span><br><span class="line">class testClass &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>调用成员函数，用来设置该类对应对象的方法。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$var1-&gt;testFun1(&quot; xxx &quot;);</span><br><span class="line">$var2-&gt;testFun1(&quot; xxx &quot;);</span><br></pre></td></tr></table></figure>
+<p>调用成员函数获得对应对象方法的内容。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$var1-&gt;testFun2();</span><br><span class="line">$var2-&gt;testFun2();</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>extends</strong>：用来继承另一个类的方法和属性，不支持多重继承。如果父类方法定义使用了<code>final</code>则不可覆盖，可以通过<code>parent::</code>访问被覆盖的方法或属性。</li>
+<li><strong>static</strong>：静态属性或方法。</li>
+<li><strong>PHP_EOL</strong>：为换行符</li>
+<li>对象比较：<code>==</code>用于对象之间属性和属性值相等，且都是一个类的实例，而<code>===</code>为同一个对象。</li>
+</ul>
+<p><strong>构造函数</strong>：简化调用函数步骤，在引用类的对象时设置。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$var1 = new testClass(&#x27; xxx &#x27;, &#x27; xxxx &#x27;);</span><br><span class="line">$var2 = new testClass(&#x27; xxx &#x27;, &#x27; xxxx &#x27;);</span><br><span class="line">$var3 = new testClass(&#x27; xxx &#x27;, &#x27; xxxx &#x27;);</span><br><span class="line">$var1-&gt;testFun2();</span><br><span class="line">$var2-&gt;testFun2();</span><br><span class="line">$var3-&gt;testFun2();</span><br></pre></td></tr></table></figure>
+<p><strong>析构函数（destructor）</strong>：</p>
+<p>类的自动加载</p>
+<p><strong>访问控制</strong>：通过关键词public（公有）、protected（受保护）或私有（private）实现属性和方法的访问控制。</p>
+<ul>
+<li>public：可在任何地方被访问。用<code>var</code>定义也被认为是公有。</li>
+<li>protected：受保护的可被自身及其子类和父类访问。</li>
+<li>private：只能被定义所在类访问。</li>
+</ul>
+<p><strong>接口（interface）</strong>：通过<code>interface</code>定义，其内定义方法为公有，再通过<code>implements</code>实现接口定义的所有方法。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">interface testTemplate &#123;</span><br><span class="line">	public function test1($var1, $var2);</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br><span class="line">class Template implements testTemplate &#123;</span><br><span class="line">	private $var3 = array();</span><br><span class="line">	public function test1($var1, $var2) &#123;</span><br><span class="line">		$this-&gt;var3[$name] = $var;</span><br><span class="line">	&#125;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用时用<code>testTemplate::test1();</code>即可。</p>
+<p><strong>抽象类</strong>：</p>
+<h3 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h3><p>通过<code>namespace</code>定义，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">namespace test1 &#123;</span><br><span class="line">&#125;</span><br><span class="line">namespace test2\test3 &#123;</span><br><span class="line">&#125;</span><br><span class="line">namespace &#123;</span><br><span class="line">&#125;				##全局声明</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>$show_separators</p>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">function test()</span><br><span class="line">&#123;</span><br><span class="line">	return 10;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var_dump()				//显示变量信息</span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>[ 1 ]：<a target="_blank" rel="noopener" href="https://www.php.net/manual/zh/index.php">PHP官方手册</a></p>
+<p>[ 2 ]：<a target="_blank" rel="noopener" href="https://www.w3cschool.cn/php/b298tfl0.html">W3Cschool</a></p>
+
+    </div>
+</article>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            notwiner
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/avatar.jpg" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"><p>notwiner的小站,notwiner,博客,博客笔记</p>
+</p>
+        </div>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/12/03/%E8%BD%AF%E4%BB%B6/">一些软件整理</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/11/30/sqlmap%E5%92%8Csqli-labs/">sqlmap与sqli-labs记录</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/18/SQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/">sql注入基础</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/08/PHP%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/">PHP学习（一）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/05/XSS%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB%E5%89%96%E6%9E%90%E4%B8%8E%E9%98%B2%E5%BE%A1%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">《XSS跨站脚本攻击剖析与防御》读书笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/27/python3%E5%AD%A6%E4%B9%A02/">python3学习（二）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/26/%E6%9D%82%E8%AE%B0/">杂记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/26/Burp/">Burpsuite笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/06/08/%E5%AF%86%E7%A0%81%E5%AD%A6(%E4%B8%80)/">密码学（一）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/05/14/python3%E5%AD%A6%E4%B9%A0/">python3学习（一）</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2020/08/08/PHP%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2020/08/08/PHP%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2020/08/08/PHP%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/Burpsuite/" style="font-size: 16.513398841816148px;" class="tag-cloud-link">Burpsuite</a>
+    
+    <a href="/tags/Git/" style="font-size: 15.857496136044183px;" class="tag-cloud-link">Git</a>
+    
+    <a href="/tags/PHP/" style="font-size: 15.068399695418947px;" class="tag-cloud-link">PHP</a>
+    
+    <a href="/tags/sql/" style="font-size: 17.76877815116463px;" class="tag-cloud-link">sql</a>
+    
+    <a href="/tags/XSS/" style="font-size: 12.848753164687473px;" class="tag-cloud-link">XSS</a>
+    
+    <a href="/tags/hexo/" style="font-size: 12.681797740776833px;" class="tag-cloud-link">hexo</a>
+    
+    <a href="/tags/linux/" style="font-size: 9.202136202945454px;" class="tag-cloud-link">linux</a>
+    
+    <a href="/tags/python3/" style="font-size: 15.157449559990718px;" class="tag-cloud-link">python3</a>
+    
+    <a href="/tags/%E4%B8%8A%E4%BC%A0/" style="font-size: 12.280526427202648px;" class="tag-cloud-link">上传</a>
+    
+    <a href="/tags/sqlmap/" style="font-size: 10.064006238653146px;" class="tag-cloud-link">sqlmap</a>
+    
+    <a href="/tags/wireshark/" style="font-size: 17.297874962990875px;" class="tag-cloud-link">wireshark</a>
+    
+    <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 12.406125141376958px;" class="tag-cloud-link">笔记</a>
+    
+    <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 11.115437771156945px;" class="tag-cloud-link">密码学</a>
+    
+    <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" style="font-size: 10.697568089810016px;" class="tag-cloud-link">树莓派</a>
+    
+    <a href="/tags/%E7%BC%96%E7%A0%81/" style="font-size: 8.649391157285347px;" class="tag-cloud-link">编码</a>
+    
+    <a href="/tags/%E6%8E%98%E5%AE%89CTF/" style="font-size: 13.448575379794207px;" class="tag-cloud-link">掘安CTF</a>
+    
+</div>
+                
+                
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="https://myau.moe/" target="_blank">gal主题作者</a>
+    </li>
+    
+</div>
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/wen1ling/" target="_blank">Github</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 notwiner Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":250,"height":500},"mobile":{"show":true,"width":90,"height":150},"react":{"opacity":0.8}});</script></body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>

@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="notwiner">
+    
+    <meta name="description" content="notwiner的小站,notwiner,博客,博客笔记">
+    
+    
+    
+    
+    
+    
+    <title>初始Wireshark | notwiner</title>
+    <link href="http://www.notwiner.top" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/avatar.jpg'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://www.notwiner.top">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">notwiner</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/notes/">notes</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/CTF/">CTF</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/program/">program</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/web/">web</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%B7%A5%E5%85%B7/">工具</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E6%9D%82%E8%B0%88/">杂谈</a>
+                        </li>
+                        
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/Burpsuite/">Burpsuite</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/Git/">Git</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/PHP/">PHP</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/sql/">sql</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/XSS/">XSS</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/hexo/">hexo</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://www.notwiner.top">notwiner</a>
+        >
+        <span>初始Wireshark</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2019/07/24/%E5%88%9D%E5%A7%8BWireshark/">初始Wireshark</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/wireshark/">wireshark</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2019-07-24
+            </span>
+            
+			<span class="label label-gal">
+				<p id="busuanzi_value_page_pv" class="fa fa-eye"></p>
+            </span>
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2019/07/24/%E5%88%9D%E5%A7%8BWireshark/">初始Wireshark</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2019-07-24
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/wireshark/">wireshark</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p>wireshark学习的笔记<span id="more"></span></p>
+<h1 id="初识Wireshark"><a href="#初识Wireshark" class="headerlink" title="初识Wireshark"></a>初识Wireshark</h1><p>主要介绍wireshark的对于流量分析的简单用法<br><a target="_blank" rel="noopener" href="https://www.wireshark.org/">wireshark下载</a></p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>WireShark（前称 Ethereal）用网络包分析，在CTF多用于MISC的流量分析，后缀名为.pcapng的文件。</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/8xK59u87esWH.bmp" alt="mark"></p>
+<p>  如上图，</p>
+<ul>
+<li>标题与菜单栏——文件名称、wireshark的菜单栏</li>
+<li>过滤区——自定义规则筛选数据包</li>
+<li>Packet List面板——数据包摘要信息</li>
+<li>Packet Details——数据包的详细信息</li>
+<li>Packet Bytes面板——以十六进制和ASCII格式显示数据包信息</li>
+</ul>
+<p>数据包术语：帧&gt;包&gt;段</p>
+<h2 id="安装简述"><a href="#安装简述" class="headerlink" title="安装简述"></a>安装简述</h2><p>==windows安装==</p>
+<p><a target="_blank" rel="noopener" href="https://www.wireshark.org/#download">Wireshark</a>选择版本下载即可，在安装过程中可选择Wireshark的组件，后面还有WinPacp用于捕获数据必须的组件，如果不需要捕获，可不用安装，然后更改文件位置无脑式安装即可。</p>
+<p>==Linux安装==</p>
+<p>以后补充。。</p>
+<h2 id="wireshark的初步使用"><a href="#wireshark的初步使用" class="headerlink" title="wireshark的初步使用"></a>wireshark的初步使用</h2><h3 id="捕获数据包"><a href="#捕获数据包" class="headerlink" title="捕获数据包"></a>捕获数据包</h3><p>&lt;img src=”<a target="_blank" rel="noopener" href="https://img-blog.csdnimg.cn/20190724122708339.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNjY4OTM2,size_16,color_FFFFFF,t_70/&gt;">https://img-blog.csdnimg.cn/20190724122708339.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNjY4OTM2,size_16,color_FFFFFF,t_70/&gt;</a></p>
+<p>点击捕获——选项（设置选择需要捕获的设备）——开始，即为正在捕获。</p>
+<p>或    选择下方的某个设备即可开始捕获。</p>
+<p>以捕获WLAN，在捕获开始后设备痛过WIFI进入百度为例。</p>
+<p><strong>分析访问时的数据包</strong></p>
+<p>DNS请求、响应和TCP的三次握手。<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/三次握手/5111559?fr=aladdin">百度百科-三次握手</a></p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/fp4Btjv5fdpQ.bmp" alt="mark"></p>
+<p>如图为DNS请求与响应，首先DNS将<a target="_blank" rel="noopener" href="http://www.baidu.com解析为一个IP地址的数据包（A记录），然后返回一个DNS响应包。">www.baidu.com解析为一个IP地址的数据包（A记录），然后返回一个DNS响应包。</a></p>
+<p>然后有进行TCP三次握手，<br>&lt;img src=”<a target="_blank" rel="noopener" href="https://img-blog.csdnimg.cn/20190724122654629.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNjY4OTM2,size_16,color_FFFFFF,t_70/&gt;">https://img-blog.csdnimg.cn/20190724122654629.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNjY4OTM2,size_16,color_FFFFFF,t_70/&gt;</a></p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/5Kk3WTLYgVko.bmp" alt="mark"></p>
+<p>亦可监控本机后台数据，切换捕获对象即可。</p>
+<p>wireshark也可分析其他数据包，从文件类型选择查看即可。</p>
+<h3 id="wireshark分析器"><a href="#wireshark分析器" class="headerlink" title="wireshark分析器"></a>wireshark分析器</h3><ol>
+<li>帧分析器</li>
+</ol>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/FVqf0DGfTwQ5.bmp" alt="mark">    <strong>亦为物理层的数据帧</strong><br><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/8PP2tiiWGv4j.bmp" alt="mark"></p>
+<p>   <strong>亦为数据链路层以太网帧头部信息</strong></p>
+<ol>
+<li>IPv4分析器</li>
+</ol>
+<p>&lt;img src=”<a target="_blank" rel="noopener" href="https://img-blog.csdnimg.cn/20190724122637698.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNjY4OTM2,size_16,color_FFFFFF,t_70/&gt;">https://img-blog.csdnimg.cn/20190724122637698.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNjY4OTM2,size_16,color_FFFFFF,t_70/&gt;</a></p>
+<p>   <strong>亦为IP包头部信息</strong></p>
+<ol>
+<li>TCP分析器</li>
+</ol>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/ygTzo1vEIXPP.bmp" alt="mark">    <strong>亦为传输层的TCP头部信息</strong>  </p>
+<h2 id="过滤器的使用"><a href="#过滤器的使用" class="headerlink" title="过滤器的使用"></a>过滤器的使用</h2><p>在捕获数据包时可以感受到捕获的数据包过多，难以进行分辨，所以需要进行过滤(筛选)。</p>
+<h3 id="捕获时的过滤"><a href="#捕获时的过滤" class="headerlink" title="捕获时的过滤"></a>捕获时的过滤</h3><ol>
+<li>IP地址<ul>
+<li>host x.x.x.x  仅捕获到达/来自于x.x.x.x的数据，IPv6类似。</li>
+<li>not host x.x.x.x 捕获除x.x.x.x以外的数据。</li>
+<li>src host x.x.x.x  捕获来自x.x.x.x的数据</li>
+<li>dst host x.x.x.x 捕获到达x.x.x.x的数据</li>
+<li>host x.x.x.x host y.y.y.y  捕获x.x.x.x和y.y.y.y的数据。</li>
+<li>host www.xxx.com  捕获解析某网站IP地址的数据</li>
+</ul>
+</li>
+<li>IP地址范围<ul>
+<li>net x.x.x.x: 捕获到达/来自x.x.x.x网络在中的数据，如上，亦有not src dst。</li>
+<li>广播地址，ip broadcast 捕获到255.255.255.255的数据。</li>
+<li>ip multicast 捕获通过239.255.255.255~244.0.0.0的数据。</li>
+<li>dst host ff02::1  捕获所有主机到IPv6多播地址的数据。</li>
+<li>dst host ff02::2  捕获所有路由到IPv6多播地址的数据。</li>
+</ul>
+</li>
+<li>广播/多波地址<ul>
+<li>广播地址，ip broadcast 捕获到255.255.255.255的数据。</li>
+<li>ip multicast 捕获通过239.255.255.255~244.0.0.0的数据。</li>
+<li>dst host ff02::1  捕获所有主机到IPv6多播地址的数据。</li>
+<li>dst host ff02::2  捕获所有路由到IPv6多播地址的数据。</li>
+</ul>
+</li>
+<li>MAC地址<ul>
+<li>ether host y:y:y:y:y:y   捕获到达/来自y:y:y:y:y:y的数据。</li>
+<li>亦有src、dst、not ether用法。</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>port 53 捕获端口号为53的UDP/TCP数据(典型DNS数据)。</li>
+<li>port 80 捕获端口号为80的UDP/TCP数据(典型HTTP数据)。</li>
+<li>udp port 67   捕获端口号为67的UDP数据(典型DHCP数据)。</li>
+<li>tcp port 21   捕获端口号为21的TCP数据(典型FTP数据)。</li>
+<li>portrange 1-80  捕获1~80端口号的UDP/TCP数据。</li>
+<li>tcp portrange 1-80   捕获1~80的TCP数据。</li>
+</ul>
+<p>​    亦可用and、src、dst还有与IP地址连用。</p>
+<ul>
+<li>host x.x.x.x and port xx   捕获端口号xx且主机为x.x.x.x的UDP/TCP数据。</li>
+</ul>
+<h3 id="捕获特定ICMP数据。"><a href="#捕获特定ICMP数据。" class="headerlink" title="捕获特定ICMP数据。"></a>捕获特定ICMP数据。</h3><p><em>互联网控制消息协议ICMP。</em></p>
+<ul>
+<li>icmp  捕获所有ICMP数据。</li>
+<li>icmp[0]=8，捕获所有ICMP字段类型为8的数据包(Echo Request)。</li>
+<li>icmp[0]=17，捕获所有ICMP字段类型为17的数据包(Address Mask Request)。</li>
+<li>亦可用not等等。</li>
+</ul>
+<h3 id="显示过滤器"><a href="#显示过滤器" class="headerlink" title="显示过滤器"></a>显示过滤器</h3><p>即使设置捕获时的过滤器，还是会有很多数据包，所以需要再次过滤。</p>
+<p><img src="http://q52vvh5qj.bkt.clouddn.com/photo/20200204/B5PSkGbGPnhA.bmp" alt="mark"> <strong>过滤器语法格式</strong>  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Protocol String1 String2 Comparison operator Value Logcial Operations Other expression</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Proticol:选定协议</li>
+<li>String1,String2：协议的子类。</li>
+<li>Comparison operators：指定比较运算符。可用C/英文写法。</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>英文写法</th>
+<th>C语言写法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>eq</td>
+<td>==</td>
+</tr>
+<tr>
+<td>ne</td>
+<td>!=</td>
+</tr>
+<tr>
+<td>gt</td>
+<td>&gt;</td>
+</tr>
+<tr>
+<td>lt</td>
+<td>&lt;</td>
+</tr>
+<tr>
+<td>ge</td>
+<td>&gt;=</td>
+</tr>
+<tr>
+<td>le</td>
+<td>&lt;=</td>
+</tr>
+<tr>
+<td>(包含)contains “”</td>
+<td></td>
+</tr>
+<tr>
+<td>(匹配)——matches “”</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>Logical expressions：指定逻辑运算符</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>英文写法</th>
+<th>C语言写法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>and</td>
+<td>&amp;&amp;</td>
+</tr>
+<tr>
+<td>or</td>
+<td>¦¦</td>
+</tr>
+<tr>
+<td>xor</td>
+<td>^^</td>
+</tr>
+<tr>
+<td>not</td>
+<td>!</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol>
+<li>协议过滤器：包括arp、ip、ipv6、tcp、等协议。</li>
+<li>应用过滤器：包括bootp(所有DHCP流量)、dns(包括TCP传输和UDP的DNS请求与响应)、tftp(所有TFTP简单文件传输协议)、http(HTTP命令、响应和数据传输包)、icmp。</li>
+<li>字段存在过滤器：bootp.option.hostname(所有DHCP流量，包括主机名)、http.post(包含HTTP主机名称字段的HTTP包)、ftp.request.command(所有FTP命令数据)。</li>
+<li>特有过滤器：tcp.analysis.flags(显示所有与TCP标识相关的包，包括丢包、重发)、tcp.analysis.zero_window(被标志的包，来表示发送方缓存空间已满)。</li>
+</ol>
+<p><strong>添加列</strong>：Packet Details面板的每一段均可作为列、过滤器，便于筛选数据。</p>
+<p><strong>举例</strong></p>
+<ul>
+<li>http、tcp.pot==80、</li>
+<li>bootp(显示DHCP用这个)、dhcpv6(过滤DHCPv6。</li>
+<li>ip.src/dst/host/addr、ip.addr==x.x.x.x、ip.host==<a target="_blank" rel="noopener" href="http://www.xxx.com、ip.addr&gt;x.x.x.1">www.xxx.com、ip.addr&gt;x.x.x.1</a> &amp;&amp; ip.addr&lt;x.x.x.5</li>
+<li>关键词搜索：xxx contains “strings”(xxx可以是字段名、帧)，matches”(?x)xxx”对于首字母不区分大小写。通配符”.”：除换行符和回车外其他字符。xx{1.k}yy，在xx与yy间存在1~k个字符进行筛选。</li>
+<li>通信延迟的筛选，tcp.time_delta&gt;1过滤TCP时间差大于1的数据。</li>
+</ul>
+<h2 id="CTF中好用的"><a href="#CTF中好用的" class="headerlink" title="CTF中好用的"></a>CTF中好用的</h2><ul>
+<li>ctrl+F，分组列表改为分组字节流，显示过滤器改为字符串，输入flag、CTF等等会有不错的收获。</li>
+<li>追踪流，可以看到流量信息，在这里保留16进制的文件信息。</li>
+<li>确认是文件后，根据文头，通过 导出分组字节流 导出相应文件，(菜刀类型需要去开头和结尾的X@Y，使用wireshark在导出时设置即可)。</li>
+</ul>
+<p>[参考文献]</p>
+<p>[1]王晓卉,李亚伟.WireShark数据包分析实战详解[M],北京:清华大学出版社,2015.</p>
+
+    </div>
+</article>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            notwiner
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/avatar.jpg" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"><p>notwiner的小站,notwiner,博客,博客笔记</p>
+</p>
+        </div>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/12/03/%E8%BD%AF%E4%BB%B6/">一些软件整理</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/11/30/sqlmap%E5%92%8Csqli-labs/">sqlmap与sqli-labs记录</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/18/SQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/">sql注入基础</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/08/PHP%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/">PHP学习（一）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/05/XSS%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB%E5%89%96%E6%9E%90%E4%B8%8E%E9%98%B2%E5%BE%A1%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">《XSS跨站脚本攻击剖析与防御》读书笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/27/python3%E5%AD%A6%E4%B9%A02/">python3学习（二）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/26/%E6%9D%82%E8%AE%B0/">杂记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/26/Burp/">Burpsuite笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/06/08/%E5%AF%86%E7%A0%81%E5%AD%A6(%E4%B8%80)/">密码学（一）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/05/14/python3%E5%AD%A6%E4%B9%A0/">python3学习（一）</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2019/07/24/%E5%88%9D%E5%A7%8BWireshark/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2019/07/24/%E5%88%9D%E5%A7%8BWireshark/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2019/07/24/%E5%88%9D%E5%A7%8BWireshark/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/Burpsuite/" style="font-size: 12.896297648115617px;" class="tag-cloud-link">Burpsuite</a>
+    
+    <a href="/tags/Git/" style="font-size: 11.278437918764807px;" class="tag-cloud-link">Git</a>
+    
+    <a href="/tags/PHP/" style="font-size: 9.230098558904777px;" class="tag-cloud-link">PHP</a>
+    
+    <a href="/tags/sql/" style="font-size: 9.341443914877633px;" class="tag-cloud-link">sql</a>
+    
+    <a href="/tags/XSS/" style="font-size: 18.958448794066587px;" class="tag-cloud-link">XSS</a>
+    
+    <a href="/tags/hexo/" style="font-size: 14.89078865022438px;" class="tag-cloud-link">hexo</a>
+    
+    <a href="/tags/linux/" style="font-size: 8.57843799086766px;" class="tag-cloud-link">linux</a>
+    
+    <a href="/tags/python3/" style="font-size: 8.137510227360226px;" class="tag-cloud-link">python3</a>
+    
+    <a href="/tags/%E4%B8%8A%E4%BC%A0/" style="font-size: 18.462554672032113px;" class="tag-cloud-link">上传</a>
+    
+    <a href="/tags/sqlmap/" style="font-size: 18.56916842967998px;" class="tag-cloud-link">sqlmap</a>
+    
+    <a href="/tags/wireshark/" style="font-size: 10.65242723490702px;" class="tag-cloud-link">wireshark</a>
+    
+    <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 18.2269396991657px;" class="tag-cloud-link">笔记</a>
+    
+    <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 17.961572950119578px;" class="tag-cloud-link">密码学</a>
+    
+    <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" style="font-size: 18.945597033095346px;" class="tag-cloud-link">树莓派</a>
+    
+    <a href="/tags/%E7%BC%96%E7%A0%81/" style="font-size: 16.220277650498776px;" class="tag-cloud-link">编码</a>
+    
+    <a href="/tags/%E6%8E%98%E5%AE%89CTF/" style="font-size: 18.168547083779735px;" class="tag-cloud-link">掘安CTF</a>
+    
+</div>
+                
+                
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="https://myau.moe/" target="_blank">gal主题作者</a>
+    </li>
+    
+</div>
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/wen1ling/" target="_blank">Github</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 notwiner Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":250,"height":500},"mobile":{"show":true,"width":90,"height":150},"react":{"opacity":0.8}});</script></body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>

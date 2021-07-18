@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="notwiner">
+    
+    <meta name="description" content="notwiner的小站,notwiner,博客,博客笔记">
+    
+    
+    
+    
+    
+    
+    <title>Git手册 | notwiner</title>
+    <link href="http://www.notwiner.top" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/avatar.jpg'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://www.notwiner.top">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">notwiner</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/notes/">notes</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/CTF/">CTF</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/program/">program</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/web/">web</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%B7%A5%E5%85%B7/">工具</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E6%9D%82%E8%B0%88/">杂谈</a>
+                        </li>
+                        
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/Burpsuite/">Burpsuite</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/Git/">Git</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/PHP/">PHP</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/sql/">sql</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/XSS/">XSS</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/hexo/">hexo</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://www.notwiner.top">notwiner</a>
+        >
+        <span>Git手册</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2019/07/28/Git%E6%89%8B%E5%86%8C/">Git手册</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/Git/">Git</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2019-07-28
+            </span>
+            
+			<span class="label label-gal">
+				<p id="busuanzi_value_page_pv" class="fa fa-eye"></p>
+            </span>
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2019/07/28/Git%E6%89%8B%E5%86%8C/">Git手册</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2019-07-28
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/Git/">Git</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p>初学的Git手册，以后会修改，要是想找点新手资料，可参考<span id="more"></span></p>
+<h2 id="Git手册"><a href="#Git手册" class="headerlink" title="Git手册"></a>Git手册</h2><p>​<a target="_blank" rel="noopener" href="https://git-scm.com/">Git</a></p>
+<h1 id="Git使用"><a href="#Git使用" class="headerlink" title="Git使用"></a>Git使用</h1><p>这个笔记是在看了廖雪峰的git教程理解后写的，当做新手资料并不是很好，目前作为新手的我的查命令的小手册，以后会修改，要是想找点新手资料，可参考<a target="_blank" rel="noopener" href="https://www.runoob.com/git/git-tutorial.html">菜鸟教程</a>、<a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/896043488029600">廖雪峰的Git教程</a>、<a target="_blank" rel="noopener" href="https://git-scm.com/book/zh/v2">Pro Git</a>均可，不过前面两个有部分笔误之处，但是作为新手资料足够了。</p>
+<h2 id="Git介绍"><a href="#Git介绍" class="headerlink" title="Git介绍"></a>Git介绍</h2><p>懒得介绍了，关于Git与GitHub的渊源,可自行寻找,其他的特性<a target="_blank" rel="noopener" href="https://www.runoob.com/git/git-tutorial.html">菜鸟教程</a> 就有.</p>
+<h2 id="Git介绍-1"><a href="#Git介绍-1" class="headerlink" title="Git介绍"></a>Git介绍</h2><h2 id="基本知识"><a href="#基本知识" class="headerlink" title="基本知识"></a>基本知识</h2><ul>
+<li>工作区(Working Directory)：你进行git操作的文件夹</li>
+<li>版本库(Repository)：</li>
+<li>暂存区(stage)</li>
+</ul>
+<p>网上大多介绍云里雾里，这里谈下个人理解。</p>
+<p>git前面知道是分布式版本控制系统，何谓分布式，在git每次你所进行提交的内容都会有个唯一的id，称之为版本号(commit  id)，而这个id就是每个版本的内容修改记录，类似于时间与空间的对应性，每个时间都有一个空间，而git每次进行回退都是在使用这个id进行选择你的文件内容，在这个操作中类似于时空穿梭。而git  add和git commit的操作就是根据修改形成一个版本号，也就是git的一个分支，</p>
+<h2 id="Git操作"><a href="#Git操作" class="headerlink" title="Git操作"></a>Git操作</h2><p>连接 git       </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config user.name &quot;你自定义的名字&quot;git config user.email &quot;email@xx.com&quot;</span><br></pre></td></tr></table></figure>
+<p><strong>–global表示本机器均使用这个配置</strong></p>
+<p>创建一个git仓库</p>
+<p>手动创建个文件夹或者命令创建</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir examplecd examplepwd</span><br></pre></td></tr></table></figure>
+<p>创建git仓库</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+<p>随便写个东西，比如REMADE.md</p>
+<p>添加到仓库<em>懒得写，可打出部分文件名,Tab键自动补全</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add REMADE.md</span><br></pre></td></tr></table></figure>
+<p>添加到仓库，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &quot;标记&quot;        -m后可输入提交的说明，</span><br></pre></td></tr></table></figure>
+<p>file changed文件被改动，insertions加入x行内容，</p>
+<p>进行更改文件内容，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status           可看到仓库状态git diff xxx.xx      可看到xxx.xx进行了什么修改</span><br></pre></td></tr></table></figure>
+<p>版本回退</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log  			   看到提交的日志   加上--pretty=oenline看到简化的</span><br></pre></td></tr></table></figure>
+<ul>
+<li>HAED代表当前版本，HEAD^上个版本，HEAD^^上上个版本，HAED~x：上x个版本，如此类推。</li>
+<li>commit id版本号，用来选择回退版本的序列号。</li>
+</ul>
+<p>开始回退版本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard HEAD^git reset --hard xxxx(版本号)</span><br></pre></td></tr></table></figure>
+<p>均可回退版本，第二个在记住版本号后也可以在回退后再返回回去(不需要记全，几位就行.)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reflog           每次命令的记录</span><br></pre></td></tr></table></figure>
+<p>在git上，你总是可以吃”后悔药”。</p>
+<p>总结</p>
+<ul>
+<li>回到git add或git commit的状态，工作区修改未提交的全部丢弃。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -- 文件</span><br></pre></td></tr></table></figure>
+<ul>
+<li>修改了工作区内容，添加到了暂存区，丢弃修改</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD 文件</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>修改了工作区内容，添加到了暂存区，并且提交了分支，丢弃修改。</p>
+<p>如上，只能版本回退。</p>
+</li>
+</ul>
+<p>规范的删除不需要的文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm 文件git commit</span><br></pre></td></tr></table></figure>
+<h2 id="连接远程仓库"><a href="#连接远程仓库" class="headerlink" title="连接远程仓库"></a>连接远程仓库</h2><p>连接远程仓库，</p>
+<p>添加SSH</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;xxxx@xxx.com&quot;</span><br></pre></td></tr></table></figure>
+<p>遇见yes/no输入yes即可，其他情况一路回车，然后有个会显示生成的SSH密钥的位置，类似于C:/xxxxx，复制粘贴到SSH Keys即可。</p>
+<p>github上先创建一个仓库，然后在需要上传的文件位置启动git，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@github.com:xxx/xxx.git       git push -u origin master                  origin即为远程仓库的名称</span><br></pre></td></tr></table></figure>
+<p>以后只需要使用命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+<p>推送最新修改即可。</p>
+<h2 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h2><h3 id="分支的一般性操作-本地"><a href="#分支的一般性操作-本地" class="headerlink" title="分支的一般性操作(本地)"></a>分支的一般性操作(本地)</h3><p>创建分支</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b first                      -b创建并切换</span><br></pre></td></tr></table></figure>
+<p>等同于</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch firstgit checkout first</span><br></pre></td></tr></table></figure>
+<p>查看当前分支</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch                 由于之前操作，一般会有master、first</span><br></pre></td></tr></table></figure>
+<p>提交</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add   文件git commit -m &quot;xxxx&quot;</span><br></pre></td></tr></table></figure>
+<p>这时已经提交到了first分支里，</p>
+<p>将first分支的合并到master里</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge first</span><br></pre></td></tr></table></figure>
+<p>结束后删除分支</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -d first</span><br></pre></td></tr></table></figure>
+<p>切换分支</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout  xxx</span><br></pre></td></tr></table></figure>
+<p><strong>如果在分支和master均有提交，会出现冲突</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status              寻找到冲突的文件</span><br></pre></td></tr></table></figure>
+<p>修改后再次提交，git log查看没有问题删除分支即可。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --graph        可以看到分支合并图</span><br></pre></td></tr></table></figure>
+<p>不想丢失分支的话，禁用Fast forward模式，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge --no-ff -m &quot;xxxx&quot; 分支名称        可看到曾经的分支</span><br></pre></td></tr></table></figure>
+<p><strong>分支策略</strong></p>
+<p>一般在多人协作时，master不要轻易提交，每个人使用自己的分支，有正式的版本时才开始进行合并到mater</p>
+<h3 id="bug分支修复策略"><a href="#bug分支修复策略" class="headerlink" title="bug分支修复策略"></a>bug分支修复策略</h3><p>git提供了储藏的修复bug方式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash</span><br></pre></td></tr></table></figure>
+<p>在需要修复的分支创建临时分支如bug-001</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout mastergit checkout -b bug-101</span><br></pre></td></tr></table></figure>
+<p><strong>立即修复后提交</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add 文件git commit -m &quot;xxx&quot;git checkout 修复分支名称git merge -no-ff -m &quot;xxxx&quot; bug-101</span><br></pre></td></tr></table></figure>
+<p>修复提交结束后checkout 文件返回需要的分支即可。</p>
+<p><strong>需要修复时恢复</strong></p>
+<p>恢复bug的工作区</p>
+<ol>
+<li>```<br>git stash apply恢复，              恢复后stash内容不删除git stash drop                      删除stash的内容<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. ```</span><br><span class="line">   git stash pop                      恢复过程中删除stash</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>可多次stash，需要时候查看选择即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash list                         查看所有stashgit stash apply stash@&#123;xxxx&#125;            恢复某个</span><br></pre></td></tr></table></figure>
+<hr>
+<p>强制删除未被合并的分支，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -D 分支名称</span><br></pre></td></tr></table></figure>
+<h2 id="多人协作-远程"><a href="#多人协作-远程" class="headerlink" title="多人协作(远程)"></a>多人协作(远程)</h2><p>先尝试推送自己的修改</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin 分支名称</span><br></pre></td></tr></table></figure>
+<p>失败可能是远程仓库已经做了修改，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br></pre></td></tr></table></figure>
+<p>进行合并，如果存在冲突，本地解决后再提交。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull 提示no tracking informationgit branch --set-upstream-to=origin/分支名称 分支名称    建立本地与远程关联</span><br></pre></td></tr></table></figure>
+<p>在多次操作后会发现git log关于提交的时间线显得特别乱。。。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rebase</span><br></pre></td></tr></table></figure>
+<p>可以整理成一条直线，</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>其他普通操作</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone 链接                克隆项目地址cd  xxxxls                           目录git add -f 文件               强制提交git check-ignore -v 文件      查看哪个规则导致文件被忽略了提交git config --global alias xx xxx    用xx命令代替xxx，git last                         最近的提交</span><br></pre></td></tr></table></figure>
+<p><strong>修改配置文件</strong></p>
+<p>配置文件在.git/config中</p>
+<p>可用来修改别名，</p>
+<p><strong>打标签</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag xxxgit tag xxx  版本号/commit idgit show xxx    查看某个标签的信息git tag -a xxx -m &quot;&quot;  版本号/commit id   带备注的标签    -a指定标签名 -m备注git tag -d xxx       删除标签</span><br></pre></td></tr></table></figure>
+<p>一般存在本地，需要标签页推送的话，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin xxxgit push origin --tags       推送全部标签</span><br></pre></td></tr></table></figure>
+<p>删除远程的标签</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -d xxx        删除本地的标签git push origin :refs/tags/xxx        远程删除</span><br></pre></td></tr></table></figure>
+<p><sup><a href="#fn_参考" id="reffn_参考">参考</a></sup>: </p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/896043488029600">廖雪峰的Git教程</a> </li>
+<li><a target="_blank" rel="noopener" href="https://git-scm.com/book/zh/v2">Pro Git</a></li>
+</ol>
+
+    </div>
+</article>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            notwiner
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/avatar.jpg" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"><p>notwiner的小站,notwiner,博客,博客笔记</p>
+</p>
+        </div>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/12/03/%E8%BD%AF%E4%BB%B6/">一些软件整理</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/11/30/sqlmap%E5%92%8Csqli-labs/">sqlmap与sqli-labs记录</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/18/SQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/">sql注入基础</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/08/PHP%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/">PHP学习（一）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/05/XSS%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB%E5%89%96%E6%9E%90%E4%B8%8E%E9%98%B2%E5%BE%A1%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">《XSS跨站脚本攻击剖析与防御》读书笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/27/python3%E5%AD%A6%E4%B9%A02/">python3学习（二）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/26/%E6%9D%82%E8%AE%B0/">杂记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/26/Burp/">Burpsuite笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/06/08/%E5%AF%86%E7%A0%81%E5%AD%A6(%E4%B8%80)/">密码学（一）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/05/14/python3%E5%AD%A6%E4%B9%A0/">python3学习（一）</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2019/07/28/Git%E6%89%8B%E5%86%8C/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2019/07/28/Git%E6%89%8B%E5%86%8C/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2019/07/28/Git%E6%89%8B%E5%86%8C/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/Burpsuite/" style="font-size: 18.314119342750157px;" class="tag-cloud-link">Burpsuite</a>
+    
+    <a href="/tags/Git/" style="font-size: 19.128171033676846px;" class="tag-cloud-link">Git</a>
+    
+    <a href="/tags/PHP/" style="font-size: 17.847503502724425px;" class="tag-cloud-link">PHP</a>
+    
+    <a href="/tags/sql/" style="font-size: 8.550804432661284px;" class="tag-cloud-link">sql</a>
+    
+    <a href="/tags/XSS/" style="font-size: 9.836200231515253px;" class="tag-cloud-link">XSS</a>
+    
+    <a href="/tags/hexo/" style="font-size: 8.139590997739136px;" class="tag-cloud-link">hexo</a>
+    
+    <a href="/tags/linux/" style="font-size: 18.99632426678967px;" class="tag-cloud-link">linux</a>
+    
+    <a href="/tags/python3/" style="font-size: 8.655777783522069px;" class="tag-cloud-link">python3</a>
+    
+    <a href="/tags/%E4%B8%8A%E4%BC%A0/" style="font-size: 15.586939729893977px;" class="tag-cloud-link">上传</a>
+    
+    <a href="/tags/sqlmap/" style="font-size: 19.546704320897373px;" class="tag-cloud-link">sqlmap</a>
+    
+    <a href="/tags/wireshark/" style="font-size: 18.730515051962183px;" class="tag-cloud-link">wireshark</a>
+    
+    <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 17.105933403510086px;" class="tag-cloud-link">笔记</a>
+    
+    <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 17.303209607713743px;" class="tag-cloud-link">密码学</a>
+    
+    <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" style="font-size: 15.183303286454208px;" class="tag-cloud-link">树莓派</a>
+    
+    <a href="/tags/%E7%BC%96%E7%A0%81/" style="font-size: 11.800453002585126px;" class="tag-cloud-link">编码</a>
+    
+    <a href="/tags/%E6%8E%98%E5%AE%89CTF/" style="font-size: 9.309788934116185px;" class="tag-cloud-link">掘安CTF</a>
+    
+</div>
+                
+                
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="https://myau.moe/" target="_blank">gal主题作者</a>
+    </li>
+    
+</div>
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/wen1ling/" target="_blank">Github</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 notwiner Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":250,"height":500},"mobile":{"show":true,"width":90,"height":150},"react":{"opacity":0.8}});</script></body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>

@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="notwiner">
+    
+    <meta name="description" content="notwiner的小站,notwiner,博客,博客笔记">
+    
+    
+    
+    
+    
+    
+    <title>python3学习（二） | notwiner</title>
+    <link href="http://www.notwiner.top" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/avatar.jpg'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://www.notwiner.top">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">notwiner</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/notes/">notes</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/CTF/">CTF</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/program/">program</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/web/">web</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%B7%A5%E5%85%B7/">工具</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E6%9D%82%E8%B0%88/">杂谈</a>
+                        </li>
+                        
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/Burpsuite/">Burpsuite</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/Git/">Git</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/PHP/">PHP</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/sql/">sql</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/XSS/">XSS</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/hexo/">hexo</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://www.notwiner.top">notwiner</a>
+        >
+        <span>python3学习（二）</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2020/07/27/python3%E5%AD%A6%E4%B9%A02/">python3学习（二）</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/python3/">python3</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2020-07-27
+            </span>
+            
+			<span class="label label-gal">
+				<p id="busuanzi_value_page_pv" class="fa fa-eye"></p>
+            </span>
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2020/07/27/python3%E5%AD%A6%E4%B9%A02/">python3学习（二）</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2020-07-27
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/python3/">python3</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p>python3学习（二）<span id="more"></span></p>
+<p><em>本篇是python学习的第二篇</em></p>
+<p>在上一篇已经结束了语法和文件简单操作和初步的正则，<em>建议在这一章之前可以百度搜python3的pip的安装，因为是记录笔记向，所以本章不会有安装等一步流知识</em></p>
+<p>推荐准备环境：pychrm、pip等</p>
+<h2 id="补齐基础"><a href="#补齐基础" class="headerlink" title="补齐基础"></a>补齐基础</h2><p><em>上一部分限于篇幅，部分python3较为简单的东西没有写完，这次是补充。</em></p>
+<h3 id="数据类型转换"><a href="#数据类型转换" class="headerlink" title="数据类型转换"></a>数据类型转换</h3><p>这里强调一下Python3六个标准数据类型里：三个不可变数据类型Number、String、Tuple，三个可变数据List、Dictionary、Set(集合)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">test = int(&#x27;int&#x27;, 16)				#将xx进制的数转化为十进制</span><br></pre></td></tr></table></figure>
+<p>数字格式化输出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">round(number, x)					#x为位数，round四舍五入</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>数据结构</strong></p>
+<p><em>python(一)已经结束了一部分对于六大数据类型的操作。</em></p>
+<p>列表的堆栈：append与po</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">stack = [1, 2, 3, 4]</span><br><span class="line">stack.append(5)</span><br><span class="line">stack.pop()</span><br></pre></td></tr></table></figure>
+<p>列表的队列：暂时感觉对本人没用，不再赘述。</p>
+<h3 id="编程"><a href="#编程" class="headerlink" title="编程"></a>编程</h3><p>必要时候可能用到的global全局变量和nonlocal局部变量。</p>
+<p><em>至于调用的传参和实参不再赘述，能看到这一般都是与编程经验的。</em></p>
+<p>输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">test = input(&quot;content:&quot;)</span><br></pre></td></tr></table></figure>
+<p>优化输出类</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#格式化字符串</span><br><span class="line">&#x27;Hi! %s&#x27; % test_str					#传统的格式化字符串</span><br><span class="line">f&#x27;Hi! &#123;test_str&#125;&#x27;					#3.6以后的f-string字符串</span><br><span class="line"></span><br><span class="line">#end行输出</span><br><span class="line">print(var, end=&#x27;xx&#x27;)			#end以行输出并控制间隔符</span><br><span class="line"></span><br><span class="line">str.rjust(width, &#x27;xx&#x27;)			#右对齐，xx填充空余，类似有ljust、center</span><br><span class="line"></span><br><span class="line">s = &#x27;Hello, sir!&#x27;</span><br><span class="line">str(s)							#易读样式</span><br><span class="line">repr(s)							#编辑器易读样式</span><br><span class="line"></span><br><span class="line">str.replace(&#x27;old&#x27;, &#x27;new&#x27;)		#替换字符，很好用，去空格等等</span><br><span class="line">str.strip(&#x27;xx&#x27;)					#清除头尾指定字符，没有上一个好用</span><br></pre></td></tr></table></figure>
+<p>3.6已经出f-string了，但是format用的还是不少，还是写下format()函数吧。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">print(&#x27;&#123;&#125; to &#123;&#125;!&#x27;.format(&#x27;Welcome&#x27;, &#x27;China&#x27;))	#注意&#123;&#125;和format的&#x27;&#x27;</span><br><span class="line">print(&#x27;your name is &#123;name&#125;&#x27;.format(name=&#x27;notwiner&#x27;))</span><br><span class="line"></span><br><span class="line"># !a使用ascii()，!s使用str()，!r使用repr()</span><br><span class="line">import math</span><br><span class="line">print(&#x27;&#123;!s&#125; is &#123;0.3f&#125;&#x27;.format(&#x27;pi&#x27;, math.pi))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>简化的语句，用于小批量输出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">while (condiction): print(&#x27;contents&#x27;)</span><br><span class="line">for i in range(start, end, step):</span><br><span class="line">	print(i)</span><br><span class="line"></span><br><span class="line">var1 = [1, 3, 6]</span><br><span class="line">var2 = [2, 4, 6]</span><br><span class="line">[[x, x**2] for x in var1]				#列表推导式，可以整合很多表达式</span><br><span class="line">[3*x for x in var1 if x &gt; 2]</span><br><span class="line">[x*y for x in var1 for y in var2]		#所有组合方案，含重复。</span><br><span class="line"></span><br><span class="line">list = [var1, var2]</span><br><span class="line">list_2 = []</span><br><span class="line">print([[x[i] for x in list] for i in range(3)])</span><br><span class="line">for i in range(3):</span><br><span class="line">	list_2.append([x[i] for x in list])</span><br><span class="line">print(list_2)							#多个序列用zip()</span><br></pre></td></tr></table></figure>
+<p><strong>不同数据类型的拼接</strong></p>
+<ul>
+<li><p>string</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var += string						#常用法</span><br><span class="line">list = [&#x27;123&#x27;, &#x27; &#x27;, &#x27;abc]</span><br><span class="line">&#x27;&#x27;.join(list)						#常用于列表拼接字符串</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>list</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">list += list</span><br><span class="line">list.append()</span><br></pre></td></tr></table></figure>
+</li>
+<li></li>
+</ul>
+<p><strong>函数</strong></p>
+<p>比较有用的：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chr(number)				#ascii转字符</span><br><span class="line">ord(string)				#字符转ASCII码</span><br></pre></td></tr></table></figure>
+<p>定义函数的不定长参数</p>
+<p>可以通过<code>*var</code>为名称以元组(tuple)形式输出，<code>**var</code>以字典(dict)形式输出。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def test(str1, *tuple1):</span><br><span class="line">	print(str1, tuple1)</span><br><span class="line">test(10, 20, 30)</span><br><span class="line"></span><br><span class="line">def test(str1, **dict1):</span><br><span class="line">	print(str1, dict1)</span><br><span class="line">test(10, a=20, b=30)</span><br></pre></td></tr></table></figure>
+<p>匿名函数：格式为<code>lambda var1, var2: expression</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sum = lambda int1, int2: int1 + int2</span><br><span class="line">print(f&#x27;this is result: &#123;sum(10, 20)&#125;&#x27;)</span><br></pre></td></tr></table></figure>
+<h3 id="读写文件"><a href="#读写文件" class="headerlink" title="读写文件"></a>读写文件</h3><p><code>open(filename, mode)</code>，记得filename为<code>/</code>。</p>
+<p>模式：</p>
+<ul>
+<li>r、w、a为只读、只写、追加。</li>
+<li>b，二进制格式操作，如rb、wb、ab。</li>
+<li>+，读写，如r+、w+、a+。</li>
+<li>a比较特殊，r、w模式在读、写会覆盖原文件，而a用于追加，不会覆盖。</li>
+<li>t文本模式，默认。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = open(&quot;&quot;, &quot;w&quot;)</span><br><span class="line">a.write(&quot;new contents&quot;)</span><br><span class="line">a.close()</span><br><span class="line">#或下面，自动关闭文件</span><br><span class="line">with open(&quot;xxx&quot;, &quot;w&quot;) as a:</span><br><span class="line">	a.write(&quot;new contents&quot;)</span><br></pre></td></tr></table></figure>
+<p>操作，读取也可以用for迭代，写入必须为string，否则先转换</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a.read()				#读取，可控制返回内容大小</span><br><span class="line">a.readline()			#读取一行</span><br><span class="line">a.readlines()			#读取所有行，</span><br><span class="line"></span><br><span class="line">a.write()				#写入</span><br><span class="line"></span><br><span class="line">a.seek(x, y)			#y可取开头0、当前1、结尾2，x为偏移量</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="对象那些事"><a href="#对象那些事" class="headerlink" title="对象那些事"></a>对象那些事</h3><p><em>上一篇写过基础的概念，包括类(class)、对象(调用类)、继承还有一些简单的实现原理</em></p>
+<p><strong>属性与方法</strong></p>
+<p>类的方法和属性都有私有的用法，可以禁止类的外部访问或者直接访问。</p>
+<ul>
+<li><code>__private_attrs:</code>为私有属性，定义正常，内部使用时为<code>self.private_attrs</code>。</li>
+<li><code>__private__method</code>为私有方法，<code>self.__private methods()</code>。</li>
+<li>而<code>__init__</code>、<code>__call_</code>则是公共方法。</li>
+</ul>
+<p><strong>参数传递</strong></p>
+<p>前面强调过六个普通数据类型的三个不可变(immutable)和三个可变(mutable)。实际的区别其实在参数传递中，可变数据类型实际意思上在于不过是引用，</p>
+<p><strong>多继承</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">class people:</span><br><span class="line">    name = &#x27;&#x27;</span><br><span class="line">    age = 0</span><br><span class="line">    #定义私有属性,私有属性在类外部无法直接进行访问</span><br><span class="line">    __weight = 0</span><br><span class="line">    #定义构造方法</span><br><span class="line">    def __init__(self,n,a,w):</span><br><span class="line">        self.name = n</span><br><span class="line">        self.age = a</span><br><span class="line">        self.__weight = w</span><br><span class="line">    def speak(self):</span><br><span class="line">        print(&quot;%s 说: 我 %d 岁。&quot; %(self.name,self.age))</span><br><span class="line"> </span><br><span class="line">class student(people):</span><br><span class="line">    grade = &#x27;&#x27;</span><br><span class="line">    def __init__(self,n,a,w,g):</span><br><span class="line">        #调用父类的构函</span><br><span class="line">        people.__init__(self,n,a,w)</span><br><span class="line">        self.grade = g</span><br><span class="line">    #覆写父类的方法</span><br><span class="line">    def speak(self):</span><br><span class="line">        print(&quot;%s 说: 我 %d 岁了，我在读 %d 年级&quot;%(self.name,self.age,self.grade))</span><br><span class="line"> </span><br><span class="line">class speaker():</span><br><span class="line">    topic = &#x27;&#x27;</span><br><span class="line">    name = &#x27;&#x27;</span><br><span class="line">    def __init__(self,n,t):</span><br><span class="line">        self.name = n</span><br><span class="line">        self.topic = t</span><br><span class="line">    def speak(self):</span><br><span class="line">        print(&quot;我叫 %s，我是一个演说家，我演讲的主题是 %s&quot;%(self.name,self.topic))</span><br><span class="line"> </span><br><span class="line">class sample(speaker,student):				#注意这里的顺序</span><br><span class="line">    a =&#x27;&#x27;</span><br><span class="line">    def __init__(self,n,a,w,g,t):</span><br><span class="line">        student.__init__(self,n,a,w,g)</span><br><span class="line">        speaker.__init__(self,n,t)</span><br><span class="line"> </span><br><span class="line">test = sample(&quot;Tim&quot;,25,80,4,&quot;Python&quot;)</span><br><span class="line">test.speak()</span><br></pre></td></tr></table></figure>
+<p>在sample括号里面从左到右的顺序决定后面方法使用哪个。</p>
+<p><strong>超类(调用父类)</strong>：使用<code>super(child_class, xxx)</code>可以调用父类，<code>child_class</code>为当前类。</p>
+<h2 id="模块与库"><a href="#模块与库" class="headerlink" title="模块与库"></a>模块与库</h2><h3 id="基本"><a href="#基本" class="headerlink" title="基本"></a>基本</h3><p>pip自行安装配置，常用命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pip list							#已安装列表</span><br><span class="line">pip install PackerName</span><br><span class="line">pip install -U PackerName			#更新</span><br><span class="line">pip uninstall PackerName			#卸载</span><br><span class="line">pip search PackerName				#搜索</span><br></pre></td></tr></table></figure>
+<p>模块(module)，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import modname</span><br><span class="line">from modname import name1, name2 ...</span><br><span class="line"></span><br><span class="line">#查询模块所有名称</span><br><span class="line">import modname</span><br><span class="line">dir(modname)						#模块所有名称</span><br><span class="line">dir()								#当前定义所有名称</span><br></pre></td></tr></table></figure>
+<p>文件通配符：不算是很有用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import glob</span><br><span class="line">glob.glob(&#x27;*.py&#x27;)</span><br></pre></td></tr></table></figure>
+<h3 id="os模块"><a href="#os模块" class="headerlink" title="os模块"></a>os模块</h3><p>大多很无趣，仅记录好用的。（部分可能需要sys模块）</p>
+<ul>
+<li>os.chdir(path)：改变当前工作目录。</li>
+<li>os.chroot(path)：更改当前进程根目录。</li>
+<li>os.getcwd()：返回当前工作目录。</li>
+<li>os.link(src, dst)：src是源地址，dst为目标地址，创建硬链接</li>
+<li>os.symlink(src, dst)：创建软连接</li>
+<li>os.listdir(path)：读取指定文件夹内的文件和文件夹。</li>
+<li>os.readlink(path)：返回软连接指向的文件。</li>
+<li>os.remove(path)：删除文件</li>
+<li>os.removedirs(path)：删除文件夹，空文件夹用os.rmdir(path)。</li>
+</ul>
+<h3 id="re模块"><a href="#re模块" class="headerlink" title="re模块"></a>re模块</h3><p>强大的正则表达式，上个文章写过，这里写下常用函数</p>
+<ul>
+<li><p>re.match(pattern, string, flags=0)。pattern为正则表达式，#strings为字符串，flags为标志位，常用包括re.I(大小写不敏感)、re.M(多行匹配)、re.S(匹配所有字符)、re.U(匹配unicode字符集)。方法可用<code>group(number)</code>返回第几个值。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">re.match(&#x27;www&#x27;, &#x27;wwW.notwiner.top&#x27;, re.I</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>re.search(pattern,string, flags)。和re.match类似，不同的是re.search会遍历所有，而re.match如果一开始就出问题，就会无效。</p>
+</li>
+<li><p>re.sub(pattern, replace, string, count, flags)。替换字符串，replace为替换后的字符串，很强大的是replace可为函数，count为替换次数，</p>
+</li>
+<li><p>re.compile(pattern, flags)。编译然后生成了一种方法，可以用于re.match等等使用，相当于批量化了。方法group还有start(number)和end(number)，返回位置。</p>
+</li>
+<li>re.findall(pattern, string, pos, endpos)。找到匹配的所有字符串，pos为起始位置，默认为0，endpos结束位置，默认为字符串长度个人更倾向于为re.findall(string, start, end)。</li>
+<li>re.split(pattern, string, maxsplit, flags) 。分割后返回为列表，maxsplit为分割次数。</li>
+</ul>
+<h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><p><a target="_blank" rel="noopener" href="https://www.runoob.com/python3/python3-cgi-programming.html">https://www.runoob.com/python3/python3-cgi-programming.html</a></p>
+
+    </div>
+</article>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            notwiner
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/avatar.jpg" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"><p>notwiner的小站,notwiner,博客,博客笔记</p>
+</p>
+        </div>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/12/03/%E8%BD%AF%E4%BB%B6/">一些软件整理</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/11/30/sqlmap%E5%92%8Csqli-labs/">sqlmap与sqli-labs记录</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/18/SQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/">sql注入基础</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/08/PHP%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/">PHP学习（一）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/05/XSS%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB%E5%89%96%E6%9E%90%E4%B8%8E%E9%98%B2%E5%BE%A1%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">《XSS跨站脚本攻击剖析与防御》读书笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/27/python3%E5%AD%A6%E4%B9%A02/">python3学习（二）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/26/%E6%9D%82%E8%AE%B0/">杂记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/26/Burp/">Burpsuite笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/06/08/%E5%AF%86%E7%A0%81%E5%AD%A6(%E4%B8%80)/">密码学（一）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/05/14/python3%E5%AD%A6%E4%B9%A0/">python3学习（一）</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2020/07/27/python3%E5%AD%A6%E4%B9%A02/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2020/07/27/python3%E5%AD%A6%E4%B9%A02/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2020/07/27/python3%E5%AD%A6%E4%B9%A02/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/Burpsuite/" style="font-size: 16.344571978489032px;" class="tag-cloud-link">Burpsuite</a>
+    
+    <a href="/tags/Git/" style="font-size: 14.27959361300536px;" class="tag-cloud-link">Git</a>
+    
+    <a href="/tags/PHP/" style="font-size: 11.316396869545333px;" class="tag-cloud-link">PHP</a>
+    
+    <a href="/tags/sql/" style="font-size: 18.36050527343383px;" class="tag-cloud-link">sql</a>
+    
+    <a href="/tags/XSS/" style="font-size: 17.053181200896987px;" class="tag-cloud-link">XSS</a>
+    
+    <a href="/tags/hexo/" style="font-size: 11.9524907346396px;" class="tag-cloud-link">hexo</a>
+    
+    <a href="/tags/linux/" style="font-size: 17.114545831510508px;" class="tag-cloud-link">linux</a>
+    
+    <a href="/tags/python3/" style="font-size: 19.43553790729446px;" class="tag-cloud-link">python3</a>
+    
+    <a href="/tags/%E4%B8%8A%E4%BC%A0/" style="font-size: 13.2310863031699px;" class="tag-cloud-link">上传</a>
+    
+    <a href="/tags/sqlmap/" style="font-size: 12.042748151306494px;" class="tag-cloud-link">sqlmap</a>
+    
+    <a href="/tags/wireshark/" style="font-size: 11.350062602119783px;" class="tag-cloud-link">wireshark</a>
+    
+    <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 19.516343919027754px;" class="tag-cloud-link">笔记</a>
+    
+    <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 17.72372220640289px;" class="tag-cloud-link">密码学</a>
+    
+    <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" style="font-size: 11.024951664760685px;" class="tag-cloud-link">树莓派</a>
+    
+    <a href="/tags/%E7%BC%96%E7%A0%81/" style="font-size: 11.711411599999199px;" class="tag-cloud-link">编码</a>
+    
+    <a href="/tags/%E6%8E%98%E5%AE%89CTF/" style="font-size: 16.640480592531205px;" class="tag-cloud-link">掘安CTF</a>
+    
+</div>
+                
+                
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="https://myau.moe/" target="_blank">gal主题作者</a>
+    </li>
+    
+</div>
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/wen1ling/" target="_blank">Github</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 notwiner Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":250,"height":500},"mobile":{"show":true,"width":90,"height":150},"react":{"opacity":0.8}});</script></body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>

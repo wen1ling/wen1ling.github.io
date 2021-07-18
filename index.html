@@ -49,7 +49,7 @@
       if (document.images) {
         var avatar = new Image();
         avatar.src = '/imgs/avatar.jpg'
-        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg'.split(',')
         var previewsPreLoad = []
         for(var i = 0; i < length; i++) {
           previewsPreLoad.push(new Image())
@@ -118,20 +118,88 @@
                 
                 
                 
-                <li class="">
-                    <a href="/categories">
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
                         <i class="fa fa-list"></i>分类
                     </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/notes/">notes</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/CTF/">CTF</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/program/">program</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/web/">web</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%B7%A5%E5%85%B7/">工具</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E6%9D%82%E8%B0%88/">杂谈</a>
+                        </li>
+                        
+                        
+                        
+                    </ul>
                 </li>
                 
                 
                 
                 
                 
-                <li class="">
-                    <a href="/tags">
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
                         <i class="fa fa-tags"></i>标签
                     </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/Burpsuite/">Burpsuite</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/Git/">Git</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/PHP/">PHP</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/sql/">sql</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/XSS/">XSS</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/hexo/">hexo</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
                 </li>
                 
                 
@@ -157,9 +225,9 @@
     <!-- TODO 添加关闭公告框功能 -->
     <button type="button" class="close" data-dismiss="alert">×</button>
     <!-- 这里自行配置公告内容 -->
-    这里是公告内容
+    暂无公告
     <br>
-    配置相关说明请看<strong>_config.yml</strong>
+    先占个坑
     <!-- 自行配置公告内容结束 -->
 </div>
 
@@ -169,15 +237,15 @@
      <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
     
     <div class="data-article hidden-xs">
-        <span class="month">07月</span>
-        <span class="day">17</span>
+        <span class="month">12月</span>
+        <span class="day">03</span>
     </div>
     <!-- 大型设备文章 -->
     <section class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2021/07/17/hello-world/">
-                    <span>Hello World</span>
+                <a href="/2020/12/03/%E8%BD%AF%E4%BB%B6/">
+                    <span>一些软件整理</span>
                 </a>
             </h1>
         </div>
@@ -187,18 +255,18 @@
             <!-- TODO 添加评论统计 -->
             <!--<span class="label label-gal">
                 <i class="fa fa-comments"></i>
-                <a href="/2021/07/17/hello-world/#comments">739</a>
+                <a href="/2020/12/03/%E8%BD%AF%E4%BB%B6/#comments">739</a>
             </span>-->
         </div>
         <div class="alert alert-gal article-body content-article">
             <div class="item">
-                <a href="/2021/07/17/hello-world/">
+                <a href="/2020/12/03/%E8%BD%AF%E4%BB%B6/">
                     <div class="img">
                         
-                        <img src="/imgs/preview/preview2.jpg" alt="Hello World">
+                        <img src="/imgs/preview/preview2.jpg" alt="一些软件整理">
                     </div>
                     <div class="info">
-                        
+                        <p><em>一些软件整理与推荐</em>
                     </div>
                 </a>
             </div>
@@ -208,15 +276,15 @@
         <div class="title-article">
             <center>
                 <h4>
-                    <a href="/2021/07/17/hello-world/">
-                        <span>Hello World</span>
+                    <a href="/2020/12/03/%E8%BD%AF%E4%BB%B6/">
+                        <span>一些软件整理</span>
                     </a>
                 </h4>
             </center>
         </div>
         <p></p>
         <center>
-            <i class="fa fa-calendar"></i> 2021-07-17
+            <i class="fa fa-calendar"></i> 2020-12-03
         </center>
         <p></p>
         <p></p>
@@ -227,14 +295,473 @@
         <p></p>
         <div class="alert alert-gal article-body content-article">
             <p style="text-align: center;">
-                <a href="/2021/07/17/hello-world/">
+                <a href="/2020/12/03/%E8%BD%AF%E4%BB%B6/">
                     
-                    <img src="/imgs/preview/preview2.jpg" alt="Hello World">
+                    <img src="/imgs/preview/preview3.jpg" alt="一些软件整理">
                 </a>
             </p>
         </div>
         
-        <a class="btn btn-danger pull-right read-more btn-block" href="/2021/07/17/hello-world/">
+        <div class="alert alert-gal">
+            <p><em>一些软件整理与推荐</em>
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2020/12/03/%E8%BD%AF%E4%BB%B6/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
+    
+    <div class="data-article hidden-xs">
+        <span class="month">11月</span>
+        <span class="day">30</span>
+    </div>
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2020/11/30/sqlmap%E5%92%8Csqli-labs/">
+                    <span>sqlmap与sqli-labs记录</span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/sqlmap/">sqlmap</a>
+                
+            </span>
+            
+            
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2020/11/30/sqlmap%E5%92%8Csqli-labs/#comments">739</a>
+            </span>-->
+        </div>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2020/11/30/sqlmap%E5%92%8Csqli-labs/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview3.jpg" alt="sqlmap与sqli-labs记录">
+                    </div>
+                    <div class="info">
+                        <p><em>sqlmap与sqli-labs记录</em>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2020/11/30/sqlmap%E5%92%8Csqli-labs/">
+                        <span>sqlmap与sqli-labs记录</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2020-11-30
+        </center>
+        <p></p>
+        <p></p>
+        <center>
+            
+            <i class="fa fa-tags"></i>
+            
+            <a href="/tags/sqlmap/">sqlmap</a>
+            
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2020/11/30/sqlmap%E5%92%8Csqli-labs/">
+                    
+                    <img src="/imgs/preview/preview1.jpg" alt="sqlmap与sqli-labs记录">
+                </a>
+            </p>
+        </div>
+        
+        <div class="alert alert-gal">
+            <p><em>sqlmap与sqli-labs记录</em>
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2020/11/30/sqlmap%E5%92%8Csqli-labs/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
+    
+    <div class="data-article hidden-xs">
+        <span class="month">08月</span>
+        <span class="day">18</span>
+    </div>
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2020/08/18/SQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/">
+                    <span>sql注入基础</span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/sql/">sql</a>
+                
+            </span>
+            
+            
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2020/08/18/SQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/#comments">739</a>
+            </span>-->
+        </div>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2020/08/18/SQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview5.jpg" alt="sql注入基础">
+                    </div>
+                    <div class="info">
+                        <p><em>mysql操作基础与sql常规注入流程</em>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2020/08/18/SQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/">
+                        <span>sql注入基础</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2020-08-18
+        </center>
+        <p></p>
+        <p></p>
+        <center>
+            
+            <i class="fa fa-tags"></i>
+            
+            <a href="/tags/sql/">sql</a>
+            
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2020/08/18/SQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/">
+                    
+                    <img src="/imgs/preview/preview2.jpg" alt="sql注入基础">
+                </a>
+            </p>
+        </div>
+        
+        <div class="alert alert-gal">
+            <p><em>mysql操作基础与sql常规注入流程</em>
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2020/08/18/SQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
+    
+    <div class="data-article hidden-xs">
+        <span class="month">08月</span>
+        <span class="day">08</span>
+    </div>
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2020/08/08/PHP%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/">
+                    <span>PHP学习（一）</span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/PHP/">PHP</a>
+                
+            </span>
+            
+            
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2020/08/08/PHP%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/#comments">739</a>
+            </span>-->
+        </div>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2020/08/08/PHP%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview3.jpg" alt="PHP学习（一）">
+                    </div>
+                    <div class="info">
+                        <p><em>为了挖掘php漏洞学习的php基础</em>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2020/08/08/PHP%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/">
+                        <span>PHP学习（一）</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2020-08-08
+        </center>
+        <p></p>
+        <p></p>
+        <center>
+            
+            <i class="fa fa-tags"></i>
+            
+            <a href="/tags/PHP/">PHP</a>
+            
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2020/08/08/PHP%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/">
+                    
+                    <img src="/imgs/preview/preview4.jpg" alt="PHP学习（一）">
+                </a>
+            </p>
+        </div>
+        
+        <div class="alert alert-gal">
+            <p><em>为了挖掘php漏洞学习的php基础</em>
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2020/08/08/PHP%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
+    
+    <div class="data-article hidden-xs">
+        <span class="month">08月</span>
+        <span class="day">05</span>
+    </div>
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2020/08/05/XSS%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB%E5%89%96%E6%9E%90%E4%B8%8E%E9%98%B2%E5%BE%A1%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
+                    <span>《XSS跨站脚本攻击剖析与防御》读书笔记</span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/XSS/">XSS</a>
+                
+            </span>
+            
+            
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2020/08/05/XSS%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB%E5%89%96%E6%9E%90%E4%B8%8E%E9%98%B2%E5%BE%A1%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/#comments">739</a>
+            </span>-->
+        </div>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2020/08/05/XSS%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB%E5%89%96%E6%9E%90%E4%B8%8E%E9%98%B2%E5%BE%A1%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview5.jpg" alt="《XSS跨站脚本攻击剖析与防御》读书笔记">
+                    </div>
+                    <div class="info">
+                        <p><em>《XSS跨站脚本攻击剖析与防御》笔记，提醒!!!本笔记只是粗略笔记，如果希望学习，更推荐看原书!!!</em>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2020/08/05/XSS%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB%E5%89%96%E6%9E%90%E4%B8%8E%E9%98%B2%E5%BE%A1%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
+                        <span>《XSS跨站脚本攻击剖析与防御》读书笔记</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2020-08-05
+        </center>
+        <p></p>
+        <p></p>
+        <center>
+            
+            <i class="fa fa-tags"></i>
+            
+            <a href="/tags/XSS/">XSS</a>
+            
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2020/08/05/XSS%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB%E5%89%96%E6%9E%90%E4%B8%8E%E9%98%B2%E5%BE%A1%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
+                    
+                    <img src="/imgs/preview/preview3.jpg" alt="《XSS跨站脚本攻击剖析与防御》读书笔记">
+                </a>
+            </p>
+        </div>
+        
+        <div class="alert alert-gal">
+            <p><em>《XSS跨站脚本攻击剖析与防御》笔记，提醒!!!本笔记只是粗略笔记，如果希望学习，更推荐看原书!!!</em>
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2020/08/05/XSS%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB%E5%89%96%E6%9E%90%E4%B8%8E%E9%98%B2%E5%BE%A1%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
+    
+    <div class="data-article hidden-xs">
+        <span class="month">07月</span>
+        <span class="day">27</span>
+    </div>
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2020/07/27/python3%E5%AD%A6%E4%B9%A02/">
+                    <span>python3学习（二）</span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/python3/">python3</a>
+                
+            </span>
+            
+            
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2020/07/27/python3%E5%AD%A6%E4%B9%A02/#comments">739</a>
+            </span>-->
+        </div>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2020/07/27/python3%E5%AD%A6%E4%B9%A02/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview2.jpg" alt="python3学习（二）">
+                    </div>
+                    <div class="info">
+                        <p>python3学习（二）
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2020/07/27/python3%E5%AD%A6%E4%B9%A02/">
+                        <span>python3学习（二）</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2020-07-27
+        </center>
+        <p></p>
+        <p></p>
+        <center>
+            
+            <i class="fa fa-tags"></i>
+            
+            <a href="/tags/python3/">python3</a>
+            
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2020/07/27/python3%E5%AD%A6%E4%B9%A02/">
+                    
+                    <img src="/imgs/preview/preview3.jpg" alt="python3学习（二）">
+                </a>
+            </p>
+        </div>
+        
+        <div class="alert alert-gal">
+            <p>python3学习（二）
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2020/07/27/python3%E5%AD%A6%E4%B9%A02/">
             阅读全文
             <!--<span class="badge">739</span>-->
         </a>
@@ -261,7 +788,23 @@
         </li>
         
         
+        <li>
+            <a href="/page/2">2</a>
+        </li>
         
+        <li>
+            <a href="/page/3">3</a>
+        </li>
+        
+        <li>
+            <a href="/page/4">4</a>
+        </li>
+        
+        
+        
+        <li class="next">
+            <a href="/page/2/">»</a>
+        </li>
         
     </ul>
 </div>
@@ -313,7 +856,61 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2021/07/17/hello-world/">Hello World</a>
+                    <a href="/2020/12/03/%E8%BD%AF%E4%BB%B6/">一些软件整理</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/11/30/sqlmap%E5%92%8Csqli-labs/">sqlmap与sqli-labs记录</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/18/SQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/">sql注入基础</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/08/PHP%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/">PHP学习（一）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/05/XSS%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB%E5%89%96%E6%9E%90%E4%B8%8E%E9%98%B2%E5%BE%A1%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">《XSS跨站脚本攻击剖析与防御》读书笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/27/python3%E5%AD%A6%E4%B9%A02/">python3学习（二）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/26/%E6%9D%82%E8%AE%B0/">杂记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/26/Burp/">Burpsuite笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/06/08/%E5%AF%86%E7%A0%81%E5%AD%A6(%E4%B8%80)/">密码学（一）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/05/14/python3%E5%AD%A6%E4%B9%A0/">python3学习（一）</a>
                 </span>
             </li>
             
@@ -346,6 +943,38 @@
             <div class="tab-content">
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/Burpsuite/" style="font-size: 11.927979984213124px;" class="tag-cloud-link">Burpsuite</a>
+    
+    <a href="/tags/Git/" style="font-size: 11.669582113699967px;" class="tag-cloud-link">Git</a>
+    
+    <a href="/tags/PHP/" style="font-size: 15.606665729129361px;" class="tag-cloud-link">PHP</a>
+    
+    <a href="/tags/sql/" style="font-size: 15.69427244458635px;" class="tag-cloud-link">sql</a>
+    
+    <a href="/tags/XSS/" style="font-size: 13.682142492494112px;" class="tag-cloud-link">XSS</a>
+    
+    <a href="/tags/hexo/" style="font-size: 12.795272920166116px;" class="tag-cloud-link">hexo</a>
+    
+    <a href="/tags/linux/" style="font-size: 18.736093013501815px;" class="tag-cloud-link">linux</a>
+    
+    <a href="/tags/python3/" style="font-size: 8.150446178975535px;" class="tag-cloud-link">python3</a>
+    
+    <a href="/tags/%E4%B8%8A%E4%BC%A0/" style="font-size: 14.829880428695645px;" class="tag-cloud-link">上传</a>
+    
+    <a href="/tags/sqlmap/" style="font-size: 10.940198430168762px;" class="tag-cloud-link">sqlmap</a>
+    
+    <a href="/tags/wireshark/" style="font-size: 12.506854738053303px;" class="tag-cloud-link">wireshark</a>
+    
+    <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 11.822781647003087px;" class="tag-cloud-link">笔记</a>
+    
+    <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" style="font-size: 11.272679026090913px;" class="tag-cloud-link">密码学</a>
+    
+    <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" style="font-size: 12.386190350011844px;" class="tag-cloud-link">树莓派</a>
+    
+    <a href="/tags/%E7%BC%96%E7%A0%81/" style="font-size: 12.28432216017951px;" class="tag-cloud-link">编码</a>
+    
+    <a href="/tags/%E6%8E%98%E5%AE%89CTF/" style="font-size: 9.39683595610364px;" class="tag-cloud-link">掘安CTF</a>
     
 </div>
                 
@@ -387,6 +1016,21 @@
 </div>
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":250,"height":500},"mobile":{"show":true,"width":90,"height":150},"react":{"opacity":0.8}});</script></body>
 
 <script src="/js/activate-power-mode.js"></script>
